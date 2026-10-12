@@ -62,6 +62,7 @@ v2:
 	$(PY) -m f1pred.features_v2
 	$(PY) -m f1pred.experiments features
 	$(PY) -m f1pred.experiments models
+	$(PY) -m f1pred.experiments tuning
 	$(PY) -m f1pred.experiments report
 
 lint:

@@ -249,3 +249,58 @@ def test_keep_rule_needs_a_gain_above_the_noise_and_three_folds():
     assert better(small, old) == (False, 4)
     assert better(two_folds, old) == (False, 2)
     assert better(good, old) == (True, 3)
+
+
+# ------------------------------------------------------------ live scoring
+
+def _fake_v2() -> dict:
+    return {"features": ALL, "train_from": 2021, "seeds": [0, 1],
+            "model": {"kind": "binary", "params": FAST, "monotone": True}}
+
+
+def test_v2_scores_a_race_with_its_result_hidden(synthetic_raw, monkeypatch):
+    from f1pred import predict
+
+    monkeypatch.setattr(predict, "load_v2", _fake_v2)
+    raw, already_run = predict.prepare(synthetic_raw, 2023, 4)
+    assert already_run
+    pred, trained_on = predict.score_v2(raw, 2023, 4)
+    assert trained_on == 15                       # six + six + three earlier races
+    assert (pred["model"] == predict.V2).all() and pred["won"].sum() == 0
+    assert np.isclose(pred["p"].sum(), 1.0) and sorted(pred["rank"]) == list(range(1, 11))
+
+    # the same race with a shuffled result must give the same probabilities
+    race = synthetic_raw["race"].copy()
+    idx = race.index[(race["season"] == 2023) & (race["round"] == 4)]
+    race.loc[idx, ["Position", "ClassifiedPosition", "Points"]] = \
+        race.loc[idx[::-1], ["Position", "ClassifiedPosition", "Points"]].to_numpy()
+    again, _ = predict.score_v2(predict.prepare({**synthetic_raw, "race": race}, 2023, 4)[0],
+                                2023, 4)
+    assert np.allclose(pred.sort_values("DriverId")["p"], again.sort_values("DriverId")["p"])
+
+
+def test_monotone_constraints_follow_the_feature_order():
+    from f1pred.models import MONOTONE, _constraints
+
+    feats = ["drv_wins_5", "has_longrun", "grid_pos", "longrun_gap_v2"]
+    assert _constraints(feats) == "(1,0,-1,-1)"
+    assert set(MONOTONE) <= set(ALL)
+
+
+def test_v2_files_unchanged_since_its_tag():
+    """Once v2 has been confirmed on 2026, its model files must still match v2.0."""
+    import subprocess
+
+    from f1pred.config import ROOT
+    from f1pred.experiments import V2_DIR
+
+    def git(*args: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+
+    if not list(V2_DIR.glob("confirmation_*.json")):
+        pytest.skip("v2 not confirmed yet")
+    if git("rev-parse", "-q", "--verify", "refs/tags/v2.0").returncode != 0:
+        pytest.skip("v2.0 tag not available in this checkout")
+    locked = ["config/model_v2.json", "src/f1pred/features_v2.py", "src/f1pred/models.py"]
+    diff = git("diff", "--stat", "v2.0", "--", *locked)
+    assert diff.stdout.strip() == "", f"v2 model files changed after the tag:\n{diff.stdout}"

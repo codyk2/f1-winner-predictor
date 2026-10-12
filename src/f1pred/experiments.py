@@ -2,6 +2,7 @@
 
     python -m f1pred.experiments features   # pass 1: history and feature groups
     python -m f1pred.experiments models     # pass 2: other model classes and settings
+    python -m f1pred.experiments tuning     # pass 2b: the alternatives with their own settings
 
 Why a version 2 at all, and how it is kept honest
 --------------------------------------------------
@@ -270,18 +271,69 @@ def models_pass() -> None:
     print(f"\npass 2 keeps: {json.dumps({k: v for k, v in chosen.items() if k != 'params'})}")
 
 
+def tuning_pass() -> None:
+    """Give the losing model classes their own settings before ruling them out.
+
+    Pass 2 ran the softmax trees with parameters tuned for the binary model and
+    the conditional logit with two penalties. That is a first look, not a fair
+    fight. Each setting below is still judged against pass 2's model by the
+    same rule, and all of them are logged.
+    """
+    start = json.loads((V2_DIR / "pass2_choice.json").read_text())
+    features, train_from, chosen = start["features"], start["train_from"], start["model"]
+    params = chosen["params"]
+    plain, with_history = dev_tables()
+    table = with_history if start["history_in_windows"] else plain
+    log = Log("2b tuning")
+    best, _ = evaluate(table, features, lambda seeds: build_scorer(chosen, seeds), train_from)
+    log.add("pass 2 model", "binary XGBoost with monotone constraints", best, features,
+            kind=chosen["kind"])
+
+    for trees, weight in ((100, 5), (200, 5), (200, 1), (800, 5)):
+        p = {**params, "n_estimators": trees, "min_child_weight": weight}
+        s, _ = evaluate(table, features, lambda seeds, p=p: models.xgb_softmax(p, seeds, True),
+                        train_from)
+        log.add(f"softmax, {trees} trees, child weight {weight}",
+                "per-race softmax trees with monotone constraints", s, features, best,
+                kind="softmax")
+    for l2 in (30.0, 100.0, 300.0):
+        s, _ = evaluate(table, features, lambda seeds, l2=l2: models.cond_logit(l2), train_from,
+                        seeded=False)
+        log.add(f"conditional logit, L2 {l2:g}", "stronger penalty", s, features, best,
+                kind="cond_logit")
+    s, _ = evaluate(table, features, lambda seeds: models.blend(
+        build_scorer(chosen, seeds), models.cond_logit(100.0)), train_from)
+    log.add("blend: monotone trees x logit L2 100", "geometric mean of the two models", s,
+            features, best, kind="blend")
+    s, _ = evaluate(with_history, features, lambda seeds: build_scorer(chosen, seeds), 2014)
+    log.add("monotone trees from 2014", "2014-2018 as training rows, history in windows", s,
+            features, best, kind=chosen["kind"])
+    print("\npass 2b: nothing here replaces the pass 2 model unless marked kept above")
+
+
 # ------------------------------------------------------------ shared helpers
 
-def build_scorer(model: dict, seeds: tuple[int, ...]) -> Scorer:
-    """The scorer described by a ``model`` entry of a choice or config file."""
+def build_scorer(model: dict, seeds: tuple[int, ...], live: bool = False) -> Scorer:
+    """The scorer described by a ``model`` entry of a choice or config file.
+
+    ``live`` is for ``predict.py``: training rows may include earlier rounds of
+    the target season.
+    """
     kind = model["kind"]
     if kind == "blend":
-        return models.blend(build_scorer(model["tree"], seeds), models.cond_logit(model["l2"]))
+        return models.blend(build_scorer(model["tree"], seeds, live),
+                            models.cond_logit(model["l2"]))
     if kind == "cond_logit":
         return models.cond_logit(model["l2"])
-    make = models.xgb_softmax if kind == "softmax" else models.xgb_binary
-    scorer = make(model["params"], seeds, model.get("monotone", False))
-    return models.tempered(scorer) if model.get("tempered") else scorer
+    if kind == "softmax":
+        scorer = models.xgb_softmax(model["params"], seeds, model.get("monotone", False))
+    else:
+        scorer = models.xgb_binary(model["params"], seeds, model.get("monotone", False), live)
+    if model.get("tempered"):
+        if live:
+            raise ValueError("temperature fitting assumes whole seasons; not available live")
+        scorer = models.tempered(scorer)
+    return scorer
 
 
 def reference_rows() -> pd.DataFrame:
@@ -333,12 +385,14 @@ def report() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("command", choices=["features", "models", "references", "report"])
+    parser.add_argument("command",
+                        choices=["features", "models", "tuning", "references", "report"])
     args = parser.parse_args()
     if args.command == "references":
         print(reference_rows().round(4).to_string(index=False))
     else:
-        {"features": features_pass, "models": models_pass, "report": report}[args.command]()
+        {"features": features_pass, "models": models_pass, "tuning": tuning_pass,
+         "report": report}[args.command]()
     print(f"log: {LOG.relative_to(ROOT)}")
 
 

@@ -67,11 +67,17 @@ def _constraints(features: list[str]) -> str:
 
 # ------------------------------------------------------------------ boosted
 
-def xgb_binary(params: dict, seeds: tuple[int, ...], monotone: bool = False) -> Scorer:
-    """v1's model: a binary classifier per seed, averaged, rescaled per race."""
+def xgb_binary(params: dict, seeds: tuple[int, ...], monotone: bool = False,
+               live: bool = False) -> Scorer:
+    """v1's model: a binary classifier per seed, averaged, rescaled per race.
+
+    ``live`` allows training rows from the target season's earlier rounds, as
+    ``predict.py`` needs; walk-forward validation never sets it.
+    """
     def run(train: pd.DataFrame, val: pd.DataFrame, features: list[str], season: int):
         p = dict(params, monotone_constraints=_constraints(features)) if monotone else params
-        return predict(fit(train, features, p, season, None, seeds), val, features)
+        fitted = fit(train, features, p, season, None, seeds, allow_current_season=live)
+        return predict(fitted, val, features)
     return run
 
 

@@ -1,0 +1,67 @@
+{
+  "stage": "2 models",
+  "chosen": "+ practice",
+  "features": [
+    "grid_pos",
+    "quali_pos",
+    "quali_gap_pct",
+    "teammate_quali_delta",
+    "shortrun_gap_pct",
+    "sprint_pos",
+    "drv_avg_finish_5",
+    "drv_wins_5",
+    "drv_podiums_5",
+    "team_points_5",
+    "champ_rank",
+    "dnf_rate_10",
+    "quali_seg_gap_pct",
+    "quali_margin_pct",
+    "longrun_gap_v2"
+  ],
+  "train_from": 2019,
+  "history_in_windows": false,
+  "params": {
+    "n_estimators": 400,
+    "max_depth": 2,
+    "learning_rate": 0.03,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 5,
+    "reg_lambda": 1.0,
+    "eval_metric": "logloss"
+  },
+  "score": {
+    "hits": 56.166666666666664,
+    "top3": 85.5,
+    "log_loss": 0.08868331613869944,
+    "race_nll": 1.0789295037587483,
+    "brier": 0.026702713956914037,
+    "hits_22_24": 42.166666666666664,
+    "log_loss_22_24": 0.09051092312883857,
+    "hits_2022": 9.833333333333334,
+    "log_loss_2022": 0.10157915622031864,
+    "hits_2023": 19.0,
+    "log_loss_2023": 0.040179695669179304,
+    "hits_2024": 13.333333333333334,
+    "log_loss_2024": 0.12657713924992178,
+    "hits_2025": 14.0,
+    "log_loss_2025": 0.08349810131698944,
+    "log_loss_sd": 0.00015604595200542854,
+    "hits_min": 55.0,
+    "hits_max": 57.0
+  },
+  "model": {
+    "kind": "binary",
+    "params": {
+      "n_estimators": 400,
+      "max_depth": 2,
+      "learning_rate": 0.03,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "reg_lambda": 1.0,
+      "eval_metric": "logloss"
+    },
+    "monotone": true
+  }
+}

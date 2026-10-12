@@ -209,7 +209,7 @@ def test_model_code_unchanged_since_the_freeze():
         pytest.skip("2025 test not run yet")
     if git("rev-parse", "-q", "--verify", "refs/tags/v1.0").returncode != 0:
         pytest.skip("v1.0 tag not available in this checkout")
-    locked = ["config", "src/f1pred/config.py", "src/f1pred/features.py",
+    locked = ["config/model.json", "src/f1pred/config.py", "src/f1pred/features.py",
               "src/f1pred/train.py", "src/f1pred/metrics.py"]
     diff = git("diff", "--stat", "v1.0", "--", *locked)
     assert diff.stdout.strip() == "", f"model files changed after the freeze:\n{diff.stdout}"

@@ -3,13 +3,15 @@
     python -m f1pred.predict 2026 18                 # after qualifying, before the race
     python -m f1pred.predict 2026 18 --grid grid.csv # with the official starting grid
     python -m f1pred.predict 2026 17 --no-download   # re-score from data already on disk
-    python -m f1pred.predict 2026 17 --season        # re-score every round so far, walk-forward
+    python -m f1pred.predict 2026 17 --season        # re-score every round so far with v1.0
 
-The model is the frozen setup in ``config/model.json``, retrained on every race
-before the target (including earlier rounds of the same season, so a new set
-of regulations is learned as the season goes on). Predictions are written to
-``predictions/{season}_R{round}.csv``. Commit that file and push it before
-lights out: a local commit time proves nothing, the push time on GitHub does.
+Both frozen models are scored and written side by side: v2.0 (the current
+model, ``config/model_v2.json``) and v1.0 (``config/model.json``). Each is
+retrained on every race before the target, including earlier rounds of the
+same season, so a new set of regulations is learned as the season goes on.
+Predictions go to ``predictions/{season}_R{round}.csv``. Commit that file and
+push it before lights out: a local commit time proves nothing, the push time
+on GitHub does.
 
 Only seasons after the locked 2025 test can be scored here. 2019-2025 belong
 to validation and to the one locked run in ``evaluate.py``.
@@ -22,6 +24,7 @@ grid defaults to qualifying order. Pass ``--grid`` (columns ``Abbreviation``,
 from __future__ import annotations
 
 import argparse
+import json
 from datetime import datetime, timezone
 
 import numpy as np
@@ -29,12 +32,22 @@ import pandas as pd
 
 from f1pred import baselines
 from f1pred.config import FIRST_SEASON, RACE, RAW, ROOT, TEST_SEASON, load_frozen
+from f1pred.experiments import V2_CONFIG, build_scorer
 from f1pred.features import build_features
+from f1pred.features_v2 import build_features_v2
 from f1pred.ingest import RESULT_COLS, enable_cache, ingest, load_tables
 from f1pred.train import fit, predict
 
 PREDICTIONS = ROOT / "predictions"
 OUTCOME_COLS = ["Position", "ClassifiedPosition", "Status", "Points", "Laps"]
+V1, V2 = "v1.0", "v2.0"
+
+
+def load_v2() -> dict:
+    """The frozen version 2 setup."""
+    if not V2_CONFIG.exists():
+        raise FileNotFoundError(f"{V2_CONFIG} is missing: run `python -m f1pred.v2 freeze`")
+    return json.loads(V2_CONFIG.read_text())
 
 
 def entry_list(raw: dict[str, pd.DataFrame], season: int, rnd: int,
@@ -84,60 +97,105 @@ def prepare(raw: dict[str, pd.DataFrame], season: int, rnd: int,
     return {**raw, "race": race}, already_run
 
 
-def score(season: int, rnd: int, grid: pd.DataFrame | None = None) -> pd.DataFrame:
-    """Win probabilities for one race from the frozen setup, trained on the past only."""
+def _split(features: pd.DataFrame, season: int, rnd: int) -> tuple[pd.DataFrame, pd.DataFrame]:
+    is_target = (features["season"] == season) & (features["round"] == rnd)
+    target = features[is_target].copy()
+    assert target["won"].sum() == 0, "the target race's result must be hidden"
+    return features[~is_target], target
+
+
+def frames_v1(raw: dict[str, pd.DataFrame], season: int, rnd: int
+              ) -> tuple[pd.DataFrame, pd.DataFrame, list]:
+    """(training rows, target rows, fitted models) for v1.0 from prepared tables."""
     config = load_frozen()
+    train, target = _split(build_features(raw), season, rnd)
+    fitted = fit(train, config["features"], config["params"], season, config["recency_decay"],
+                 tuple(config["seeds"]), allow_current_season=True)
+    return train, target, fitted
+
+
+def score_v1(raw: dict[str, pd.DataFrame], season: int, rnd: int) -> tuple[pd.DataFrame, int]:
+    """v1.0's prediction frame for the target race, and how many races it trained on."""
+    train, target, fitted = frames_v1(raw, season, rnd)
+    pred = predict(fitted, target, load_frozen()["features"], name=V1)
+    return pred, train.groupby(RACE).ngroups
+
+
+def score_v2(raw: dict[str, pd.DataFrame], season: int, rnd: int) -> tuple[pd.DataFrame, int]:
+    """v2.0's prediction frame for the target race, and how many races it trained on."""
+    config = load_v2()
+    train, target = _split(build_features_v2(raw), season, rnd)
+    train = train[train["season"] >= config["train_from"]]
+    scorer = build_scorer(config["model"], tuple(config["seeds"]), live=True)
+    pred = scorer(train, target, config["features"], season).assign(model=V2)
+    return pred, train.groupby(RACE).ngroups
+
+
+def score(season: int, rnd: int, grid: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Win probabilities for one race from both frozen models, trained on the past only."""
     full = load_tables(range(FIRST_SEASON, season + 1))
     raw, already_run = prepare(full, season, rnd, grid)
-    features = build_features(raw)
-    is_target = (features["season"] == season) & (features["round"] == rnd)
-    train, target = features[~is_target], features[is_target]
-    models = fit(train, config["features"], config["params"], season,
-                 config["recency_decay"], tuple(config["seeds"]), allow_current_season=True)
-    pred = predict(models, target, config["features"]).sort_values("rank")
-    out = pred[RACE + ["event", "rank", "Abbreviation", "FullName", "TeamId", "grid_pos",
-                       "quali_pos", "p"]].rename(columns={"p": "win_probability"})
+    v1, n_races = score_v1(raw, season, rnd)
+    keys = ["Abbreviation"]
+    out = v1[RACE + ["event", "Abbreviation", "FullName", "TeamId", "grid_pos", "quali_pos"]]
+    out = out.assign(p_v1=v1["p"], rank_v1=v1["rank"])
+    order = "rank_v1"
+    if V2_CONFIG.exists():
+        v2, _ = score_v2(raw, season, rnd)
+        out = out.merge(v2[keys + ["p", "rank"]].rename(columns={"p": "p_v2", "rank": "rank_v2"}),
+                        on=keys, validate="one_to_one")
+        order = "rank_v2"
     if already_run:  # report the outcome next to the prediction, never use it
         actual = full["race"][(full["race"]["season"] == season) & (full["race"]["round"] == rnd)]
         out = out.merge(actual[["Abbreviation", "Position"]].rename(
             columns={"Position": "actual_finish"}), on="Abbreviation", how="left")
-    out.attrs.update(trained_races=train.groupby(RACE).ngroups, already_run=already_run)
+    out = out.sort_values(order).reset_index(drop=True)
+    out.attrs.update(trained_races=n_races, already_run=already_run)
     return out
 
 
-def rescore_season(season: int, through: int) -> pd.DataFrame:
+def rescore_season(season: int, through: int, versions: tuple[str, ...] = (V1,)) -> pd.DataFrame:
     """Walk forward through a season that has been run.
 
-    Each race is scored by the frozen setup trained on every earlier race, with
+    Each race is scored by the frozen setups trained on every earlier race, with
     that race's result blanked before features are built and restored only for
-    scoring. Returns prediction frames for the model and the three baselines.
-    This is an after-the-fact re-score, not a live prediction.
+    scoring. Returns prediction frames for the chosen versions and the three
+    baselines. This is an after-the-fact re-score, not a live prediction.
     """
-    config = load_frozen()
     full = load_tables(range(FIRST_SEASON, season + 1))
     frames = []
     for rnd in range(1, through + 1):
         raw, already_run = prepare(full, season, rnd)
         if not already_run:
             raise SystemExit(f"{season} round {rnd} has no race result to score against.")
-        features = build_features(raw)
-        is_target = (features["season"] == season) & (features["round"] == rnd)
-        train, target = features[~is_target], features[is_target].copy()
-        assert target["won"].sum() == 0, "the target race's result must be hidden"
-        models = fit(train, config["features"], config["params"], season,
-                     config["recency_decay"], tuple(config["seeds"]), allow_current_season=True)
         actual = full["race"][(full["race"]["season"] == season) & (full["race"]["round"] == rnd)]
         finish = pd.to_numeric(actual.set_index("DriverId")["Position"], errors="coerce")
-        scored = target.assign(finish_pos=target["DriverId"].map(finish).to_numpy())
-        scored["won"] = (scored["finish_pos"] == 1).astype(int)
-        frames += [predict(models, scored, config["features"]),  # features came from `target`
-                   baselines.pole_sitter(scored), baselines.form_leader(scored),
+
+        def restore(pred: pd.DataFrame, finish: pd.Series = finish) -> pd.DataFrame:
+            pred = pred.assign(finish_pos=pred["DriverId"].map(finish).to_numpy())
+            return pred.assign(won=(pred["finish_pos"] == 1).astype(int))
+
+        train, target, fitted = frames_v1(raw, season, rnd)
+        if V1 in versions:
+            name = baselines_name(V1, versions)
+            frames.append(restore(predict(fitted, target, load_frozen()["features"], name=name)))
+        if V2 in versions:
+            frames.append(restore(score_v2(raw, season, rnd)[0]))
+        scored = restore(target)
+        frames += [baselines.pole_sitter(scored), baselines.form_leader(scored),
                    baselines.grid_logreg(train, scored)]
     return pd.concat(frames, ignore_index=True)
 
 
+def baselines_name(version: str, versions: tuple[str, ...]) -> str:
+    """v1.0 keeps its report name ("XGBoost") when it is the only model in the table."""
+    from f1pred.train import MODEL_NAME
+
+    return MODEL_NAME if versions == (V1,) else version
+
+
 def season_report(season: int, through: int) -> None:
-    """Re-score a season so far, save it and fill the README's block for it."""
+    """Re-score a season so far with v1.0, save it and fill the README's block for it."""
     from f1pred import evaluate as ev
 
     pred = rescore_season(season, through)
@@ -233,7 +291,7 @@ def main() -> None:
     parser.add_argument("--no-download", action="store_true",
                         help="use the raw tables already in data/raw")
     parser.add_argument("--season", dest="whole_season", action="store_true",
-                        help="re-score every round up to this one (races already run)")
+                        help="re-score every round up to this one with v1.0 (races already run)")
     args = parser.parse_args()
 
     if args.season <= TEST_SEASON:
@@ -256,12 +314,15 @@ def main() -> None:
     kind = "re-score of a race already run" if out.attrs["already_run"] else "pre-race"
     with path.open("w") as fh:
         fh.write(f"# {args.season} round {args.round}: {event}. Generated {stamp} ({kind}); "
-                 f"model trained on {out.attrs['trained_races']} earlier races.\n")
+                 f"models trained on {out.attrs['trained_races']} earlier races.\n")
         out.to_csv(fh, index=False, float_format="%.4f")
 
     print(f"{args.season} round {args.round}: {event}  ({kind})")
-    show = out.head(10).assign(win_probability=lambda d: d["win_probability"].map("{:.1%}".format))
-    print(show.drop(columns=RACE + ["event", "FullName"]).to_string(index=False))
+    show = out.head(10).drop(columns=RACE + ["event", "FullName"])
+    for col in ("p_v1", "p_v2"):
+        if col in show:
+            show[col] = show[col].map("{:.1%}".format)
+    print(show.to_string(index=False))
     print(f"\nwrote {path.relative_to(ROOT)}")
 
 
