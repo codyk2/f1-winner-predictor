@@ -23,6 +23,9 @@ from f1pred.config import REPORTS  # noqa: E402
 BLUE, GREY = "#2a78d6", "#b9b8ae"
 PREDICTIONS = REPORTS / "test_2025" / "predictions.csv"
 MODEL, POLE = "XGBoost", "Pole sitter"
+TEAMS = {"mclaren": "McLaren", "red_bull": "Red Bull", "rb": "Racing Bulls",
+         "aston_martin": "Aston Martin", "haas": "Haas"}
+ROW = 35  # pixel height of one table row, so chart and table line up
 
 
 @st.cache_data
@@ -68,9 +71,13 @@ top[2].metric("Pole sitter won", f"{pole_hits} of {len(races)}")
 top[3].metric("Winner in model's top 3",
               f"{int((model[model['won'] == 1]['rank'] <= 3).sum())} of {len(races)}")
 
-rnd = st.selectbox(
-    "Race", races.index,
-    format_func=lambda r: f"Round {r} · {races[r]} · pick {'won' if picks.loc[r, 'won'] else 'lost'}")
+
+
+def race_label(r: int) -> str:
+    return f"Round {r} · {races[r]} · pick {'won' if picks.loc[r, 'won'] else 'lost'}"
+
+
+rnd = st.selectbox("Race", races.index, format_func=race_label)
 race = model[model["round"] == rnd].sort_values("rank").copy()
 pick, winner = race.iloc[0], race[race["won"] == 1].iloc[0]
 
@@ -82,6 +89,7 @@ st.subheader(f"{races[rnd]}: the model picked {pick['FullName']} at {pick['p']:.
 st.write(f"{verdict} Pole sitter: {pole.loc[rnd, 'FullName']}.")
 
 race["Result"] = race["won"].map({1: "Race winner", 0: "Other drivers"})
+race["Team"] = [TEAMS.get(t, t.replace("_", " ").title()) for t in race["TeamId"]]
 race["Finish"] = race["finish_pos"].map(ordinal)
 race["Grid"] = race["grid_pos"].map(grid_label)
 race["label"] = [f"{p:.0%}" if (r <= 3 or w) else ""
@@ -89,11 +97,11 @@ race["label"] = [f"{p:.0%}" if (r <= 3 or w) else ""
 
 base = alt.Chart(race).encode(
     y=alt.Y("Abbreviation:N", sort=race["Abbreviation"].tolist(), title=None,
-            axis=alt.Axis(ticks=False, domain=False, labelPadding=8)),
+            axis=alt.Axis(ticks=False, domain=False, labelPadding=8, labelOverlap=False)),
     x=alt.X("p:Q", title="Pre-race win probability",
             axis=alt.Axis(format="%", grid=True, domain=False, ticks=False),
             scale=alt.Scale(domain=[0, max(0.6, float(race["p"].max()) + 0.1)])),
-    tooltip=[alt.Tooltip("FullName:N", title="Driver"), alt.Tooltip("TeamId:N", title="Team"),
+    tooltip=[alt.Tooltip("FullName:N", title="Driver"), alt.Tooltip("Team:N"),
              alt.Tooltip("Grid:N"), alt.Tooltip("p:Q", title="Win probability", format=".1%"),
              alt.Tooltip("Finish:N", title="Finished")],
 )
@@ -103,14 +111,18 @@ bars = base.mark_bar(size=13, cornerRadiusEnd=4).encode(
                     legend=alt.Legend(orient="top")))
 labels = base.mark_text(align="left", dx=6, fontSize=12).encode(text="label:N")
 
-left, right = st.columns([3, 2])
-left.altair_chart((bars + labels).properties(height=24 * len(race) + 40),
+left, right = st.columns([5, 4])
+left.altair_chart((bars + labels).properties(height=ROW * len(race)),
                   width="stretch")
-table = race[["rank", "FullName", "TeamId", "Grid", "p", "Finish"]].rename(columns={
-    "rank": "Model rank", "FullName": "Driver", "TeamId": "Team", "p": "Win probability"})
+table = race[["rank", "FullName", "Team", "Grid", "p", "Finish"]].rename(columns={
+    "rank": "Rank", "FullName": "Driver", "p": "Win chance"})
+table["Win chance"] *= 100
 right.dataframe(
-    table, hide_index=True, width="stretch", height=24 * len(race) + 60,
-    column_config={"Win probability": st.column_config.NumberColumn(format="percent")})
+    table, hide_index=True, width="stretch", height=ROW * (len(race) + 1) + 3,
+    column_config={"Win chance": st.column_config.NumberColumn(format="%.1f%%", width="small"),
+                   "Rank": st.column_config.NumberColumn(width="small"),
+                   "Grid": st.column_config.TextColumn(width="small"),
+                   "Finish": st.column_config.TextColumn(width="small")})
 
 st.caption("Features use practice, qualifying, the sprint, the starting grid and earlier races "
            "only. Source: FastF1. See the README for validation and the full results table.")

@@ -9,3 +9,8 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 .DS_Store
+
+# local tool config
+.claude/
+INTERVIEW_NOTES.md
+.gstack/
