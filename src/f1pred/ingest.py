@@ -201,12 +201,27 @@ def _fetch_practice(year: int, rnd: int, name: str) -> tuple[pd.DataFrame, pd.Da
 
 
 def _save(parts: list[pd.DataFrame], table: str, year: int) -> int:
-    """Write one raw table atomically; returns the row count."""
+    """Write one raw table atomically; returns the row count.
+
+    A session that was saved before and could not be fetched this time is kept,
+    so a failed request during a later run never shrinks a season on disk.
+    """
     parts = [p for p in parts if not p.empty]
+    path = RAW / f"{table}_{year}.parquet"
+    if path.exists():
+        old = pd.read_parquet(path)
+        keys = ["round", "session"] if "session" in old else ["round"]
+        fetched = (pd.concat([p[keys] for p in parts]).drop_duplicates() if parts
+                   else pd.DataFrame(columns=keys))
+        kept = old.merge(fetched, on=keys, how="left", indicator=True)
+        kept = kept[kept["_merge"] == "left_only"].drop(columns="_merge")
+        if len(kept):
+            parts.append(kept)
     if not parts:
         return 0
-    df = pd.concat(parts, ignore_index=True)
-    path = RAW / f"{table}_{year}.parquet"
+    df = pd.concat(parts, ignore_index=True).sort_values(
+        ["round", "session"] if "session" in parts[0] else ["round"], kind="stable")
+    df = df.reset_index(drop=True)
     tmp = path.with_suffix(".parquet.tmp")
     df.to_parquet(tmp, index=False)
     tmp.replace(path)

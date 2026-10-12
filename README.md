@@ -12,29 +12,29 @@ simplest rival: "the pole sitter wins."
 races; the pole sitter won 16. One race is 4 percentage points and the 95%
 interval on the difference runs from −21 to +13 points, so the two cannot be
 told apart on one season, and 2025 was a pole-dominated one (67% from pole,
-against 50% over 2019–2024). What the model adds is in the probabilities and the
-depth of the ranking: the winner was in its top three in all 24 races, it called
-2 of the 8 races the pole sitter lost, and its log loss was 9% lower than a
-grid-only logistic regression (inside the noise on 24 races; 23% lower and
-clear of it on the 68 validation races).
+against 50% over 2019–2024). What the model adds is in the probabilities: its
+log loss was 9% lower than a grid-only logistic regression on 2025 (inside the
+noise on 24 races) and 23% lower on the 68 validation races (clear of it). It
+called 2 of the 8 races the pole sitter lost, and the winner was in its top
+three in all 24 races, against 23 for the first three on the grid.
 
 A second check, run after the fact on the first 17 races of 2026 with nothing
-re-tuned, went 13 of 17 against 12 for the pole sitter, with log loss 33% below
-the grid-only model. [Details and caveats below.](#2026-so-far-a-second-look-after-the-fact)
+re-tuned, went 13 of 17 against 12 for the pole sitter.
+[Details and caveats below.](#2026-so-far-a-second-look-after-the-fact)
 
 **2025 season, 24 races. The model was frozen and tagged `v1.0` before this was run, once.**
 
 <!-- results_2025:start -->
-| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 8 races pole lost | Log loss | Brier |
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits when pole lost | Log loss | Brier |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 15 of 24 (62.5%) | 41.7% to 83.3% | -4.2% (-20.8% to +12.5%) | 24 of 24 (100.0%) | 2 of 8 | 0.0895 | 0.0285 |
-| Pole sitter | 16 of 24 (66.7%) | 50.0% to 83.3% | baseline | 23 of 24 (95.8%) | 0 of 8 | n/a | n/a |
-| Form leader | 7 of 24 (29.2%) | 12.5% to 45.8% | -37.5% (-62.5% to -8.3%) | 17 of 24 (70.8%) | 3 of 8 | n/a | n/a |
-| Grid-only logistic regression | 16 of 24 (66.7%) | 50.0% to 83.3% | same result in every race | 23 of 24 (95.8%) | 0 of 8 | 0.0985 | 0.0299 |
+| XGBoost | 15 of 24 (62.5%) | 42.7% to 78.8% | -4.2% (-20.8% to +12.5%) | 24 of 24 (86.2% to 100.0%) | 2 of 8 | 0.0895 | 0.0285 |
+| Pole sitter | 16 of 24 (66.7%) | 46.7% to 82.0% | baseline | 23 of 24 (79.8% to 99.3%) | 0 of 8 | n/a | n/a |
+| Form leader | 7 of 24 (29.2%) | 14.9% to 49.2% | -37.5% (-62.5% to -8.3%) | 17 of 24 (50.8% to 85.1%) | 3 of 8 | n/a | n/a |
+| Grid-only logistic regression | 16 of 24 (66.7%) | 46.7% to 82.0% | same hits and misses | 23 of 24 (79.8% to 99.3%) | 0 of 8 | 0.0985 | 0.0299 |
 <!-- results_2025:end -->
 
 <!-- results_2025_notes:start -->
-Log loss against the grid-only logistic regression: -0.0090 (-9.2%; 95% CI -0.0221 to +0.0053). Expected calibration error on 2025: 0.022. Intervals are 95% percentile bootstraps over the 24 races (10,000 resamples); one race is about 4%.
+Log loss against the grid-only logistic regression: -0.0090 (-9.2%; 95% CI -0.0221 to +0.0053). The single most favourable race (round 6 of 2025) supplies 32% of that gap; without it the gap is -6.7%. Expected calibration error on 2025: 0.022. Rates carry Wilson intervals; differences are paired bootstraps over the 24 races (exact for hits, 10,000 resamples for log loss). One race is about 4%.
 <!-- results_2025_notes:end -->
 
 ![The model's pick for each 2025 race](reports/figures/race_strip_2025.png)
@@ -97,12 +97,14 @@ baseline on the same races. The six EDA questions and their answers are in
 [`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb).
 
 The feature table has one row per driver per race and 19 features. Every one
-can be computed on Saturday night. The frozen model uses the first four groups
-(14 features); the [ablation](#ablation-what-each-feature-group-adds) shows why.
+is known before lights out; all but the final starting grid are known on
+Saturday night (`predict.py` uses qualifying order until the grid is published).
+The frozen model uses the first four groups (14 features); the
+[ablation](#ablation-what-each-feature-group-adds) shows why.
 
 | Group | Features | Source |
 | --- | --- | --- |
-| Grid | `grid_pos` (pit lane = 21), `quali_pos`, `quali_gap_pct` (best Q time vs pole), `teammate_quali_delta` | starting grid, qualifying |
+| Grid | `grid_pos` (pit lane = 21), `quali_pos`, `quali_gap_pct` (best Q time vs the fastest time of the session), `teammate_quali_delta` | starting grid, qualifying |
 | Practice | `longrun_gap_pct` (median lap of 5+ lap runs vs best driver on the same compound), `shortrun_gap_pct` (best lap vs session best), `has_longrun` | practice laps, green-flag accurate laps only |
 | Sprint | `sprint_pos` (empty on normal weekends) | sprint results |
 | Form | `drv_avg_finish_5`, `drv_wins_5`, `drv_podiums_5`, `team_points_5`, `champ_rank`, `dnf_rate_10` | earlier races |
@@ -118,8 +120,16 @@ Things in the data that needed handling:
   an empty `longrun_gap_pct` (XGBoost handles missing values natively) and
   `has_longrun = 0`. A long-run gap only counts when at least three drivers ran
   that compound.
-- **Pit-lane starts** arrive as grid position 0 through 2024 and are mapped to
-  21. From 2025 the results API numbers them at the back of the grid instead.
+- **Pit-lane starts** arrive as grid position 0 and are mapped to 21. That is
+  the norm through 2022 (39 of 42 cases); from 2023 the results API mostly
+  numbers them at the back of the grid instead, so 21 is rare after that.
+- **`quali_gap_pct` is measured against the fastest time anyone set in the
+  session**, which is the pole lap in 142 of 152 races. In the other ten the
+  track got slower before Q3 and the pole sitter's own gap is above zero.
+- **`longrun_gap_pct` is a weak feature as built.** It follows the plan's
+  recipe, but the benchmark is the single quickest median on a compound, which
+  is often a short push run, so even race winners sit a median 2% off it. The
+  ablation agrees: practice pace adds almost nothing. Version 2 rebuilds it.
 - **DNFs still get a `Position`**, so classification comes from
   `ClassifiedPosition` (a letter means not classified).
 - **Teams and venues are renamed.** Toro Rosso, AlphaTauri and RB are one
@@ -162,20 +172,34 @@ loss is kept; a 54-combination grid is chosen by pooled log loss; recency
 weighting is kept only if pooled log loss and at least two of three folds
 improve; every model is the average of five seeds. No `scale_pos_weight`.
 
-**The 2025 lock.** `walk_forward` raises on any frame containing 2025.
+**The 2025 lock.** `walk_forward` raises on any frame containing 2025,
 `make test-2025` refuses to run unless `config/` and `src/f1pred/` match the
-`v1.0` tag exactly, and refuses to run twice.
+`v1.0` tag exactly and refuses to run twice, and `predict.py` refuses any
+season up to 2025. These guards prevent accidents; they cannot prove anything
+to a sceptic, because the tag, the clock and the files are all local. What can
+be checked from outside: a clean clone of the public `v1.0` tag rebuilds the
+feature table to the same hash and reproduces every 2025 probability exactly.
 
 **What was and wasn't touched after seeing 2025.** The features, parameters and
 model code were committed and tagged `v1.0` before the run, and
-`git diff v1.0 -- config src/f1pred/features.py src/f1pred/train.py src/f1pred/metrics.py`
-is empty. After the run I changed reporting only: table wording in
-`evaluate.py`, the miss-analysis helper `race_facts.py`, the results notebook,
-this README, and the season-by-season printout of `python -m f1pred.baselines`
-(it crashed on a race with no form history; the three baseline functions are
-untouched). A test in `tests/test_pipeline.py` fails if any of that stops being
-true. One 2025 number was read before modelling: the pole-sitter count (16 of
-24), a parameter-free data check.
+`git diff v1.0 -- config src/f1pred/config.py src/f1pred/features.py src/f1pred/train.py src/f1pred/metrics.py`
+is empty; a test fails if that stops being true. Everything else has moved on
+since the run, and none of it changes a 2025 prediction:
+
+- `evaluate.py`: report tables only. Hit-rate intervals are now Wilson
+  intervals and the paired difference is computed exactly, after an independent
+  review found that three simulated bounds in the first version of the results
+  table were one race off.
+- `baselines.py`: the season-by-season printout (it crashed on a race with no
+  form history). The three baseline functions are identical to the tag.
+- `ingest.py` and `predict.py`: loading by exact file name, guards, and the
+  2026 work described below.
+- New files: `race_facts.py`, `ranker.py`, `intervals.py`, and the version 2
+  modules.
+
+One 2025 number was read before modelling: the pole-sitter count (16 of 24),
+a parameter-free data check. `make features` and the leakage tests also read
+the 2025 tables, as they must; neither scores a model.
 
 ## Results
 
@@ -186,18 +210,18 @@ in 2025 and 37 of 68 on validation instead of 35.
 ### Validation, 68 races (2022–2024)
 
 <!-- validation:start -->
-| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 33 races pole lost | Log loss | Brier |
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits when pole lost | Log loss | Brier |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 39 of 68 (57.4%) | 45.6% to 69.1% | +5.9% (-4.4% to +16.2%) | 60 of 68 (88.2%) | 9 of 33 | 0.0964 | 0.0290 |
-| Pole sitter | 35 of 68 (51.5%) | 39.7% to 63.2% | baseline | 57 of 68 (83.8%) | 0 of 33 | n/a | n/a |
-| Form leader | 35 of 68 (51.5%) | 39.7% to 63.2% | +0.0% (-16.2% to +16.2%) | 48 of 68 (70.6%) | 16 of 33 | n/a | n/a |
-| Grid-only logistic regression | 34 of 68 (50.0%) | 38.2% to 61.8% | -1.5% (-4.4% to +0.0%) | 58 of 68 (85.3%) | 0 of 33 | 0.1247 | 0.0346 |
+| XGBoost | 39 of 68 (57.4%) | 45.5% to 68.4% | +5.9% (-4.4% to +16.2%) | 60 of 68 (78.5% to 93.9%) | 9 of 33 | 0.0964 | 0.0290 |
+| Pole sitter | 35 of 68 (51.5%) | 39.8% to 62.9% | baseline | 57 of 68 (73.3% to 90.7%) | 0 of 33 | n/a | n/a |
+| Form leader | 35 of 68 (51.5%) | 39.8% to 62.9% | +0.0% (-16.2% to +16.2%) | 48 of 68 (58.9% to 80.1%) | 16 of 33 | n/a | n/a |
+| Grid-only logistic regression | 34 of 68 (50.0%) | 38.4% to 61.6% | -1.5% (-4.4% to +0.0%) | 58 of 68 (75.0% to 91.8%) | 0 of 33 | 0.1247 | 0.0346 |
 <!-- validation:end -->
 
 <!-- validation_notes:start -->
 Frozen setup: 14 features, `max_depth` 2, `learning_rate` 0.03, 400 trees, `min_child_weight` 5, recency weighting off, 5 seeds averaged.
 
-Log loss against the grid-only logistic regression: -0.0283 (-22.7%; 95% CI -0.0464 to -0.0121). Expected calibration error: XGBoost 0.013, logistic regression 0.020.
+Log loss against the grid-only logistic regression: -0.0283 (-22.7%; 95% CI -0.0464 to -0.0121). The single most favourable race (round 21 of 2024) supplies 22% of that gap; without it the gap is -19.3%. Expected calibration error: XGBoost 0.013, logistic regression 0.020.
 <!-- validation_notes:end -->
 
 <details>
@@ -346,10 +370,12 @@ touched 2025 and it is not what `predict.py` uses.
 <!-- ranker:end -->
 
 The ranker orders the whole field better (rank correlation with the finishing
-order 0.67 against 0.59 for the classifier and 0.62 for the starting grid) but
-is no better where it counts here: two fewer winners and no gain on podiums.
-A model trained on "won or not" is the better tool for picking winners; a
-ranker would be the one to develop for points or midfield predictions.
+order 0.67 against 0.59 for the classifier and 0.62 for the starting grid). At
+the front there is nothing to choose between them on 68 races: two fewer
+winners, one more winner in the top three, the same podium record. The tree
+parameters were tuned for the classifier, so this is a first look, not a
+verdict; a ranker is the natural thing to develop for points or midfield
+predictions.
 
 ## 2026 so far: a second look, after the fact
 
@@ -363,16 +389,16 @@ model for round 1 has never seen a 2026 car, and the one for round 17 has
 seen sixteen races of them).
 
 <!-- season_2026_notes:start -->
-Rounds 1-17 of 2026, re-scored on 2026-10-12 after the races were run. Each race was scored by the frozen v1.0 setup retrained on every earlier race, with that race's result hidden. Log loss against the grid-only logistic regression: -0.0342 (-33.3%; 95% CI -0.0835 to +0.0006).
+Rounds 1-17 of 2026, re-scored on 2026-10-12 after the races were run. Each race was scored by the frozen v1.0 setup retrained on every earlier race, with that race's result hidden. Log loss against the grid-only logistic regression: -0.0342 (-33.3%; 95% CI -0.0835 to +0.0006). The single most favourable race (round 13 of 2026) supplies 65% of that gap; without it the gap is -16.4%.
 <!-- season_2026_notes:end -->
 
 <!-- season_2026:start -->
-| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 5 races pole lost | Log loss | Brier |
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits when pole lost | Log loss | Brier |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 13 of 17 (76.5%) | 52.9% to 94.1% | +5.9% (+0.0% to +17.6%) | 16 of 17 (94.1%) | 1 of 5 | 0.0686 | 0.0203 |
-| Pole sitter | 12 of 17 (70.6%) | 47.1% to 88.2% | baseline | 16 of 17 (94.1%) | 0 of 5 | n/a | n/a |
-| Form leader | 1 of 17 (5.9%) | 0.0% to 17.6% | -64.7% (-88.2% to -41.2%) | 9 of 17 (52.9%) | 0 of 5 | n/a | n/a |
-| Grid-only logistic regression | 12 of 17 (70.6%) | 47.1% to 88.2% | same result in every race | 16 of 17 (94.1%) | 0 of 5 | 0.1028 | 0.0254 |
+| XGBoost | 13 of 17 (76.5%) | 52.7% to 90.4% | +5.9% (+0.0% to +17.6%) | 16 of 17 (73.0% to 99.0%) | 1 of 5 | 0.0686 | 0.0203 |
+| Pole sitter | 12 of 17 (70.6%) | 46.9% to 86.7% | baseline | 16 of 17 (73.0% to 99.0%) | 0 of 5 | n/a | n/a |
+| Form leader | 1 of 17 (5.9%) | 1.0% to 27.0% | -64.7% (-88.2% to -41.2%) | 9 of 17 (31.0% to 73.8%) | 0 of 5 | n/a | n/a |
+| Grid-only logistic regression | 12 of 17 (70.6%) | 46.9% to 86.7% | same hits and misses | 16 of 17 (73.0% to 99.0%) | 0 of 5 | 0.1028 | 0.0254 |
 <!-- season_2026:end -->
 
 <details>
@@ -402,12 +428,14 @@ Rounds 1-17 of 2026, re-scored on 2026-10-12 after the races were run. Each race
 
 </details>
 
-Thirteen of 17 against 12 is one race, and the interval on the log-loss gap
-just reaches zero, so this agrees with validation and 2025 rather than
+Thirteen of 17 against 12 is one race, and two thirds of the log-loss gap comes
+from a single race (Monza, won from 19th on the grid, which the grid-only model
+had at 1 in 20,000), so this agrees with validation and 2025 rather than
 settling anything: about as good as pole at picking, better at probabilities.
 Reproduce with `python -m f1pred.predict 2026 17 --season`. The first chance at
 a real pre-race prediction is round 18: run `python -m f1pred.predict 2026 18`
-after qualifying and commit `predictions/2026_R18.csv` before lights out.
+after qualifying, then commit and push `predictions/2026_R18.csv` before lights
+out. The push time on GitHub is the proof; a local commit time is not.
 
 ## Limitations and next steps
 
@@ -420,6 +448,10 @@ after qualifying and commit `predictions/2026_R18.csv` before lights out.
 - **Form cuts both ways.** `drv_avg_finish_5` is the largest contributor and
   also the reason the model backed an in-form driver over a pole sitter who then
   won, three times.
+- **Close calls are seed-sensitive.** The Monaco 2025 pick was decided by 38.9%
+  against 38.6%. Averaging five seeds steadies the probabilities, but a pick
+  that close can still flip with a different set of seeds, so a one-race
+  difference in hits means even less than its interval suggests.
 - **No circuit knowledge in the frozen model.** The ablation dropped the circuit
   and weather groups because they did not lower validation log loss, so the
   model does not know that Monaco protects pole.

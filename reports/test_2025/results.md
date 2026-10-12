@@ -1,15 +1,15 @@
 ## results_2025
 
-| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 8 races pole lost | Log loss | Brier |
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits when pole lost | Log loss | Brier |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 15 of 24 (62.5%) | 41.7% to 83.3% | -4.2% (-20.8% to +12.5%) | 24 of 24 (100.0%) | 2 of 8 | 0.0895 | 0.0285 |
-| Pole sitter | 16 of 24 (66.7%) | 50.0% to 83.3% | baseline | 23 of 24 (95.8%) | 0 of 8 | n/a | n/a |
-| Form leader | 7 of 24 (29.2%) | 12.5% to 45.8% | -37.5% (-62.5% to -8.3%) | 17 of 24 (70.8%) | 3 of 8 | n/a | n/a |
-| Grid-only logistic regression | 16 of 24 (66.7%) | 50.0% to 83.3% | same result in every race | 23 of 24 (95.8%) | 0 of 8 | 0.0985 | 0.0299 |
+| XGBoost | 15 of 24 (62.5%) | 42.7% to 78.8% | -4.2% (-20.8% to +12.5%) | 24 of 24 (86.2% to 100.0%) | 2 of 8 | 0.0895 | 0.0285 |
+| Pole sitter | 16 of 24 (66.7%) | 46.7% to 82.0% | baseline | 23 of 24 (79.8% to 99.3%) | 0 of 8 | n/a | n/a |
+| Form leader | 7 of 24 (29.2%) | 14.9% to 49.2% | -37.5% (-62.5% to -8.3%) | 17 of 24 (50.8% to 85.1%) | 3 of 8 | n/a | n/a |
+| Grid-only logistic regression | 16 of 24 (66.7%) | 46.7% to 82.0% | same hits and misses | 23 of 24 (79.8% to 99.3%) | 0 of 8 | 0.0985 | 0.0299 |
 
 ## results_2025_notes
 
-Log loss against the grid-only logistic regression: -0.0090 (-9.2%; 95% CI -0.0221 to +0.0053). Expected calibration error on 2025: 0.022. Intervals are 95% percentile bootstraps over the 24 races (10,000 resamples); one race is about 4%.
+Log loss against the grid-only logistic regression: -0.0090 (-9.2%; 95% CI -0.0221 to +0.0053). The single most favourable race (round 6 of 2025) supplies 32% of that gap; without it the gap is -6.7%. Expected calibration error on 2025: 0.022. Rates carry Wilson intervals; differences are paired bootstraps over the 24 races (exact for hits, 10,000 resamples for log loss). One race is about 4%.
 
 ## per_race_2025
 
@@ -65,6 +65,6 @@ Log loss against the grid-only logistic regression: -0.0090 (-9.2%; 95% CI -0.02
 
 ## resume_bullets
 
-- Built a FastF1 data pipeline ingesting practice, qualifying, sprint and race data for 152 races (2019-2025), engineering 19 pre-race features including long-run practice pace, qualifying gap and rolling driver/team form
+- Built a FastF1 data pipeline ingesting practice, qualifying, sprint and race data for 152 races (2019-2025), engineering 19 pre-race features (14 in the final model) including long-run practice pace, qualifying gap and rolling driver/team form
 - Trained an XGBoost win-probability model with season-by-season walk-forward validation and automated leakage tests ensuring only pre-race information
-- Reached a 100% top-3 hit rate on 24 held-out 2025 races and called 2 of the 8 won from off pole; 9% lower log loss than a grid-only model
+- On 24 held-out 2025 races, matched a pole-sitter baseline within noise (15 winners vs 16), ranked the winner in its top three every time and called 2 of the 8 won from off pole; 9% lower log loss than a grid-only model (23% on 68 validation races)

@@ -209,7 +209,8 @@ def test_model_code_unchanged_since_the_freeze():
         pytest.skip("2025 test not run yet")
     if git("rev-parse", "-q", "--verify", "refs/tags/v1.0").returncode != 0:
         pytest.skip("v1.0 tag not available in this checkout")
-    locked = ["config", "src/f1pred/features.py", "src/f1pred/train.py", "src/f1pred/metrics.py"]
+    locked = ["config", "src/f1pred/config.py", "src/f1pred/features.py",
+              "src/f1pred/train.py", "src/f1pred/metrics.py"]
     diff = git("diff", "--stat", "v1.0", "--", *locked)
     assert diff.stdout.strip() == "", f"model files changed after the freeze:\n{diff.stdout}"
 
@@ -221,3 +222,36 @@ def test_model_code_unchanged_since_the_freeze():
     current = (ROOT / "src" / "f1pred" / "baselines.py").read_text()
     assert before_main(tagged) == before_main(current), \
         "baseline functions changed after the freeze"
+
+
+def test_intervals_are_exact():
+    from f1pred.intervals import paired_difference, wilson
+
+    lo, hi = wilson(15, 24)
+    assert lo == pytest.approx(0.4271, abs=1e-4) and hi == pytest.approx(0.7884, abs=1e-4)
+    assert wilson(24, 24)[1] == 1.0 and wilson(0, 24)[0] == 0.0
+
+    races = pd.RangeIndex(24)
+    model = pd.Series([1] * 15 + [0] * 9, index=races)
+    pole = pd.Series([1] * 13 + [0, 0] + [1] * 3 + [0] * 6, index=races)  # 2 gained, 3 lost
+    mean, lo, hi = paired_difference(model, pole)
+    assert mean == pytest.approx(-1 / 24)
+    # brute force: the summed difference is a sum of 24 draws from {+1 x2, -1 x3, 0 x19}
+    rng = np.random.default_rng(0)
+    diff = (model - pole).to_numpy()
+    sims = diff[rng.integers(0, 24, size=(400_000, 24))].mean(axis=1)
+    assert lo == pytest.approx(np.percentile(sims, 2.5, method="inverted_cdf"))
+    assert hi == pytest.approx(np.percentile(sims, 97.5, method="inverted_cdf"))
+
+
+def test_results_table_handles_a_perfect_pole_record(features):
+    from f1pred import evaluate as ev
+
+    val = features[features["season"] == 2023]
+    pole = baselines.pole_sitter(val)
+    winners_from_pole = pole.assign(won=(pole["rank"] == 1).astype(int),
+                                    finish_pos=pole["rank"].astype(float))
+    table = ev.results_table({ev.POLE: winners_from_pole,
+                              ev.FORM: baselines.form_leader(val).assign(
+                                  won=winners_from_pole["won"])})
+    assert table.loc[0, "Hits when pole lost"] == "0 of 0"

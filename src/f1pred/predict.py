@@ -1,4 +1,4 @@
-"""Score one race from everything known on Saturday night.
+"""Score one race from everything known before lights out.
 
     python -m f1pred.predict 2026 18                 # after qualifying, before the race
     python -m f1pred.predict 2026 18 --grid grid.csv # with the official starting grid
@@ -8,8 +8,11 @@
 The model is the frozen setup in ``config/model.json``, retrained on every race
 before the target (including earlier rounds of the same season, so a new set
 of regulations is learned as the season goes on). Predictions are written to
-``predictions/{season}_R{round}.csv``; commit that file before lights out and
-the commit timestamp proves the prediction came first.
+``predictions/{season}_R{round}.csv``. Commit that file and push it before
+lights out: a local commit time proves nothing, the push time on GitHub does.
+
+Only seasons after the locked 2025 test can be scored here. 2019-2025 belong
+to validation and to the one locked run in ``evaluate.py``.
 
 Until the race has been run there is no official grid in the data, so the
 grid defaults to qualifying order. Pass ``--grid`` (columns ``Abbreviation``,
@@ -165,7 +168,7 @@ def season_report(season: int, through: int) -> None:
             f"Each race was scored by the frozen v1.0 setup retrained on every earlier race, "
             f"with that race's result hidden. Log loss against the grid-only logistic "
             f"regression: {v['diff']:+.4f} ({v['relative']:+.1%}; 95% CI {v['lo']:+.4f} to "
-            f"{v['hi']:+.4f}).")
+            f"{v['hi']:+.4f}). {ev.loss_gap_sensitivity(preds)}")
     sections = {f"season_{season}": ev.md_table(ev.results_table(preds)),
                 f"season_{season}_notes": note,
                 f"season_{season}_races": ev.md_table(pd.DataFrame(rows))}
@@ -190,14 +193,36 @@ def refresh(season: int, rnd: int) -> None:
     """
     import fastf1
 
+    reports = []
     for year in range(TEST_SEASON + 1, season + 1):
         if year == season:
-            ingest([year], through=max(rnd, rounds_on_disk(year)))
+            reports += ingest([year], through=max(rnd, rounds_on_disk(year)))
         else:
             enable_cache(year)
             total = int(fastf1.get_event_schedule(year, include_testing=False)["RoundNumber"].max())
             if rounds_on_disk(year) < total:
-                ingest([year])
+                reports += ingest([year])
+    for line in (s for rep in reports for s in rep.skips):
+        print("  " + line)
+
+
+def check_ready(season: int, rnd: int) -> None:
+    """Stop unless every earlier race of the season and the target's qualifying are on disk.
+
+    A missing earlier race would shift every form window by one and the
+    prediction would still be written, silently wrong.
+    """
+    def rounds(table: str) -> set[int]:
+        path = RAW / f"{table}_{season}.parquet"
+        return set(pd.read_parquet(path, columns=["round"])["round"]) if path.exists() else set()
+
+    missing_races = sorted(set(range(1, rnd)) - rounds("race"))
+    missing_quali = sorted(set(range(1, rnd + 1)) - rounds("quali"))
+    if missing_races or missing_quali:
+        raise SystemExit(
+            f"Cannot score {season} round {rnd}: race results missing for rounds "
+            f"{missing_races or 'none'}, qualifying missing for rounds {missing_quali or 'none'}. "
+            "Rerun without --no-download once the results API has them.")
 
 
 def main() -> None:
@@ -211,8 +236,13 @@ def main() -> None:
                         help="re-score every round up to this one (races already run)")
     args = parser.parse_args()
 
+    if args.season <= TEST_SEASON:
+        raise SystemExit(
+            f"predict.py scores seasons after {TEST_SEASON} only. {TEST_SEASON} is the locked "
+            "test season (one run, in evaluate.py) and earlier seasons are validation data.")
     if not args.no_download:
         refresh(args.season, args.round)
+    check_ready(args.season, args.round)
     if args.whole_season:
         season_report(args.season, args.round)
         return

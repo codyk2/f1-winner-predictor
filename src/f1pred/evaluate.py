@@ -4,10 +4,14 @@
     python -m f1pred.evaluate test-2025   # the locked run: once, after the v1.0 tag
     python -m f1pred.evaluate report      # rebuild 2025 tables and figures from saved output
 
-``test-2025`` is the only code path that reads 2025 outcomes. It refuses to run
-unless ``config/model.json`` and ``src/f1pred`` match the ``v1.0`` git tag, and
-it refuses to run a second time. ``report`` never refits anything: it only
+``test-2025`` is the only command that scores a model on 2025. It refuses to
+run unless ``config/model.json`` and ``src/f1pred`` match the ``v1.0`` git tag,
+and it refuses to run a second time. ``report`` never refits anything: it only
 re-renders what the locked run saved.
+
+The guard stops accidents, not a determined operator: it trusts the local tag
+and the feature file on disk. What makes the v1.0 result checkable is that a
+clean clone of the public tag reproduces it bit for bit.
 """
 
 from __future__ import annotations
@@ -35,12 +39,11 @@ from f1pred.config import (
     load_frozen,
 )
 from f1pred.features import FEATURES, load_features
+from f1pred.intervals import paired_difference, wilson
 from f1pred.metrics import (
     bootstrap_log_loss_diff,
-    bootstrap_rate,
     calibration_table,
     expected_calibration_error,
-    paired_bootstrap,
     per_race,
     summarise,
     summary_table,
@@ -131,31 +134,32 @@ def hits(pred: pd.DataFrame, col: str = "hit") -> pd.Series:
 
 
 def results_table(preds: dict[str, pd.DataFrame]) -> pd.DataFrame:
-    """Model and baselines on the same races, with bootstrap intervals over races."""
+    """Model and baselines on the same races, with 95% intervals.
+
+    Rates get Wilson intervals; the difference from the pole sitter gets the
+    exact paired-bootstrap interval over races (see ``intervals.py``).
+    """
     pole = hits(preds[POLE])
     rows = []
     for name, pred in preds.items():
         s = summarise(pred)
         race = per_race(pred)
-        _, lo, hi = bootstrap_rate(race["hit"])
-        diff, dlo, dhi = paired_bootstrap(race["hit"], pole)
-        lost = int(s["pole_lost_races"])
+        n, won, top3 = int(s["races"]), int(race["hit"].sum()), int(race["top3"].sum())
+        lost = race[race["pole_won"] == 0]
+        diff, dlo, dhi = paired_difference(race["hit"], pole)
         if name == POLE:
             versus = "baseline"
         elif (race["hit"] == pole.reindex(race.index)).all():
-            versus = "same result in every race"
+            versus = "same hits and misses"
         else:
             versus = f"{diff:+.1%} ({interval(dlo, dhi, signed=True)})"
         rows.append({
             "Model": name,
-            "Picked the winner":
-                f"{int(race['hit'].sum())} of {s['races']} ({pct(s['winner_hit'])})",
-            "95% CI": interval(lo, hi),
+            "Picked the winner": f"{won} of {n} ({pct(won / n)})",
+            "95% CI": interval(*wilson(won, n)),
             "vs pole sitter (95% CI)": versus,
-            "Winner in top 3":
-                f"{int(race['top3'].sum())} of {s['races']} ({pct(s['top3_hit'])})",
-            f"Hits in the {lost} races pole lost":
-                f"{int(round(s['hit_when_pole_lost'] * lost))} of {lost}",
+            "Winner in top 3": f"{top3} of {n} ({interval(*wilson(top3, n))})",
+            "Hits when pole lost": f"{int(lost['hit'].sum())} of {len(lost)}",
             "Log loss": num(s["log_loss"]),
             "Brier": num(s["brier"]),
         })
@@ -166,6 +170,17 @@ def log_loss_vs_logreg(preds: dict[str, pd.DataFrame]) -> dict[str, float]:
     diff, lo, hi = bootstrap_log_loss_diff(preds[MODEL_NAME], preds[LOGREG])
     base = summarise(preds[LOGREG])["log_loss"]
     return {"diff": diff, "lo": lo, "hi": hi, "relative": diff / base}
+
+
+def loss_gap_sensitivity(preds: dict[str, pd.DataFrame]) -> str:
+    """How much of the log-loss gap to the grid-only model rests on one race."""
+    a, b = per_race(preds[MODEL_NAME]), per_race(preds[LOGREG])
+    gap = a["nll"] - b["nll"].reindex(a.index)
+    top = gap.idxmin()
+    rest = gap.index != top
+    without = (a["nll"][rest].sum() - b["nll"][rest].sum()) / b["nll"][rest].sum()
+    return (f"The single most favourable race (round {top[1]} of {top[0]}) supplies "
+            f"{gap[top] / gap.sum():.0%} of that gap; without it the gap is {without:+.1%}.")
 
 
 def shap_contributions(models: list, rows: pd.DataFrame, features: list[str]) -> pd.DataFrame:
@@ -221,6 +236,7 @@ def cv_report() -> None:
         f"{len(choice['seeds'])} seeds averaged.\n\n"
         f"Log loss against the grid-only logistic regression: {vs_logreg['diff']:+.4f} "
         f"({vs_logreg['relative']:+.1%}; 95% CI {vs_logreg['lo']:+.4f} to {vs_logreg['hi']:+.4f}). "
+        f"{loss_gap_sensitivity(preds)} "
         f"Expected calibration error: {MODEL_NAME} {ece[MODEL_NAME]:.3f}, "
         f"logistic regression {ece[LOGREG]:.3f}."
     )
@@ -354,15 +370,18 @@ def resume_bullets(metrics: dict) -> str:
     x, pole_x = round(m["winner_hit"] * races), round(pole["winner_hit"] * races)
     y = round(m["hit_when_pole_lost"] * lost)
     rel = -metrics["log_loss_vs_logreg"]["relative"]
+    n_used = len(load_frozen()["features"])
     line = (f"Picked the winner in {x} of {races} held-out 2025 races vs {pole_x} for a "
             f"pole-sitter baseline" if x > pole_x else
-            f"Reached a {m['top3_hit']:.0%} top-3 hit rate on {races} held-out 2025 races and "
+            f"On {races} held-out 2025 races, matched a pole-sitter baseline within noise "
+            f"({x} winners vs {pole_x}), ranked the winner in its top three every time and "
             f"called {y} of the {lost} won from off pole; {rel:.0%} lower log loss than a "
-            f"grid-only model")
+            f"grid-only model (23% on 68 validation races)")
     return "\n".join([
         f"- Built a FastF1 data pipeline ingesting practice, qualifying, sprint and race data "
-        f"for 152 races (2019-2025), engineering {len(FEATURES)} pre-race features including "
-        f"long-run practice pace, qualifying gap and rolling driver/team form",
+        f"for 152 races (2019-2025), engineering {len(FEATURES)} pre-race features "
+        f"({n_used} in the final model) including long-run practice pace, qualifying gap and "
+        f"rolling driver/team form",
         "- Trained an XGBoost win-probability model with season-by-season walk-forward "
         "validation and automated leakage tests ensuring only pre-race information",
         f"- {line}",
@@ -399,9 +418,11 @@ def report() -> None:
     notes = (
         f"Log loss against the grid-only logistic regression: {v['diff']:+.4f} "
         f"({v['relative']:+.1%}; 95% CI {v['lo']:+.4f} to {v['hi']:+.4f}). "
+        f"{loss_gap_sensitivity(preds)} "
         f"Expected calibration error on 2025: {ece:.3f}. "
-        f"Intervals are 95% percentile bootstraps over the {n_races} races "
-        f"(10,000 resamples); one race is about {1 / n_races:.0%}."
+        f"Rates carry Wilson intervals; differences are paired bootstraps over the "
+        f"{n_races} races (exact for hits, 10,000 resamples for log loss). One race is "
+        f"about {1 / n_races:.0%}."
     )
     misses = races[races["hit"] == 0]
     cause_view = (misses["cause"].value_counts().reindex(MISS_CAUSES, fill_value=0)
@@ -429,7 +450,9 @@ def report() -> None:
     fig = plots.feature_importance(
         importance.rename(index=FEATURE_LABELS),
         "Mean absolute SHAP contribution over the 2019-2024 training rows")
-    fig.texts[0].set_text(f"{top[0].capitalize()} and {top[1]} carry most of the signal")
+    share = importance.sort_values(ascending=False).iloc[:2].sum() / importance.sum()
+    fig.texts[0].set_text(f"{top[0].capitalize()} and {top[1]} are the two largest "
+                          f"contributors ({share:.0%} of the total)")
     plots.save(fig, "feature_importance.png")
     plots.save(plots.race_strip(races), "race_strip_2025.png")
 

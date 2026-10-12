@@ -1,14 +1,19 @@
 """Leakage tests: every feature must be computable before lights out.
 
-Two properties, checked for several target races:
+Three checks, for several target races:
 
 1. No future data. Features built from all races equal features built from only
    the races up to the target.
 2. No same-race data. Shuffling the target race's finishing order leaves its
    features unchanged.
+3. Lights out. The strictest form: delete every later row from every table AND
+   blank the target race's result (position, classification, status, points,
+   laps). The target's features must not move. A permutation alone would miss
+   race-level facts such as how many cars retired.
 
 They run on a synthetic championship everywhere and, when ``data/raw`` has been
-built, on the real 2019-2025 tables as well.
+built, on the real 2019-2025 tables as well. A fourth test checks that the
+practice and weather tables hold no race session at all.
 """
 
 from __future__ import annotations
@@ -98,6 +103,38 @@ def check_no_same_race_data(raw: dict[str, pd.DataFrame], targets: list[tuple[in
                 "history features ignore past results, so this test proves nothing"
 
 
+def check_lights_out(raw: dict[str, pd.DataFrame], targets: list[tuple[int, int]],
+                     build=build_features, features: list[str] = FEATURES) -> None:
+    full = build(raw)
+    for season, rnd in targets:
+        cut = _up_to(raw, season, rnd)
+        race = cut["race"].copy()
+        target = (race["season"] == season) & (race["round"] == rnd)
+        race.loc[target, ["Position", "Points", "Laps"]] = np.nan
+        race.loc[target, ["ClassifiedPosition", "Status"]] = pd.NA
+        blind = build({**cut, "race": race})
+        a, b = _race(full, season, rnd), _race(blind, season, rnd)
+        assert len(a) > 0 and a["DriverId"].tolist() == b["DriverId"].tolist()
+        pd.testing.assert_frame_equal(a[features], b[features], check_exact=False, rtol=1e-12)
+        assert b["won"].sum() == 0, "the blanked race must have no winner"
+
+
+def test_lights_out_synthetic(synthetic_raw):
+    check_lights_out(synthetic_raw, SYNTHETIC_TARGETS)
+
+
+def test_lights_out_real(real_raw):
+    check_lights_out(real_raw, REAL_TARGETS + [(2019, 1), (2020, 11), (2023, 4), (2025, 24)])
+
+
+def test_only_pre_race_sessions_are_stored(real_raw):
+    """Features read every lap and weather row they are given, so no race
+    session may ever be in those tables."""
+    assert set(real_raw["laps"]["session"]) <= {"Practice 1", "Practice 2", "Practice 3"}
+    assert set(real_raw["weather"]["session"]) <= {"Practice 1", "Practice 2", "Practice 3",
+                                                   "Qualifying"}
+
+
 def test_no_future_data_synthetic(synthetic_raw):
     check_no_future_data(synthetic_raw, SYNTHETIC_TARGETS)
 
@@ -115,7 +152,8 @@ def test_no_same_race_data_real(real_raw):
 
 
 def test_leaky_feature_is_caught(synthetic_raw, monkeypatch):
-    """The tests have teeth: a rolling mean without the shift must fail both."""
+    """The tests have teeth: a rolling mean without the shift reads the race's
+    own result, so the same-race check must fail."""
     import f1pred.features as features
 
     def leaky(group, window, how):
