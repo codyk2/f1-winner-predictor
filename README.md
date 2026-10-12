@@ -22,6 +22,12 @@ A second check, run after the fact on the first 17 races of 2026 with nothing
 re-tuned, went 13 of 17 against 12 for the pole sitter.
 [Details and caveats below.](#2026-so-far-a-second-look-after-the-fact)
 
+Then came [three passes at a better model](#version-2-improving-the-model-after-the-test).
+Version 2.0 rebuilds two weak features and adds monotone constraints. It beats
+v1.0 on the four development seasons (56 winners of 92 against 54, log loss 6%
+lower) and does not beat it on 2026 (12 of 17 against 13, log loss equal).
+Both models are now scored side by side on every race still to come.
+
 **2025 season, 24 races. The model was frozen and tagged `v1.0` before this was run, once.**
 
 <!-- results_2025:start -->
@@ -66,7 +72,9 @@ make eda          # execute notebooks/01_eda.ipynb (2019-2024 only)
 make cv           # walk-forward validation, ablation, tuning, recency test
 make freeze       # write the chosen setup to config/model.json
 make app          # Streamlit demo of the 2025 predictions
-python -m f1pred.predict 2026 18    # score an upcoming race after qualifying
+make history      # 2014-2018 results, used by some version 2 experiments
+make v2           # version 2: features, every experiment, the log table
+python -m f1pred.predict 2026 18    # score an upcoming race after qualifying (v2.0 and v1.0)
 ```
 
 ## Data and features
@@ -182,7 +190,7 @@ feature table to the same hash and reproduces every 2025 probability exactly.
 
 **What was and wasn't touched after seeing 2025.** The features, parameters and
 model code were committed and tagged `v1.0` before the run, and
-`git diff v1.0 -- config src/f1pred/config.py src/f1pred/features.py src/f1pred/train.py src/f1pred/metrics.py`
+`git diff v1.0 -- config/model.json src/f1pred/config.py src/f1pred/features.py src/f1pred/train.py src/f1pred/metrics.py`
 is empty; a test fails if that stops being true. Everything else has moved on
 since the run, and none of it changes a 2025 prediction:
 
@@ -377,6 +385,66 @@ parameters were tuned for the classifier, so this is a first look, not a
 verdict; a ranker is the natural thing to develop for points or midfield
 predictions.
 
+## 2026 so far: a second look, after the fact
+
+`v1.0` was frozen with the 2026 season already under way, so 2026 gives a
+second out-of-sample check under new regulations and a 22-car grid. These are
+**not live predictions**: the races had been run, and no commit timestamp
+proves otherwise. What can be checked is the protocol: the feature list and
+parameters are the ones tagged `v1.0`, each race's result is hidden before its
+features are built, and each model is trained only on earlier races (so the
+model for round 1 has never seen a 2026 car, and the one for round 17 has
+seen sixteen races of them).
+
+<!-- season_2026_notes:start -->
+Rounds 1-17 of 2026, re-scored on 2026-10-12 after the races were run. Each race was scored by the frozen v1.0 setup retrained on every earlier race, with that race's result hidden. Log loss against the grid-only logistic regression: -0.0342 (-33.3%; 95% CI -0.0835 to +0.0006). The single most favourable race (round 13 of 2026) supplies 65% of that gap; without it the gap is -16.4%.
+<!-- season_2026_notes:end -->
+
+<!-- season_2026:start -->
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits when pole lost | Log loss | Brier |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| XGBoost | 13 of 17 (76.5%) | 52.7% to 90.4% | +5.9% (+0.0% to +17.6%) | 16 of 17 (73.0% to 99.0%) | 1 of 5 | 0.0686 | 0.0203 |
+| Pole sitter | 12 of 17 (70.6%) | 46.9% to 86.7% | baseline | 16 of 17 (73.0% to 99.0%) | 0 of 5 | n/a | n/a |
+| Form leader | 1 of 17 (5.9%) | 1.0% to 27.0% | -64.7% (-88.2% to -41.2%) | 9 of 17 (31.0% to 73.8%) | 0 of 5 | n/a | n/a |
+| Grid-only logistic regression | 12 of 17 (70.6%) | 46.9% to 86.7% | same hits and misses | 16 of 17 (73.0% to 99.0%) | 0 of 5 | 0.1028 | 0.0254 |
+<!-- season_2026:end -->
+
+<details>
+<summary>Race by race</summary>
+
+<!-- season_2026_races:start -->
+| Rd | Race | Winner (grid) | Model pick (grid) | P(pick) | Pole sitter | Pick right? | Pole right? | P(winner) | Winner's rank |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Australian | RUS (P1) | RUS (P1) | 70% | RUS | yes | yes | 70% | 1 |
+| 2 | Chinese | ANT (P1) | ANT (P1) | 64% | ANT | yes | yes | 64% | 1 |
+| 3 | Japanese | ANT (P1) | ANT (P1) | 64% | ANT | yes | yes | 64% | 1 |
+| 4 | Miami | ANT (P1) | ANT (P1) | 70% | ANT | yes | yes | 70% | 1 |
+| 5 | Canadian | ANT (P2) | RUS (P1) | 50% | RUS | **no** | no | 32% | 2 |
+| 6 | Monaco | ANT (P1) | ANT (P1) | 68% | ANT | yes | yes | 68% | 1 |
+| 7 | Barcelona | HAM (P2) | ANT (P3) | 50% | RUS | **no** | no | 20% | 3 |
+| 8 | Austrian | RUS (P1) | RUS (P1) | 33% | RUS | yes | yes | 33% | 1 |
+| 9 | British | LEC (P2) | ANT (P1) | 78% | ANT | **no** | no | 6% | 3 |
+| 10 | Belgian | ANT (P1) | ANT (P1) | 74% | ANT | yes | yes | 74% | 1 |
+| 11 | Hungarian | NOR (P1) | NOR (P1) | 42% | NOR | yes | yes | 42% | 1 |
+| 12 | Dutch | NOR (P1) | NOR (P1) | 62% | NOR | yes | yes | 62% | 1 |
+| 13 | Italian | ANT (P19) | HAM (P4) | 23% | GAS | **no** | no | 16% | 4 |
+| 14 | Spanish | ANT (P2) | ANT (P2) | 40% | NOR | yes | no | 40% | 1 |
+| 15 | Azerbaijan | RUS (P1) | RUS (P1) | 59% | RUS | yes | yes | 59% | 1 |
+| 16 | Bahrain | VER (P1) | VER (P1) | 48% | VER | yes | yes | 48% | 1 |
+| 17 | Singapore | VER (P1) | VER (P1) | 47% | VER | yes | yes | 47% | 1 |
+<!-- season_2026_races:end -->
+
+</details>
+
+Thirteen of 17 against 12 is one race, and two thirds of the log-loss gap comes
+from a single race (Monza, won from 19th on the grid, which the grid-only model
+had at 1 in 20,000), so this agrees with validation and 2025 rather than
+settling anything: about as good as pole at picking, better at probabilities.
+Reproduce with `python -m f1pred.predict 2026 17 --season`. The first chance at
+a real pre-race prediction is round 18: run `python -m f1pred.predict 2026 18`
+after qualifying, then commit and push `predictions/2026_R18.csv` before lights
+out. The push time on GitHub is the proof; a local commit time is not.
+
 ## Version 2: improving the model after the test
 
 v1.0 above is the result. This section is what came next: three passes at a
@@ -462,76 +530,61 @@ v2.0 as frozen: 15 features, binary XGBoost (`max_depth` 2, 400 trees) with mono
 
 ### v2.0 on 2026, after its tag was pushed
 
+`python -m f1pred.v2 confirm 2026 17` refuses to run until the `v2.0` tag is on
+GitHub and the model files match it, and refuses to run twice. It is still not
+a clean test: v1.0's results on these races were already known when v2 was
+built. Nothing was tuned on them.
+
 <!-- v2_confirmation:start -->
-_Run once, after the `v2.0` tag is on GitHub._
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Log loss | Race log loss |
+| --- | --- | --- | --- | --- | --- | --- |
+| v2.0 | 12 of 17 (70.6%) | 46.9% to 86.7% | +0.0% (-17.6% to +17.6%) | 15 of 17 | 0.0683 | 0.903 |
+| v1.0 | 13 of 17 (76.5%) | 52.7% to 90.4% | +5.9% (+0.0% to +17.6%) | 16 of 17 | 0.0686 | 0.881 |
+| Pole sitter | 12 of 17 (70.6%) | 46.9% to 86.7% | baseline | 16 of 17 | n/a | n/a |
+| Grid-only logistic regression | 12 of 17 (70.6%) | 46.9% to 86.7% | +0.0% (+0.0% to +0.0%) | 16 of 17 | 0.1028 | 1.536 |
 <!-- v2_confirmation:end -->
 
 <!-- v2_confirmation_notes:start -->
+2026 rounds 1-17, scored once on 2026-10-12 at tag `v2.0` (9a0ec2e), which was pushed first. v2.0 against v1.0: winners -5.9% (95% CI -17.6% to +0.0%), log loss -0.0003 (95% CI -0.0123 to +0.0150).
 <!-- v2_confirmation_notes:end -->
 
-<!-- v2_findings:start -->
-_Findings are written up at the end of pass 3._
-<!-- v2_findings:end -->
+### What the three passes found
 
-## 2026 so far: a second look, after the fact
+**Pass 1, features.** An independent review of v1 showed that its long-run
+practice feature barely tracked results (rank correlation 0.15 with finishing
+position) because its benchmark was the single quickest run on a compound,
+often a short push run. Rebuilt against the field median, with six laps needed
+after the slow-lap filter and the session chosen by how many drivers ran long,
+the same data correlates 0.44. That one change is the largest gain in the log.
+Measuring the qualifying gap inside the driver's last segment, plus the margin
+over the next car, also helped in all four folds. Five other ideas did not
+clear the noise: 2014–2018 history in the form windows, those seasons as
+training rows, pace-based form, circuit stickiness, and season context.
 
-`v1.0` was frozen with the 2026 season already under way, so 2026 gives a
-second out-of-sample check under new regulations and a 22-car grid. These are
-**not live predictions**: the races had been run, and no commit timestamp
-proves otherwise. What can be checked is the protocol: the feature list and
-parameters are the ones tagged `v1.0`, each race's result is hidden before its
-features are built, and each model is trained only on earlier races (so the
-model for round 1 has never seen a 2026 car, and the one for round 17 has
-seen sixteen races of them).
+**Pass 2, models.** Nothing beat boosted trees trained on "won or not". Trees
+trained with a per-race softmax loss, a conditional logit and blends of the
+two were all clearly worse at every setting tried. What did help was telling
+the trees which way each feature can push: with monotone constraints, a slower
+qualifying lap or a worse recent finish can never raise a win probability.
+Tree depth, tree count and a fitted temperature made no difference.
 
-<!-- season_2026_notes:start -->
-Rounds 1-17 of 2026, re-scored on 2026-10-12 after the races were run. Each race was scored by the frozen v1.0 setup retrained on every earlier race, with that race's result hidden. Log loss against the grid-only logistic regression: -0.0342 (-33.3%; 95% CI -0.0835 to +0.0006). The single most favourable race (round 13 of 2026) supplies 65% of that gap; without it the gap is -16.4%.
-<!-- season_2026_notes:end -->
+**Pass 3, freeze and check.** v2.0 is v1.0's 14 features with the long-run gap
+rebuilt and the two qualifying features added (15 in all), the same tree
+parameters, monotone constraints and fifteen seeds. On the development folds it
+is better than v1.0 by more than seed noise. Then the tag was pushed and v2.0
+was scored once on 2026, where it is **not** better: one winner fewer than
+v1.0 and the same log loss. Race by race the two agree on 14 of 17 picks. v2.0
+is surer of the favourite, which pays when the favourite wins (Azerbaijan:
+86% against 59%) and costs when it doesn't (Britain: 1% against 6% for the
+eventual winner).
 
-<!-- season_2026:start -->
-| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits when pole lost | Log loss | Brier |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 13 of 17 (76.5%) | 52.7% to 90.4% | +5.9% (+0.0% to +17.6%) | 16 of 17 (73.0% to 99.0%) | 1 of 5 | 0.0686 | 0.0203 |
-| Pole sitter | 12 of 17 (70.6%) | 46.9% to 86.7% | baseline | 16 of 17 (73.0% to 99.0%) | 0 of 5 | n/a | n/a |
-| Form leader | 1 of 17 (5.9%) | 1.0% to 27.0% | -64.7% (-88.2% to -41.2%) | 9 of 17 (31.0% to 73.8%) | 0 of 5 | n/a | n/a |
-| Grid-only logistic regression | 12 of 17 (70.6%) | 46.9% to 86.7% | same hits and misses | 16 of 17 (73.0% to 99.0%) | 0 of 5 | 0.1028 | 0.0254 |
-<!-- season_2026:end -->
+**What to take from it.** The development gains are real in the sense that
+they exceed the noise between seeds, but they are smaller than the noise
+between races, and a fresh season did not reproduce them. Three separate looks
+now say the same thing about both versions: about as good as the pole sitter
+at naming the winner, clearly better than a grid-only model at probabilities.
+The live races decide between v1.0 and v2.0; `predict.py` writes both.
 
-<details>
-<summary>Race by race</summary>
-
-<!-- season_2026_races:start -->
-| Rd | Race | Winner (grid) | Model pick (grid) | P(pick) | Pole sitter | Pick right? | Pole right? | P(winner) | Winner's rank |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Australian | RUS (P1) | RUS (P1) | 70% | RUS | yes | yes | 70% | 1 |
-| 2 | Chinese | ANT (P1) | ANT (P1) | 64% | ANT | yes | yes | 64% | 1 |
-| 3 | Japanese | ANT (P1) | ANT (P1) | 64% | ANT | yes | yes | 64% | 1 |
-| 4 | Miami | ANT (P1) | ANT (P1) | 70% | ANT | yes | yes | 70% | 1 |
-| 5 | Canadian | ANT (P2) | RUS (P1) | 50% | RUS | **no** | no | 32% | 2 |
-| 6 | Monaco | ANT (P1) | ANT (P1) | 68% | ANT | yes | yes | 68% | 1 |
-| 7 | Barcelona | HAM (P2) | ANT (P3) | 50% | RUS | **no** | no | 20% | 3 |
-| 8 | Austrian | RUS (P1) | RUS (P1) | 33% | RUS | yes | yes | 33% | 1 |
-| 9 | British | LEC (P2) | ANT (P1) | 78% | ANT | **no** | no | 6% | 3 |
-| 10 | Belgian | ANT (P1) | ANT (P1) | 74% | ANT | yes | yes | 74% | 1 |
-| 11 | Hungarian | NOR (P1) | NOR (P1) | 42% | NOR | yes | yes | 42% | 1 |
-| 12 | Dutch | NOR (P1) | NOR (P1) | 62% | NOR | yes | yes | 62% | 1 |
-| 13 | Italian | ANT (P19) | HAM (P4) | 23% | GAS | **no** | no | 16% | 4 |
-| 14 | Spanish | ANT (P2) | ANT (P2) | 40% | NOR | yes | no | 40% | 1 |
-| 15 | Azerbaijan | RUS (P1) | RUS (P1) | 59% | RUS | yes | yes | 59% | 1 |
-| 16 | Bahrain | VER (P1) | VER (P1) | 48% | VER | yes | yes | 48% | 1 |
-| 17 | Singapore | VER (P1) | VER (P1) | 47% | VER | yes | yes | 47% | 1 |
-<!-- season_2026_races:end -->
-
-</details>
-
-Thirteen of 17 against 12 is one race, and two thirds of the log-loss gap comes
-from a single race (Monza, won from 19th on the grid, which the grid-only model
-had at 1 in 20,000), so this agrees with validation and 2025 rather than
-settling anything: about as good as pole at picking, better at probabilities.
-Reproduce with `python -m f1pred.predict 2026 17 --season`. The first chance at
-a real pre-race prediction is round 18: run `python -m f1pred.predict 2026 18`
-after qualifying, then commit and push `predictions/2026_R18.csv` before lights
-out. The push time on GitHub is the proof; a local commit time is not.
 
 ## Limitations and next steps
 
@@ -551,9 +604,12 @@ out. The push time on GitHub is the proof; a local commit time is not.
 - **No circuit knowledge in the frozen model.** The ablation dropped the circuit
   and weather groups because they did not lower validation log loss, so the
   model does not know that Monaco protects pole.
-- **Practice pace adds little as engineered.** Adding it moved log loss from
-  0.1151 to 0.1145. Fuel loads and run plans are unknown, and the long-run
-  benchmark is the single best driver on a compound.
+- **Practice pace adds little as engineered in v1.** Adding it moved log loss
+  from 0.1151 to 0.1145, because the long-run benchmark was the single best
+  run on a compound. Version 2 rebuilds it and it becomes the largest single
+  gain on the development folds, though fuel loads and run plans stay unknown.
+- **Version 2 is not a proven improvement.** It was chosen on four seasons
+  that include v1's test season, and on 2026 it did no better than v1.0.
 - **Small data.** 2,559 training rows and 128 winners; the regulation resets of
   2022 and 2026 make older seasons less relevant, though recency weighting did
   not help in validation.
@@ -564,9 +620,10 @@ out. The push time on GitHub is the proof; a local commit time is not.
 
 Next, in order of value:
 
-1. **Live 2026 predictions.** Run `predict.py` after qualifying, commit the CSV
-   before lights out, score it after the race. `predict.py` retrains on every
-   race so far, so it learns the 2026 cars as the season goes.
+1. **Live 2026 predictions.** Run `predict.py` after qualifying, commit and push
+   the CSV before lights out, score it after the race. It retrains both v1.0
+   and v2.0 on every race so far, so they learn the 2026 cars as the season
+   goes, and the live record is the only clean test either model will get.
 2. **Pole stickiness as an interaction**, not a stand-alone circuit feature:
    how much grid position is worth at this track.
 3. **Weekend-specific car pace**: a team's qualifying gap this weekend against

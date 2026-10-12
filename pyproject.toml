@@ -14,7 +14,12 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-filterwarnings = ["ignore:The 'generic' unit for NumPy timedelta:DeprecationWarning"]
+# Both come from pandas internals or from files frozen at the v1.0 / v2.0 tags;
+# the pinned pandas version behaves as intended.
+filterwarnings = [
+    "ignore:The 'generic' unit for NumPy timedelta:DeprecationWarning",
+    "ignore:Downcasting object dtype arrays:FutureWarning",
+]
 
 [tool.ruff]
 line-length = 100

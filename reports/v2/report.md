@@ -20,3 +20,16 @@
 ## v2_dev_notes
 
 v2.0 as frozen: 15 features, binary XGBoost (`max_depth` 2, 400 trees) with monotone constraints, 15 seeds averaged. Against v1.0 on these 92 races: winners +2.2% (95% CI -5.4% to +9.8%), log loss -0.0059 (95% CI -0.0122 to +0.0010). These are development numbers.
+
+## v2_confirmation
+
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Log loss | Race log loss |
+| --- | --- | --- | --- | --- | --- | --- |
+| v2.0 | 12 of 17 (70.6%) | 46.9% to 86.7% | +0.0% (-17.6% to +17.6%) | 15 of 17 | 0.0683 | 0.903 |
+| v1.0 | 13 of 17 (76.5%) | 52.7% to 90.4% | +5.9% (+0.0% to +17.6%) | 16 of 17 | 0.0686 | 0.881 |
+| Pole sitter | 12 of 17 (70.6%) | 46.9% to 86.7% | baseline | 16 of 17 | n/a | n/a |
+| Grid-only logistic regression | 12 of 17 (70.6%) | 46.9% to 86.7% | +0.0% (+0.0% to +0.0%) | 16 of 17 | 0.1028 | 1.536 |
+
+## v2_confirmation_notes
+
+2026 rounds 1-17, scored once on 2026-10-12 at tag `v2.0` (9a0ec2e), which was pushed first. v2.0 against v1.0: winners -5.9% (95% CI -17.6% to +0.0%), log loss -0.0003 (95% CI -0.0123 to +0.0150).

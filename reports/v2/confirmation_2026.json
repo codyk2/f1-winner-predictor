@@ -1,0 +1,57 @@
+{
+  "run_at": "2026-10-12T17:46:08+00:00",
+  "tag": "v2.0",
+  "tag_commit": "9a0ec2e3780d1e289285e23b15c4fb7d1b860afe",
+  "season": 2026,
+  "rounds": 17,
+  "models": {
+    "v2.0": {
+      "races": 17,
+      "winner_hit": 0.7058823529411765,
+      "top3_hit": 0.8823529411764706,
+      "pole_lost_races": 5,
+      "hit_when_pole_lost": 0.2,
+      "log_loss": 0.06834471337522309,
+      "brier": 0.019346094574333277,
+      "race_nll": 0.90270307227502
+    },
+    "v1.0": {
+      "races": 17,
+      "winner_hit": 0.7647058823529411,
+      "top3_hit": 0.9411764705882353,
+      "pole_lost_races": 5,
+      "hit_when_pole_lost": 0.2,
+      "log_loss": 0.06861557185438472,
+      "brier": 0.020265922787883826,
+      "race_nll": 0.8813104082616039
+    },
+    "Pole sitter": {
+      "races": 17,
+      "winner_hit": 0.7058823529411765,
+      "top3_hit": 0.9411764705882353,
+      "pole_lost_races": 5,
+      "hit_when_pole_lost": 0.0,
+      "log_loss": null,
+      "brier": null,
+      "race_nll": null
+    },
+    "Grid-only logistic regression": {
+      "races": 17,
+      "winner_hit": 0.7058823529411765,
+      "top3_hit": 0.9411764705882353,
+      "pole_lost_races": 5,
+      "hit_when_pole_lost": 0.0,
+      "log_loss": 0.10281066989468786,
+      "brier": 0.02536246009242486,
+      "race_nll": 1.5367088626306624
+    }
+  },
+  "v2_minus_v1": {
+    "hits": -0.058823529411764705,
+    "hits_lo": -0.17647058823529413,
+    "hits_hi": 0.0,
+    "log_loss": -0.00027085847916163026,
+    "log_loss_lo": -0.012275064643310346,
+    "log_loss_hi": 0.015017694794728363
+  }
+}
