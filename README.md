@@ -23,9 +23,10 @@ re-tuned, went 13 of 17 against 12 for the pole sitter.
 [Details and caveats below.](#2026-so-far-a-second-look-after-the-fact)
 
 Then came [three passes at a better model](#version-2-improving-the-model-after-the-test).
-Version 2.0 rebuilds two weak features and adds monotone constraints. It beats
-v1.0 on the four development seasons (56 winners of 92 against 54, log loss 6%
-lower) and does not beat it on 2026 (12 of 17 against 13, log loss equal).
+Version 2.0 rebuilds the long-run practice feature, adds two qualifying
+features and constrains the trees to be monotone. It beats v1.0 on the four
+development seasons (56 winners of 92 against 54, log loss 6% lower) and does
+not beat it on 2026 (12 of 17 against 13, log loss equal).
 Both models are now scored side by side on every race still to come.
 
 **2025 season, 24 races. The model was frozen and tagged `v1.0` before this was run, once.**
