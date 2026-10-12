@@ -16,6 +16,10 @@ depth of the ranking: the winner was in its top three in all 24 races, it called
 grid-only logistic regression (inside the noise on 24 races; 23% lower and
 clear of it on the 68 validation races).
 
+A second check, run after the fact on the first 17 races of 2026 with nothing
+re-tuned, went 13 of 17 against 12 for the pole sitter, with log loss 33% below
+the grid-only model. [Details and caveats below.](#2026-so-far-a-second-look-after-the-fact)
+
 **2025 season, 24 races. The model was frozen and tagged `v1.0` before this was run, once.**
 
 <!-- results_2025:start -->
@@ -46,6 +50,7 @@ make test-2025    # the locked 2025 run
 sources throttle (see [Data](#data-and-features)), so expect one to two hours,
 most of it waiting. After that every session is served from `data/cache` and a
 rebuild takes about two minutes.
+
 `make test-2025` only runs at the `v1.0` tag and only once; in this repository
 it has already been run, so use `make report` to rebuild the tables and figures
 from the saved predictions, or check out `v1.0` in a clean clone to reproduce
@@ -135,8 +140,9 @@ checked on a synthetic championship in CI and on the real tables locally:
 2. *No same-race data.* Shuffling the target race's finishing order leaves its
    features unchanged (and does change later races' features, so the test is not vacuous).
 
-Two further tests swap in a deliberately leaky rolling mean and confirm both
-properties fail. Rolling windows are always shifted by one race first.
+Two further tests swap in a deliberately leaky feature (a rolling mean without
+the shift, then a whole-career mean) and confirm the checks catch each one.
+Rolling windows are always shifted by one race first.
 
 **Walk-forward folds.** Each fold trains on the past and predicts the next
 season, exactly as the model would be used.
@@ -322,6 +328,64 @@ model's own, and they come in two kinds:
 In all nine misses the eventual winner was the model's second choice (seven
 times) or third (twice).
 
+## 2026 so far: a second look, after the fact
+
+`v1.0` was frozen with the 2026 season already under way, so 2026 gives a
+second out-of-sample check under new regulations and a 22-car grid. These are
+**not live predictions**: the races had been run, and no commit timestamp
+proves otherwise. What can be checked is the protocol: the feature list and
+parameters are the ones tagged `v1.0`, each race's result is hidden before its
+features are built, and each model is trained only on earlier races (so the
+model for round 1 has never seen a 2026 car, and the one for round 17 has
+seen sixteen races of them).
+
+<!-- season_2026_notes:start -->
+Rounds 1-17 of 2026, re-scored on 2026-10-12 after the races were run. Each race was scored by the frozen v1.0 setup retrained on every earlier race, with that race's result hidden. Log loss against the grid-only logistic regression: -0.0342 (-33.3%; 95% CI -0.0835 to +0.0006).
+<!-- season_2026_notes:end -->
+
+<!-- season_2026:start -->
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 5 races pole lost | Log loss | Brier |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| XGBoost | 13 of 17 (76.5%) | 52.9% to 94.1% | +5.9% (+0.0% to +17.6%) | 16 of 17 (94.1%) | 1 of 5 | 0.0686 | 0.0203 |
+| Pole sitter | 12 of 17 (70.6%) | 47.1% to 88.2% | baseline | 16 of 17 (94.1%) | 0 of 5 | n/a | n/a |
+| Form leader | 1 of 17 (5.9%) | 0.0% to 17.6% | -64.7% (-88.2% to -41.2%) | 9 of 17 (52.9%) | 0 of 5 | n/a | n/a |
+| Grid-only logistic regression | 12 of 17 (70.6%) | 47.1% to 88.2% | same result in every race | 16 of 17 (94.1%) | 0 of 5 | 0.1028 | 0.0254 |
+<!-- season_2026:end -->
+
+<details>
+<summary>Race by race</summary>
+
+<!-- season_2026_races:start -->
+| Rd | Race | Winner (grid) | Model pick (grid) | P(pick) | Pole sitter | Pick right? | Pole right? | P(winner) | Winner's rank |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Australian | RUS (P1) | RUS (P1) | 70% | RUS | yes | yes | 70% | 1 |
+| 2 | Chinese | ANT (P1) | ANT (P1) | 64% | ANT | yes | yes | 64% | 1 |
+| 3 | Japanese | ANT (P1) | ANT (P1) | 64% | ANT | yes | yes | 64% | 1 |
+| 4 | Miami | ANT (P1) | ANT (P1) | 70% | ANT | yes | yes | 70% | 1 |
+| 5 | Canadian | ANT (P2) | RUS (P1) | 50% | RUS | **no** | no | 32% | 2 |
+| 6 | Monaco | ANT (P1) | ANT (P1) | 68% | ANT | yes | yes | 68% | 1 |
+| 7 | Barcelona | HAM (P2) | ANT (P3) | 50% | RUS | **no** | no | 20% | 3 |
+| 8 | Austrian | RUS (P1) | RUS (P1) | 33% | RUS | yes | yes | 33% | 1 |
+| 9 | British | LEC (P2) | ANT (P1) | 78% | ANT | **no** | no | 6% | 3 |
+| 10 | Belgian | ANT (P1) | ANT (P1) | 74% | ANT | yes | yes | 74% | 1 |
+| 11 | Hungarian | NOR (P1) | NOR (P1) | 42% | NOR | yes | yes | 42% | 1 |
+| 12 | Dutch | NOR (P1) | NOR (P1) | 62% | NOR | yes | yes | 62% | 1 |
+| 13 | Italian | ANT (P19) | HAM (P4) | 23% | GAS | **no** | no | 16% | 4 |
+| 14 | Spanish | ANT (P2) | ANT (P2) | 40% | NOR | yes | no | 40% | 1 |
+| 15 | Azerbaijan | RUS (P1) | RUS (P1) | 59% | RUS | yes | yes | 59% | 1 |
+| 16 | Bahrain | VER (P1) | VER (P1) | 48% | VER | yes | yes | 48% | 1 |
+| 17 | Singapore | VER (P1) | VER (P1) | 47% | VER | yes | yes | 47% | 1 |
+<!-- season_2026_races:end -->
+
+</details>
+
+Thirteen of 17 against 12 is one race, and the interval on the log-loss gap
+just reaches zero, so this agrees with validation and 2025 rather than
+settling anything: about as good as pole at picking, better at probabilities.
+Reproduce with `python -m f1pred.predict 2026 17 --season`. The first chance at
+a real pre-race prediction is round 18: run `python -m f1pred.predict 2026 18`
+after qualifying and commit `predictions/2026_R18.csv` before lights out.
+
 ## Limitations and next steps
 
 - **24 races cannot separate 15 from 16.** Validation pointed the other way
@@ -368,7 +432,7 @@ src/f1pred/
   baselines.py   pole sitter, form leader, grid-only logistic regression
   train.py       walk-forward validation, tuning, freeze
   evaluate.py    metrics tables, figures, the locked 2025 run
-  predict.py     score an upcoming race
+  predict.py     score an upcoming race; re-score a season walk-forward
   race_facts.py  what happened in the races the model missed
   metrics.py, plots.py, eda.py, config.py
 notebooks/       01_eda.ipynb, 02_results.ipynb (display only; the scripts do the work)
@@ -376,5 +440,6 @@ tests/           test_leakage.py, test_pipeline.py, synthetic.py
 config/model.json   the frozen features and parameters
 reports/         validation and 2025 outputs, figures
 models/          the five fitted boosters from the 2025 run
+predictions/     2026 output: the walk-forward re-score, then live pre-race files
 app.py           Streamlit demo
 ```

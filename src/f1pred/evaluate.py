@@ -79,12 +79,12 @@ def num(x: float, digits: int = 4) -> str:
     return "n/a" if pd.isna(x) else f"{x:.{digits}f}"
 
 
-def grid_slot(grid: pd.Series) -> pd.Series:
-    """' (P3)' for a grid slot, ' (pit lane)' for 21 and up, '' when unknown."""
+def grid_slot(grid: pd.Series, field: int = 20) -> pd.Series:
+    """' (P3)' for a grid slot, ' (pit lane)' beyond the last slot, '' when unknown."""
     def one(g: float) -> str:
         if pd.isna(g):
             return ""
-        return " (pit lane)" if g > 20 else f" (P{int(g)})"
+        return " (pit lane)" if g > field else f" (P{int(g)})"
     return grid.map(one)
 
 

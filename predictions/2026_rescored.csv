@@ -1,0 +1,1497 @@
+season,round,event,DriverId,Abbreviation,FullName,TeamId,grid_pos,quali_pos,won,finish_pos,model,p,rank
+2026,1,Australian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.704625,1
+2026,1,Australian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,0,2.000000,XGBoost,0.063157,3
+2026,1,Australian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,3.000000,3.000000,0,20.000000,XGBoost,0.034280,4
+2026,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,XGBoost,0.032365,5
+2026,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,21.000000,XGBoost,0.024612,6
+2026,1,Australian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,5.000000,XGBoost,0.017511,7
+2026,1,Australian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,7.000000,7.000000,0,4.000000,XGBoost,0.002067,11
+2026,1,Australian Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,13.000000,XGBoost,0.001404,18
+2026,1,Australian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,8.000000,XGBoost,0.005315,8
+2026,1,Australian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,9.000000,XGBoost,0.001513,16
+2026,1,Australian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,22.000000,XGBoost,0.001811,13
+2026,1,Australian Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,7.000000,XGBoost,0.001573,15
+2026,1,Australian Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,XGBoost,0.001172,19
+2026,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,10.000000,XGBoost,0.005286,9
+2026,1,Australian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,12.000000,XGBoost,0.001907,12
+2026,1,Australian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,14.000000,XGBoost,0.000729,22
+2026,1,Australian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,18.000000,XGBoost,0.000902,20
+2026,1,Australian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,16.000000,XGBoost,0.001604,14
+2026,1,Australian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,19.000000,XGBoost,0.000731,21
+2026,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,20.000000,,0,6.000000,XGBoost,0.091462,2
+2026,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,williams,21.000000,,0,15.000000,XGBoost,0.004508,10
+2026,1,Australian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,,0,17.000000,XGBoost,0.001465,17
+2026,1,Australian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,1,Australian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,0,2.000000,Pole sitter,,2
+2026,1,Australian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,3.000000,3.000000,0,20.000000,Pole sitter,,3
+2026,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,Pole sitter,,4
+2026,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,21.000000,Pole sitter,,5
+2026,1,Australian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,5.000000,Pole sitter,,6
+2026,1,Australian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,7.000000,7.000000,0,4.000000,Pole sitter,,7
+2026,1,Australian Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,13.000000,Pole sitter,,8
+2026,1,Australian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,8.000000,Pole sitter,,9
+2026,1,Australian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,9.000000,Pole sitter,,10
+2026,1,Australian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,22.000000,Pole sitter,,11
+2026,1,Australian Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,7.000000,Pole sitter,,12
+2026,1,Australian Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,Pole sitter,,13
+2026,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,10.000000,Pole sitter,,14
+2026,1,Australian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,12.000000,Pole sitter,,15
+2026,1,Australian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,14.000000,Pole sitter,,16
+2026,1,Australian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,18.000000,Pole sitter,,17
+2026,1,Australian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,16.000000,Pole sitter,,18
+2026,1,Australian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,19.000000,Pole sitter,,19
+2026,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,20.000000,,0,6.000000,Pole sitter,,20
+2026,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,williams,21.000000,,0,15.000000,Pole sitter,,21
+2026,1,Australian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,,0,17.000000,Pole sitter,,22
+2026,1,Australian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Form leader,,2
+2026,1,Australian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,0,2.000000,Form leader,,4
+2026,1,Australian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,3.000000,3.000000,0,20.000000,Form leader,,12
+2026,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,Form leader,,6
+2026,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,21.000000,Form leader,,5
+2026,1,Australian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,5.000000,Form leader,,3
+2026,1,Australian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,7.000000,7.000000,0,4.000000,Form leader,,10
+2026,1,Australian Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,13.000000,Form leader,,15
+2026,1,Australian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,8.000000,Form leader,,22
+2026,1,Australian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,9.000000,Form leader,,16
+2026,1,Australian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,22.000000,Form leader,,13
+2026,1,Australian Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,7.000000,Form leader,,7
+2026,1,Australian Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,Form leader,,9
+2026,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,10.000000,Form leader,,17
+2026,1,Australian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,12.000000,Form leader,,14
+2026,1,Australian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,14.000000,Form leader,,21
+2026,1,Australian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,18.000000,Form leader,,11
+2026,1,Australian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,16.000000,Form leader,,19
+2026,1,Australian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,19.000000,Form leader,,18
+2026,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,20.000000,,0,6.000000,Form leader,,1
+2026,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,williams,21.000000,,0,15.000000,Form leader,,8
+2026,1,Australian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,,0,17.000000,Form leader,,20
+2026,1,Australian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.462138,1
+2026,1,Australian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,0,2.000000,Grid-only logistic regression,0.266266,2
+2026,1,Australian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,3.000000,3.000000,0,20.000000,Grid-only logistic regression,0.112008,3
+2026,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,Grid-only logistic regression,0.069593,4
+2026,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,21.000000,Grid-only logistic regression,0.041269,5
+2026,1,Australian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,5.000000,Grid-only logistic regression,0.023135,6
+2026,1,Australian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,7.000000,7.000000,0,4.000000,Grid-only logistic regression,0.014229,7
+2026,1,Australian Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,13.000000,Grid-only logistic regression,0.004975,8
+2026,1,Australian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,8.000000,Grid-only logistic regression,0.003128,9
+2026,1,Australian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,9.000000,Grid-only logistic regression,0.001456,10
+2026,1,Australian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,22.000000,Grid-only logistic regression,0.000815,11
+2026,1,Australian Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,7.000000,Grid-only logistic regression,0.000494,12
+2026,1,Australian Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,Grid-only logistic regression,0.000248,13
+2026,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,10.000000,Grid-only logistic regression,0.000150,14
+2026,1,Australian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,12.000000,Grid-only logistic regression,0.000057,15
+2026,1,Australian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,14.000000,Grid-only logistic regression,0.000026,16
+2026,1,Australian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,18.000000,Grid-only logistic regression,0.000007,17
+2026,1,Australian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,16.000000,Grid-only logistic regression,0.000002,18
+2026,1,Australian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,19.000000,Grid-only logistic regression,0.000002,19
+2026,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,20.000000,,0,6.000000,Grid-only logistic regression,0.000001,20
+2026,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,williams,21.000000,,0,15.000000,Grid-only logistic regression,0.000001,21
+2026,1,Australian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,,0,17.000000,Grid-only logistic regression,0.000000,22
+2026,2,Chinese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.640718,1
+2026,2,Chinese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,XGBoost,0.116167,3
+2026,2,Chinese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,XGBoost,0.017430,5
+2026,2,Chinese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,4.000000,XGBoost,0.147517,2
+2026,2,Chinese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,19.000000,XGBoost,0.006344,7
+2026,2,Chinese Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,20.000000,XGBoost,0.010105,6
+2026,2,Chinese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,6.000000,XGBoost,0.001311,12
+2026,2,Chinese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,16.000000,XGBoost,0.046832,4
+2026,2,Chinese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,9.000000,9.000000,0,8.000000,XGBoost,0.001144,13
+2026,2,Chinese Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,10.000000,0,5.000000,XGBoost,0.001744,10
+2026,2,Chinese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,11.000000,XGBoost,0.001713,11
+2026,2,Chinese Grand Prix,colapinto,COL,Franco Colapinto,alpine,12.000000,12.000000,0,10.000000,XGBoost,0.000402,22
+2026,2,Chinese Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,14.000000,XGBoost,0.000567,16
+2026,2,Chinese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,7.000000,XGBoost,0.000979,14
+2026,2,Chinese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,12.000000,XGBoost,0.002123,8
+2026,2,Chinese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,21.000000,XGBoost,0.000466,21
+2026,2,Chinese Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,9.000000,XGBoost,0.001771,9
+2026,2,Chinese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,19.000000,0,17.000000,XGBoost,0.000673,15
+2026,2,Chinese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,13.000000,XGBoost,0.000559,17
+2026,2,Chinese Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,21.000000,0,18.000000,XGBoost,0.000473,19
+2026,2,Chinese Grand Prix,perez,PER,Sergio Perez,cadillac,21.000000,22.000000,0,15.000000,XGBoost,0.000473,20
+2026,2,Chinese Grand Prix,albon,ALB,Alexander Albon,williams,22.000000,18.000000,0,22.000000,XGBoost,0.000488,18
+2026,2,Chinese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,2,Chinese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,Pole sitter,,2
+2026,2,Chinese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,Pole sitter,,3
+2026,2,Chinese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,4.000000,Pole sitter,,4
+2026,2,Chinese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,19.000000,Pole sitter,,5
+2026,2,Chinese Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,20.000000,Pole sitter,,6
+2026,2,Chinese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,6.000000,Pole sitter,,7
+2026,2,Chinese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,16.000000,Pole sitter,,8
+2026,2,Chinese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,9.000000,9.000000,0,8.000000,Pole sitter,,9
+2026,2,Chinese Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,10.000000,0,5.000000,Pole sitter,,10
+2026,2,Chinese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,11.000000,Pole sitter,,11
+2026,2,Chinese Grand Prix,colapinto,COL,Franco Colapinto,alpine,12.000000,12.000000,0,10.000000,Pole sitter,,12
+2026,2,Chinese Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,14.000000,Pole sitter,,13
+2026,2,Chinese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,7.000000,Pole sitter,,14
+2026,2,Chinese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,12.000000,Pole sitter,,15
+2026,2,Chinese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,21.000000,Pole sitter,,16
+2026,2,Chinese Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,9.000000,Pole sitter,,17
+2026,2,Chinese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,19.000000,0,17.000000,Pole sitter,,18
+2026,2,Chinese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,13.000000,Pole sitter,,19
+2026,2,Chinese Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,21.000000,0,18.000000,Pole sitter,,20
+2026,2,Chinese Grand Prix,perez,PER,Sergio Perez,cadillac,21.000000,22.000000,0,15.000000,Pole sitter,,21
+2026,2,Chinese Grand Prix,albon,ALB,Alexander Albon,williams,22.000000,18.000000,0,22.000000,Pole sitter,,22
+2026,2,Chinese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Form leader,,3
+2026,2,Chinese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,Form leader,,2
+2026,2,Chinese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,Form leader,,8
+2026,2,Chinese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,4.000000,Form leader,,5
+2026,2,Chinese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,19.000000,Form leader,,9
+2026,2,Chinese Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,20.000000,Form leader,,4
+2026,2,Chinese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,6.000000,Form leader,,16
+2026,2,Chinese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,16.000000,Form leader,,1
+2026,2,Chinese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,9.000000,9.000000,0,8.000000,Form leader,,17
+2026,2,Chinese Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,10.000000,0,5.000000,Form leader,,10
+2026,2,Chinese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,11.000000,Form leader,,15
+2026,2,Chinese Grand Prix,colapinto,COL,Franco Colapinto,alpine,12.000000,12.000000,0,10.000000,Form leader,,20
+2026,2,Chinese Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,14.000000,Form leader,,11
+2026,2,Chinese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,7.000000,Form leader,,13
+2026,2,Chinese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,12.000000,Form leader,,6
+2026,2,Chinese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,21.000000,Form leader,,18
+2026,2,Chinese Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,9.000000,Form leader,,7
+2026,2,Chinese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,19.000000,0,17.000000,Form leader,,12
+2026,2,Chinese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,13.000000,Form leader,,22
+2026,2,Chinese Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,21.000000,0,18.000000,Form leader,,21
+2026,2,Chinese Grand Prix,perez,PER,Sergio Perez,cadillac,21.000000,22.000000,0,15.000000,Form leader,,19
+2026,2,Chinese Grand Prix,albon,ALB,Alexander Albon,williams,22.000000,18.000000,0,22.000000,Form leader,,14
+2026,2,Chinese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.388348,1
+2026,2,Chinese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,Grid-only logistic regression,0.243195,2
+2026,2,Chinese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,Grid-only logistic regression,0.149363,3
+2026,2,Chinese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,4.000000,Grid-only logistic regression,0.096366,4
+2026,2,Chinese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,5.000000,5.000000,0,19.000000,Grid-only logistic regression,0.055041,5
+2026,2,Chinese Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,20.000000,Grid-only logistic regression,0.032667,6
+2026,2,Chinese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,6.000000,Grid-only logistic regression,0.015790,7
+2026,2,Chinese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,16.000000,Grid-only logistic regression,0.008604,8
+2026,2,Chinese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,9.000000,9.000000,0,8.000000,Grid-only logistic regression,0.004716,9
+2026,2,Chinese Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,10.000000,0,5.000000,Grid-only logistic regression,0.002689,10
+2026,2,Chinese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,11.000000,Grid-only logistic regression,0.001417,11
+2026,2,Chinese Grand Prix,colapinto,COL,Franco Colapinto,alpine,12.000000,12.000000,0,10.000000,Grid-only logistic regression,0.000865,12
+2026,2,Chinese Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,14.000000,Grid-only logistic regression,0.000445,13
+2026,2,Chinese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,7.000000,Grid-only logistic regression,0.000219,14
+2026,2,Chinese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,12.000000,Grid-only logistic regression,0.000132,15
+2026,2,Chinese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,21.000000,Grid-only logistic regression,0.000101,16
+2026,2,Chinese Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,9.000000,Grid-only logistic regression,0.000030,17
+2026,2,Chinese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,19.000000,0,17.000000,Grid-only logistic regression,0.000008,18
+2026,2,Chinese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,13.000000,Grid-only logistic regression,0.000004,19
+2026,2,Chinese Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,21.000000,0,18.000000,Grid-only logistic regression,0.000001,21
+2026,2,Chinese Grand Prix,perez,PER,Sergio Perez,cadillac,21.000000,22.000000,0,15.000000,Grid-only logistic regression,0.000000,22
+2026,2,Chinese Grand Prix,albon,ALB,Alexander Albon,williams,22.000000,18.000000,0,22.000000,Grid-only logistic regression,0.000002,20
+2026,3,Japanese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.641134,1
+2026,3,Japanese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,4.000000,XGBoost,0.157327,2
+2026,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,2.000000,XGBoost,0.038102,5
+2026,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,XGBoost,0.067287,3
+2026,3,Japanese Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,5.000000,XGBoost,0.008063,6
+2026,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,XGBoost,0.005566,8
+2026,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,7.000000,XGBoost,0.002661,11
+2026,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,12.000000,XGBoost,0.006433,7
+2026,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,XGBoost,0.001419,16
+2026,3,Japanese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,14.000000,XGBoost,0.001923,13
+2026,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,11.000000,11.000000,0,8.000000,XGBoost,0.051714,4
+2026,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,12.000000,0,10.000000,XGBoost,0.002904,10
+2026,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,11.000000,XGBoost,0.001473,15
+2026,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,9.000000,XGBoost,0.001755,14
+2026,3,Japanese Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,15.000000,0,16.000000,XGBoost,0.001074,19
+2026,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,15.000000,XGBoost,0.003493,9
+2026,3,Japanese Grand Prix,albon,ALB,Alexander Albon,williams,17.000000,17.000000,0,20.000000,XGBoost,0.001027,20
+2026,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,haas,18.000000,18.000000,0,22.000000,XGBoost,0.001377,17
+2026,3,Japanese Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,17.000000,XGBoost,0.002347,12
+2026,3,Japanese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,19.000000,XGBoost,0.000864,21
+2026,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,XGBoost,0.001332,18
+2026,3,Japanese Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,21.000000,XGBoost,0.000726,22
+2026,3,Japanese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,3,Japanese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,4.000000,Pole sitter,,2
+2026,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,2.000000,Pole sitter,,3
+2026,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,Pole sitter,,4
+2026,3,Japanese Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,5.000000,Pole sitter,,5
+2026,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Pole sitter,,6
+2026,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,7.000000,Pole sitter,,7
+2026,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,12.000000,Pole sitter,,8
+2026,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,Pole sitter,,9
+2026,3,Japanese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,14.000000,Pole sitter,,10
+2026,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,11.000000,11.000000,0,8.000000,Pole sitter,,11
+2026,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,12.000000,0,10.000000,Pole sitter,,12
+2026,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,11.000000,Pole sitter,,13
+2026,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,9.000000,Pole sitter,,14
+2026,3,Japanese Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,15.000000,0,16.000000,Pole sitter,,15
+2026,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,15.000000,Pole sitter,,16
+2026,3,Japanese Grand Prix,albon,ALB,Alexander Albon,williams,17.000000,17.000000,0,20.000000,Pole sitter,,17
+2026,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,haas,18.000000,18.000000,0,22.000000,Pole sitter,,18
+2026,3,Japanese Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,17.000000,Pole sitter,,19
+2026,3,Japanese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,19.000000,Pole sitter,,20
+2026,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,Pole sitter,,21
+2026,3,Japanese Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,21.000000,Pole sitter,,22
+2026,3,Japanese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Form leader,,4
+2026,3,Japanese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,4.000000,Form leader,,1
+2026,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,2.000000,Form leader,,13
+2026,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,Form leader,,2
+2026,3,Japanese Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,5.000000,Form leader,,8
+2026,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Form leader,,5
+2026,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,7.000000,Form leader,,14
+2026,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,12.000000,Form leader,,15
+2026,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,Form leader,,17
+2026,3,Japanese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,14.000000,Form leader,,7
+2026,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,11.000000,11.000000,0,8.000000,Form leader,,3
+2026,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,12.000000,0,10.000000,Form leader,,10
+2026,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,11.000000,Form leader,,16
+2026,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,9.000000,Form leader,,12
+2026,3,Japanese Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,15.000000,0,16.000000,Form leader,,18
+2026,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,15.000000,Form leader,,6
+2026,3,Japanese Grand Prix,albon,ALB,Alexander Albon,williams,17.000000,17.000000,0,20.000000,Form leader,,19
+2026,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,haas,18.000000,18.000000,0,22.000000,Form leader,,9
+2026,3,Japanese Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,17.000000,Form leader,,20
+2026,3,Japanese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,19.000000,Form leader,,21
+2026,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,Form leader,,11
+2026,3,Japanese Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,21.000000,Form leader,,22
+2026,3,Japanese Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.411104,1
+2026,3,Japanese Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,4.000000,Grid-only logistic regression,0.241351,2
+2026,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,2.000000,Grid-only logistic regression,0.155339,3
+2026,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,3.000000,Grid-only logistic regression,0.086516,4
+2026,3,Japanese Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,5.000000,Grid-only logistic regression,0.049437,5
+2026,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Grid-only logistic regression,0.026391,6
+2026,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,7.000000,Grid-only logistic regression,0.014403,7
+2026,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,12.000000,Grid-only logistic regression,0.006649,8
+2026,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,Grid-only logistic regression,0.004019,9
+2026,3,Japanese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,14.000000,Grid-only logistic regression,0.002181,10
+2026,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,11.000000,11.000000,0,8.000000,Grid-only logistic regression,0.001143,11
+2026,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,12.000000,0,10.000000,Grid-only logistic regression,0.000666,12
+2026,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,11.000000,Grid-only logistic regression,0.000387,13
+2026,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,rb,14.000000,14.000000,0,9.000000,Grid-only logistic regression,0.000206,14
+2026,3,Japanese Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,15.000000,0,16.000000,Grid-only logistic regression,0.000110,15
+2026,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,15.000000,Grid-only logistic regression,0.000050,16
+2026,3,Japanese Grand Prix,albon,ALB,Alexander Albon,williams,17.000000,17.000000,0,20.000000,Grid-only logistic regression,0.000026,17
+2026,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,haas,18.000000,18.000000,0,22.000000,Grid-only logistic regression,0.000016,18
+2026,3,Japanese Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,17.000000,Grid-only logistic regression,0.000003,19
+2026,3,Japanese Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,19.000000,Grid-only logistic regression,0.000002,20
+2026,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,Grid-only logistic regression,0.000001,21
+2026,3,Japanese Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,21.000000,Grid-only logistic regression,0.000000,22
+2026,4,Miami Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.703751,1
+2026,4,Miami Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,5.000000,XGBoost,0.052379,4
+2026,4,Miami Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,3.000000,0,8.000000,XGBoost,0.132669,2
+2026,4,Miami Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,2.000000,XGBoost,0.054411,3
+2026,4,Miami Grand Prix,russell,RUS,George Russell,mercedes,5.000000,5.000000,0,4.000000,XGBoost,0.036086,5
+2026,4,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,XGBoost,0.006490,6
+2026,4,Miami Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,3.000000,XGBoost,0.003125,7
+2026,4,Miami Grand Prix,colapinto,COL,Franco Colapinto,alpine,8.000000,8.000000,0,7.000000,XGBoost,0.001292,11
+2026,4,Miami Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,21.000000,XGBoost,0.001349,9
+2026,4,Miami Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,19.000000,XGBoost,0.000624,13
+2026,4,Miami Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,20.000000,XGBoost,0.000501,17
+2026,4,Miami Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,11.000000,XGBoost,0.000699,12
+2026,4,Miami Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,9.000000,XGBoost,0.001414,8
+2026,4,Miami Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,14.000000,0,13.000000,XGBoost,0.000487,18
+2026,4,Miami Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,10.000000,XGBoost,0.000465,19
+2026,4,Miami Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,16.000000,16.000000,0,14.000000,XGBoost,0.000413,21
+2026,4,Miami Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,15.000000,XGBoost,0.000602,14
+2026,4,Miami Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,18.000000,0,17.000000,XGBoost,0.000440,20
+2026,4,Miami Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,18.000000,XGBoost,0.000562,16
+2026,4,Miami Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,16.000000,XGBoost,0.000352,22
+2026,4,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,21.000000,21.000000,0,12.000000,XGBoost,0.000575,15
+2026,4,Miami Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,22.000000,XGBoost,0.001316,10
+2026,4,Miami Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,4,Miami Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,5.000000,Pole sitter,,2
+2026,4,Miami Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,3.000000,0,8.000000,Pole sitter,,3
+2026,4,Miami Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,2.000000,Pole sitter,,4
+2026,4,Miami Grand Prix,russell,RUS,George Russell,mercedes,5.000000,5.000000,0,4.000000,Pole sitter,,5
+2026,4,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Pole sitter,,6
+2026,4,Miami Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,3.000000,Pole sitter,,7
+2026,4,Miami Grand Prix,colapinto,COL,Franco Colapinto,alpine,8.000000,8.000000,0,7.000000,Pole sitter,,8
+2026,4,Miami Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,21.000000,Pole sitter,,9
+2026,4,Miami Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,19.000000,Pole sitter,,10
+2026,4,Miami Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,20.000000,Pole sitter,,11
+2026,4,Miami Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,11.000000,Pole sitter,,12
+2026,4,Miami Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,9.000000,Pole sitter,,13
+2026,4,Miami Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,14.000000,0,13.000000,Pole sitter,,14
+2026,4,Miami Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,10.000000,Pole sitter,,15
+2026,4,Miami Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,16.000000,16.000000,0,14.000000,Pole sitter,,16
+2026,4,Miami Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,15.000000,Pole sitter,,17
+2026,4,Miami Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,18.000000,0,17.000000,Pole sitter,,18
+2026,4,Miami Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,18.000000,Pole sitter,,19
+2026,4,Miami Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,16.000000,Pole sitter,,20
+2026,4,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,21.000000,21.000000,0,12.000000,Pole sitter,,21
+2026,4,Miami Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,22.000000,Pole sitter,,22
+2026,4,Miami Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Form leader,,3
+2026,4,Miami Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,5.000000,Form leader,,4
+2026,4,Miami Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,3.000000,0,8.000000,Form leader,,2
+2026,4,Miami Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,2.000000,Form leader,,6
+2026,4,Miami Grand Prix,russell,RUS,George Russell,mercedes,5.000000,5.000000,0,4.000000,Form leader,,1
+2026,4,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Form leader,,5
+2026,4,Miami Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,3.000000,Form leader,,7
+2026,4,Miami Grand Prix,colapinto,COL,Franco Colapinto,alpine,8.000000,8.000000,0,7.000000,Form leader,,17
+2026,4,Miami Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,21.000000,Form leader,,12
+2026,4,Miami Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,19.000000,Form leader,,16
+2026,4,Miami Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,20.000000,Form leader,,9
+2026,4,Miami Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,11.000000,Form leader,,13
+2026,4,Miami Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,9.000000,Form leader,,8
+2026,4,Miami Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,14.000000,0,13.000000,Form leader,,11
+2026,4,Miami Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,10.000000,Form leader,,20
+2026,4,Miami Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,16.000000,16.000000,0,14.000000,Form leader,,10
+2026,4,Miami Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,15.000000,Form leader,,14
+2026,4,Miami Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,18.000000,0,17.000000,Form leader,,21
+2026,4,Miami Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,18.000000,Form leader,,19
+2026,4,Miami Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,16.000000,Form leader,,22
+2026,4,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,21.000000,21.000000,0,12.000000,Form leader,,15
+2026,4,Miami Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,22.000000,Form leader,,18
+2026,4,Miami Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.387771,1
+2026,4,Miami Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,5.000000,Grid-only logistic regression,0.250277,2
+2026,4,Miami Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,3.000000,0,8.000000,Grid-only logistic regression,0.146463,3
+2026,4,Miami Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,2.000000,Grid-only logistic regression,0.091638,4
+2026,4,Miami Grand Prix,russell,RUS,George Russell,mercedes,5.000000,5.000000,0,4.000000,Grid-only logistic regression,0.057273,5
+2026,4,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Grid-only logistic regression,0.031697,6
+2026,4,Miami Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,3.000000,Grid-only logistic regression,0.019310,7
+2026,4,Miami Grand Prix,colapinto,COL,Franco Colapinto,alpine,8.000000,8.000000,0,7.000000,Grid-only logistic regression,0.007678,8
+2026,4,Miami Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,21.000000,Grid-only logistic regression,0.004467,9
+2026,4,Miami Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,19.000000,Grid-only logistic regression,0.001436,10
+2026,4,Miami Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,20.000000,Grid-only logistic regression,0.000823,11
+2026,4,Miami Grand Prix,bearman,BEA,Oliver Bearman,haas,12.000000,12.000000,0,11.000000,Grid-only logistic regression,0.000590,12
+2026,4,Miami Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,9.000000,Grid-only logistic regression,0.000293,13
+2026,4,Miami Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,14.000000,0,13.000000,Grid-only logistic regression,0.000141,14
+2026,4,Miami Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,15.000000,0,10.000000,Grid-only logistic regression,0.000090,15
+2026,4,Miami Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,16.000000,16.000000,0,14.000000,Grid-only logistic regression,0.000036,16
+2026,4,Miami Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,17.000000,0,15.000000,Grid-only logistic regression,0.000008,17
+2026,4,Miami Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,18.000000,0,17.000000,Grid-only logistic regression,0.000005,18
+2026,4,Miami Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,19.000000,0,18.000000,Grid-only logistic regression,0.000002,19
+2026,4,Miami Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,16.000000,Grid-only logistic regression,0.000001,20
+2026,4,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,21.000000,21.000000,0,12.000000,Grid-only logistic regression,0.000000,21
+2026,4,Miami Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,22.000000,Grid-only logistic regression,0.000000,22
+2026,5,Canadian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,19.000000,XGBoost,0.502435,1
+2026,5,Canadian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,XGBoost,0.319687,2
+2026,5,Canadian Grand Prix,norris,NOR,Lando Norris,mclaren,3.000000,3.000000,0,18.000000,XGBoost,0.074416,3
+2026,5,Canadian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,11.000000,XGBoost,0.008795,7
+2026,5,Canadian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,2.000000,XGBoost,0.060571,4
+2026,5,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,6.000000,6.000000,0,3.000000,XGBoost,0.010452,6
+2026,5,Canadian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,7.000000,7.000000,0,5.000000,XGBoost,0.001334,9
+2026,5,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,8.000000,8.000000,0,4.000000,XGBoost,0.014618,5
+2026,5,Canadian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,22.000000,XGBoost,0.000722,12
+2026,5,Canadian Grand Prix,colapinto,COL,Franco Colapinto,alpine,10.000000,10.000000,0,6.000000,XGBoost,0.001516,8
+2026,5,Canadian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,12.000000,XGBoost,0.000917,10
+2026,5,Canadian Grand Prix,lawson,LAW,Liam Lawson,rb,12.000000,12.000000,0,7.000000,XGBoost,0.000323,20
+2026,5,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,13.000000,13.000000,0,13.000000,XGBoost,0.000544,13
+2026,5,Canadian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,8.000000,XGBoost,0.000269,22
+2026,5,Canadian Grand Prix,sainz,SAI,Carlos Sainz,williams,15.000000,15.000000,0,9.000000,XGBoost,0.000778,11
+2026,5,Canadian Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,16.000000,0,10.000000,XGBoost,0.000477,14
+2026,5,Canadian Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,14.000000,XGBoost,0.000406,16
+2026,5,Canadian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,21.000000,XGBoost,0.000323,19
+2026,5,Canadian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,19.000000,19.000000,0,20.000000,XGBoost,0.000285,21
+2026,5,Canadian Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,17.000000,XGBoost,0.000476,15
+2026,5,Canadian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,22.000000,0,16.000000,XGBoost,0.000326,18
+2026,5,Canadian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,15.000000,XGBoost,0.000331,17
+2026,5,Canadian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,19.000000,Pole sitter,,1
+2026,5,Canadian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,Pole sitter,,2
+2026,5,Canadian Grand Prix,norris,NOR,Lando Norris,mclaren,3.000000,3.000000,0,18.000000,Pole sitter,,3
+2026,5,Canadian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,11.000000,Pole sitter,,4
+2026,5,Canadian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,2.000000,Pole sitter,,5
+2026,5,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,6.000000,6.000000,0,3.000000,Pole sitter,,6
+2026,5,Canadian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,7.000000,7.000000,0,5.000000,Pole sitter,,7
+2026,5,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,8.000000,8.000000,0,4.000000,Pole sitter,,8
+2026,5,Canadian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,22.000000,Pole sitter,,9
+2026,5,Canadian Grand Prix,colapinto,COL,Franco Colapinto,alpine,10.000000,10.000000,0,6.000000,Pole sitter,,10
+2026,5,Canadian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,12.000000,Pole sitter,,11
+2026,5,Canadian Grand Prix,lawson,LAW,Liam Lawson,rb,12.000000,12.000000,0,7.000000,Pole sitter,,12
+2026,5,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,13.000000,13.000000,0,13.000000,Pole sitter,,13
+2026,5,Canadian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,8.000000,Pole sitter,,14
+2026,5,Canadian Grand Prix,sainz,SAI,Carlos Sainz,williams,15.000000,15.000000,0,9.000000,Pole sitter,,15
+2026,5,Canadian Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,16.000000,0,10.000000,Pole sitter,,16
+2026,5,Canadian Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,14.000000,Pole sitter,,17
+2026,5,Canadian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,21.000000,Pole sitter,,18
+2026,5,Canadian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,19.000000,19.000000,0,20.000000,Pole sitter,,19
+2026,5,Canadian Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,17.000000,Pole sitter,,20
+2026,5,Canadian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,22.000000,0,16.000000,Pole sitter,,21
+2026,5,Canadian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,15.000000,Pole sitter,,22
+2026,5,Canadian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,19.000000,Form leader,,1
+2026,5,Canadian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,Form leader,,2
+2026,5,Canadian Grand Prix,norris,NOR,Lando Norris,mclaren,3.000000,3.000000,0,18.000000,Form leader,,5
+2026,5,Canadian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,11.000000,Form leader,,7
+2026,5,Canadian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,2.000000,Form leader,,4
+2026,5,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,6.000000,6.000000,0,3.000000,Form leader,,6
+2026,5,Canadian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,7.000000,7.000000,0,5.000000,Form leader,,18
+2026,5,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,8.000000,8.000000,0,4.000000,Form leader,,3
+2026,5,Canadian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,22.000000,Form leader,,10
+2026,5,Canadian Grand Prix,colapinto,COL,Franco Colapinto,alpine,10.000000,10.000000,0,6.000000,Form leader,,14
+2026,5,Canadian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,12.000000,Form leader,,16
+2026,5,Canadian Grand Prix,lawson,LAW,Liam Lawson,rb,12.000000,12.000000,0,7.000000,Form leader,,15
+2026,5,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,13.000000,13.000000,0,13.000000,Form leader,,13
+2026,5,Canadian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,8.000000,Form leader,,12
+2026,5,Canadian Grand Prix,sainz,SAI,Carlos Sainz,williams,15.000000,15.000000,0,9.000000,Form leader,,11
+2026,5,Canadian Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,16.000000,0,10.000000,Form leader,,9
+2026,5,Canadian Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,14.000000,Form leader,,8
+2026,5,Canadian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,21.000000,Form leader,,19
+2026,5,Canadian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,19.000000,19.000000,0,20.000000,Form leader,,17
+2026,5,Canadian Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,17.000000,Form leader,,21
+2026,5,Canadian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,22.000000,0,16.000000,Form leader,,22
+2026,5,Canadian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,15.000000,Form leader,,20
+2026,5,Canadian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,19.000000,Grid-only logistic regression,0.365473,1
+2026,5,Canadian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,Grid-only logistic regression,0.250450,2
+2026,5,Canadian Grand Prix,norris,NOR,Lando Norris,mclaren,3.000000,3.000000,0,18.000000,Grid-only logistic regression,0.157722,3
+2026,5,Canadian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,11.000000,Grid-only logistic regression,0.097374,4
+2026,5,Canadian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,2.000000,Grid-only logistic regression,0.055921,5
+2026,5,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,6.000000,6.000000,0,3.000000,Grid-only logistic regression,0.033244,6
+2026,5,Canadian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,7.000000,7.000000,0,5.000000,Grid-only logistic regression,0.019803,7
+2026,5,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,8.000000,8.000000,0,4.000000,Grid-only logistic regression,0.011536,8
+2026,5,Canadian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,22.000000,Grid-only logistic regression,0.004846,9
+2026,5,Canadian Grand Prix,colapinto,COL,Franco Colapinto,alpine,10.000000,10.000000,0,6.000000,Grid-only logistic regression,0.001762,10
+2026,5,Canadian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,12.000000,Grid-only logistic regression,0.000848,11
+2026,5,Canadian Grand Prix,lawson,LAW,Liam Lawson,rb,12.000000,12.000000,0,7.000000,Grid-only logistic regression,0.000508,12
+2026,5,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,13.000000,13.000000,0,13.000000,Grid-only logistic regression,0.000249,13
+2026,5,Canadian Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,8.000000,Grid-only logistic regression,0.000131,14
+2026,5,Canadian Grand Prix,sainz,SAI,Carlos Sainz,williams,15.000000,15.000000,0,9.000000,Grid-only logistic regression,0.000071,15
+2026,5,Canadian Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,16.000000,0,10.000000,Grid-only logistic regression,0.000036,16
+2026,5,Canadian Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,14.000000,Grid-only logistic regression,0.000013,17
+2026,5,Canadian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,21.000000,Grid-only logistic regression,0.000008,18
+2026,5,Canadian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,19.000000,19.000000,0,20.000000,Grid-only logistic regression,0.000003,19
+2026,5,Canadian Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,17.000000,Grid-only logistic regression,0.000001,20
+2026,5,Canadian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,22.000000,0,16.000000,Grid-only logistic regression,0.000000,21
+2026,5,Canadian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,15.000000,Grid-only logistic regression,0.000000,22
+2026,6,Monaco Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.681688,1
+2026,6,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,22.000000,XGBoost,0.098046,3
+2026,6,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,2.000000,XGBoost,0.118624,2
+2026,6,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,17.000000,XGBoost,0.085815,4
+2026,6,Monaco Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,3.000000,XGBoost,0.000833,9
+2026,6,Monaco Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,12.000000,XGBoost,0.003832,5
+2026,6,Monaco Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,XGBoost,0.001534,7
+2026,6,Monaco Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,8.000000,0,19.000000,XGBoost,0.001598,6
+2026,6,Monaco Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,7.000000,XGBoost,0.000621,14
+2026,6,Monaco Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,5.000000,XGBoost,0.000635,13
+2026,6,Monaco Grand Prix,albon,ALB,Alexander Albon,williams,11.000000,11.000000,0,8.000000,XGBoost,0.000747,11
+2026,6,Monaco Grand Prix,sainz,SAI,Carlos Sainz,williams,12.000000,12.000000,0,16.000000,XGBoost,0.000754,10
+2026,6,Monaco Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,13.000000,XGBoost,0.000504,17
+2026,6,Monaco Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,XGBoost,0.000506,16
+2026,6,Monaco Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,6.000000,XGBoost,0.000321,21
+2026,6,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,11.000000,XGBoost,0.000319,22
+2026,6,Monaco Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,9.000000,XGBoost,0.001065,8
+2026,6,Monaco Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,15.000000,XGBoost,0.000705,12
+2026,6,Monaco Grand Prix,bearman,BEA,Oliver Bearman,haas,19.000000,19.000000,0,20.000000,XGBoost,0.000455,18
+2026,6,Monaco Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,XGBoost,0.000394,20
+2026,6,Monaco Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,10.000000,XGBoost,0.000602,15
+2026,6,Monaco Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,18.000000,XGBoost,0.000402,19
+2026,6,Monaco Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,6,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,22.000000,Pole sitter,,2
+2026,6,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,2.000000,Pole sitter,,3
+2026,6,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,17.000000,Pole sitter,,4
+2026,6,Monaco Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,3.000000,Pole sitter,,5
+2026,6,Monaco Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,12.000000,Pole sitter,,6
+2026,6,Monaco Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,Pole sitter,,7
+2026,6,Monaco Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,8.000000,0,19.000000,Pole sitter,,8
+2026,6,Monaco Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,7.000000,Pole sitter,,9
+2026,6,Monaco Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,5.000000,Pole sitter,,10
+2026,6,Monaco Grand Prix,albon,ALB,Alexander Albon,williams,11.000000,11.000000,0,8.000000,Pole sitter,,11
+2026,6,Monaco Grand Prix,sainz,SAI,Carlos Sainz,williams,12.000000,12.000000,0,16.000000,Pole sitter,,12
+2026,6,Monaco Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,13.000000,Pole sitter,,13
+2026,6,Monaco Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,Pole sitter,,14
+2026,6,Monaco Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,6.000000,Pole sitter,,15
+2026,6,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,11.000000,Pole sitter,,16
+2026,6,Monaco Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,9.000000,Pole sitter,,17
+2026,6,Monaco Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,15.000000,Pole sitter,,18
+2026,6,Monaco Grand Prix,bearman,BEA,Oliver Bearman,haas,19.000000,19.000000,0,20.000000,Pole sitter,,19
+2026,6,Monaco Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,Pole sitter,,20
+2026,6,Monaco Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,10.000000,Pole sitter,,21
+2026,6,Monaco Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,18.000000,Pole sitter,,22
+2026,6,Monaco Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Form leader,,1
+2026,6,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,22.000000,Form leader,,5
+2026,6,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,2.000000,Form leader,,2
+2026,6,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,17.000000,Form leader,,3
+2026,6,Monaco Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,3.000000,Form leader,,14
+2026,6,Monaco Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,12.000000,Form leader,,4
+2026,6,Monaco Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,Form leader,,10
+2026,6,Monaco Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,8.000000,0,19.000000,Form leader,,6
+2026,6,Monaco Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,7.000000,Form leader,,7
+2026,6,Monaco Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,5.000000,Form leader,,11
+2026,6,Monaco Grand Prix,albon,ALB,Alexander Albon,williams,11.000000,11.000000,0,8.000000,Form leader,,19
+2026,6,Monaco Grand Prix,sainz,SAI,Carlos Sainz,williams,12.000000,12.000000,0,16.000000,Form leader,,12
+2026,6,Monaco Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,13.000000,Form leader,,17
+2026,6,Monaco Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,Form leader,,8
+2026,6,Monaco Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,6.000000,Form leader,,16
+2026,6,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,11.000000,Form leader,,15
+2026,6,Monaco Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,9.000000,Form leader,,13
+2026,6,Monaco Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,15.000000,Form leader,,18
+2026,6,Monaco Grand Prix,bearman,BEA,Oliver Bearman,haas,19.000000,19.000000,0,20.000000,Form leader,,9
+2026,6,Monaco Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,Form leader,,20
+2026,6,Monaco Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,10.000000,Form leader,,21
+2026,6,Monaco Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,18.000000,Form leader,,22
+2026,6,Monaco Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.380092,1
+2026,6,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,22.000000,Grid-only logistic regression,0.265899,2
+2026,6,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,2.000000,Grid-only logistic regression,0.151107,3
+2026,6,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,4.000000,0,17.000000,Grid-only logistic regression,0.090476,4
+2026,6,Monaco Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,3.000000,Grid-only logistic regression,0.051808,5
+2026,6,Monaco Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,12.000000,Grid-only logistic regression,0.031697,6
+2026,6,Monaco Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,Grid-only logistic regression,0.015664,7
+2026,6,Monaco Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,8.000000,0,19.000000,Grid-only logistic regression,0.008037,8
+2026,6,Monaco Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,7.000000,Grid-only logistic regression,0.002765,9
+2026,6,Monaco Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,5.000000,Grid-only logistic regression,0.001332,10
+2026,6,Monaco Grand Prix,albon,ALB,Alexander Albon,williams,11.000000,11.000000,0,8.000000,Grid-only logistic regression,0.000508,11
+2026,6,Monaco Grand Prix,sainz,SAI,Carlos Sainz,williams,12.000000,12.000000,0,16.000000,Grid-only logistic regression,0.000297,12
+2026,6,Monaco Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,13.000000,Grid-only logistic regression,0.000162,13
+2026,6,Monaco Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,Grid-only logistic regression,0.000087,14
+2026,6,Monaco Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,6.000000,Grid-only logistic regression,0.000039,15
+2026,6,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,16.000000,16.000000,0,11.000000,Grid-only logistic regression,0.000014,16
+2026,6,Monaco Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,9.000000,Grid-only logistic regression,0.000008,17
+2026,6,Monaco Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,18.000000,0,15.000000,Grid-only logistic regression,0.000005,18
+2026,6,Monaco Grand Prix,bearman,BEA,Oliver Bearman,haas,19.000000,19.000000,0,20.000000,Grid-only logistic regression,0.000003,19
+2026,6,Monaco Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,Grid-only logistic regression,0.000001,20
+2026,6,Monaco Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,10.000000,Grid-only logistic regression,0.000000,21
+2026,6,Monaco Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,18.000000,Grid-only logistic regression,0.000000,22
+2026,7,Barcelona Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,2.000000,XGBoost,0.252482,2
+2026,7,Barcelona Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,1,1.000000,XGBoost,0.204040,3
+2026,7,Barcelona Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,16.000000,XGBoost,0.500202,1
+2026,7,Barcelona Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,3.000000,XGBoost,0.011347,5
+2026,7,Barcelona Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,4.000000,XGBoost,0.009255,6
+2026,7,Barcelona Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,6.000000,6.000000,0,6.000000,XGBoost,0.001407,7
+2026,7,Barcelona Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,5.000000,XGBoost,0.011684,4
+2026,7,Barcelona Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,8.000000,XGBoost,0.000793,11
+2026,7,Barcelona Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,9.000000,9.000000,0,20.000000,XGBoost,0.000841,10
+2026,7,Barcelona Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,10.000000,10.000000,0,15.000000,XGBoost,0.001323,8
+2026,7,Barcelona Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,11.000000,11.000000,0,9.000000,XGBoost,0.000342,21
+2026,7,Barcelona Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,XGBoost,0.000361,20
+2026,7,Barcelona Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,10.000000,XGBoost,0.000883,9
+2026,7,Barcelona Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,7.000000,XGBoost,0.000538,17
+2026,7,Barcelona Grand Prix,bearman,BEA,Oliver Bearman,haas,15.000000,15.000000,0,17.000000,XGBoost,0.000583,16
+2026,7,Barcelona Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,12.000000,XGBoost,0.000756,13
+2026,7,Barcelona Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,XGBoost,0.000398,18
+2026,7,Barcelona Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,18.000000,XGBoost,0.000336,22
+2026,7,Barcelona Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,14.000000,XGBoost,0.000692,14
+2026,7,Barcelona Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,XGBoost,0.000363,19
+2026,7,Barcelona Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,21.000000,0,22.000000,XGBoost,0.000607,15
+2026,7,Barcelona Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,22.000000,0,19.000000,XGBoost,0.000767,12
+2026,7,Barcelona Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,2.000000,Pole sitter,,1
+2026,7,Barcelona Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,1,1.000000,Pole sitter,,2
+2026,7,Barcelona Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,16.000000,Pole sitter,,3
+2026,7,Barcelona Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,3.000000,Pole sitter,,4
+2026,7,Barcelona Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,4.000000,Pole sitter,,5
+2026,7,Barcelona Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,6.000000,6.000000,0,6.000000,Pole sitter,,6
+2026,7,Barcelona Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,5.000000,Pole sitter,,7
+2026,7,Barcelona Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,8.000000,Pole sitter,,8
+2026,7,Barcelona Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,9.000000,9.000000,0,20.000000,Pole sitter,,9
+2026,7,Barcelona Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,10.000000,10.000000,0,15.000000,Pole sitter,,10
+2026,7,Barcelona Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,11.000000,11.000000,0,9.000000,Pole sitter,,11
+2026,7,Barcelona Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,Pole sitter,,12
+2026,7,Barcelona Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,10.000000,Pole sitter,,13
+2026,7,Barcelona Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,7.000000,Pole sitter,,14
+2026,7,Barcelona Grand Prix,bearman,BEA,Oliver Bearman,haas,15.000000,15.000000,0,17.000000,Pole sitter,,15
+2026,7,Barcelona Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,12.000000,Pole sitter,,16
+2026,7,Barcelona Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,Pole sitter,,17
+2026,7,Barcelona Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,18.000000,Pole sitter,,18
+2026,7,Barcelona Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,14.000000,Pole sitter,,19
+2026,7,Barcelona Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,Pole sitter,,20
+2026,7,Barcelona Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,21.000000,0,22.000000,Pole sitter,,21
+2026,7,Barcelona Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,22.000000,0,19.000000,Pole sitter,,22
+2026,7,Barcelona Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,2.000000,Form leader,,5
+2026,7,Barcelona Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,1,1.000000,Form leader,,2
+2026,7,Barcelona Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,16.000000,Form leader,,1
+2026,7,Barcelona Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,3.000000,Form leader,,13
+2026,7,Barcelona Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,4.000000,Form leader,,10
+2026,7,Barcelona Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,6.000000,6.000000,0,6.000000,Form leader,,8
+2026,7,Barcelona Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,5.000000,Form leader,,4
+2026,7,Barcelona Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,8.000000,Form leader,,6
+2026,7,Barcelona Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,9.000000,9.000000,0,20.000000,Form leader,,14
+2026,7,Barcelona Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,10.000000,10.000000,0,15.000000,Form leader,,3
+2026,7,Barcelona Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,11.000000,11.000000,0,9.000000,Form leader,,15
+2026,7,Barcelona Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,Form leader,,17
+2026,7,Barcelona Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,10.000000,Form leader,,9
+2026,7,Barcelona Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,7.000000,Form leader,,7
+2026,7,Barcelona Grand Prix,bearman,BEA,Oliver Bearman,haas,15.000000,15.000000,0,17.000000,Form leader,,16
+2026,7,Barcelona Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,12.000000,Form leader,,11
+2026,7,Barcelona Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,Form leader,,12
+2026,7,Barcelona Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,18.000000,Form leader,,20
+2026,7,Barcelona Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,14.000000,Form leader,,18
+2026,7,Barcelona Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,Form leader,,21
+2026,7,Barcelona Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,21.000000,0,22.000000,Form leader,,22
+2026,7,Barcelona Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,22.000000,0,19.000000,Form leader,,19
+2026,7,Barcelona Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,0,2.000000,Grid-only logistic regression,0.384445,1
+2026,7,Barcelona Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,1,1.000000,Grid-only logistic regression,0.264051,2
+2026,7,Barcelona Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,16.000000,Grid-only logistic regression,0.140079,3
+2026,7,Barcelona Grand Prix,norris,NOR,Lando Norris,mclaren,4.000000,4.000000,0,3.000000,Grid-only logistic regression,0.089754,4
+2026,7,Barcelona Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,4.000000,Grid-only logistic regression,0.055134,5
+2026,7,Barcelona Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,6.000000,6.000000,0,6.000000,Grid-only logistic regression,0.031974,6
+2026,7,Barcelona Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,5.000000,Grid-only logistic regression,0.019280,7
+2026,7,Barcelona Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,8.000000,0,8.000000,Grid-only logistic regression,0.006541,8
+2026,7,Barcelona Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,9.000000,9.000000,0,20.000000,Grid-only logistic regression,0.003186,10
+2026,7,Barcelona Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,10.000000,10.000000,0,15.000000,Grid-only logistic regression,0.003438,9
+2026,7,Barcelona Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,11.000000,11.000000,0,9.000000,Grid-only logistic regression,0.001068,11
+2026,7,Barcelona Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,Grid-only logistic regression,0.000532,12
+2026,7,Barcelona Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,10.000000,Grid-only logistic regression,0.000256,13
+2026,7,Barcelona Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,7.000000,Grid-only logistic regression,0.000142,14
+2026,7,Barcelona Grand Prix,bearman,BEA,Oliver Bearman,haas,15.000000,15.000000,0,17.000000,Grid-only logistic regression,0.000074,15
+2026,7,Barcelona Grand Prix,sainz,SAI,Carlos Sainz,williams,16.000000,16.000000,0,12.000000,Grid-only logistic regression,0.000025,16
+2026,7,Barcelona Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,Grid-only logistic regression,0.000012,17
+2026,7,Barcelona Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,18.000000,Grid-only logistic regression,0.000005,18
+2026,7,Barcelona Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,14.000000,Grid-only logistic regression,0.000002,19
+2026,7,Barcelona Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,21.000000,Grid-only logistic regression,0.000001,20
+2026,7,Barcelona Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,21.000000,0,22.000000,Grid-only logistic regression,0.000000,21
+2026,7,Barcelona Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,22.000000,0,19.000000,Grid-only logistic regression,0.000000,22
+2026,8,Austrian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.332834,1
+2026,8,Austrian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,8.000000,XGBoost,0.050615,4
+2026,8,Austrian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,5.000000,XGBoost,0.260722,3
+2026,8,Austrian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,XGBoost,0.298245,2
+2026,8,Austrian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,2.000000,XGBoost,0.004401,7
+2026,8,Austrian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,7.000000,XGBoost,0.005992,6
+2026,8,Austrian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,XGBoost,0.028996,5
+2026,8,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,XGBoost,0.002225,8
+2026,8,Austrian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,9.000000,0,9.000000,XGBoost,0.002016,9
+2026,8,Austrian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,10.000000,XGBoost,0.001585,10
+2026,8,Austrian Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,13.000000,XGBoost,0.001165,15
+2026,8,Austrian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,XGBoost,0.001577,11
+2026,8,Austrian Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,13.000000,0,14.000000,XGBoost,0.001122,16
+2026,8,Austrian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,14.000000,14.000000,0,12.000000,XGBoost,0.001432,13
+2026,8,Austrian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,XGBoost,0.000804,19
+2026,8,Austrian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,15.000000,XGBoost,0.001051,17
+2026,8,Austrian Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,20.000000,XGBoost,0.001437,12
+2026,8,Austrian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,17.000000,XGBoost,0.000403,22
+2026,8,Austrian Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,21.000000,XGBoost,0.000922,18
+2026,8,Austrian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,22.000000,XGBoost,0.000777,20
+2026,8,Austrian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,XGBoost,0.001182,14
+2026,8,Austrian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,19.000000,XGBoost,0.000498,21
+2026,8,Austrian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,8,Austrian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,8.000000,Pole sitter,,2
+2026,8,Austrian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,5.000000,Pole sitter,,3
+2026,8,Austrian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,Pole sitter,,4
+2026,8,Austrian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,2.000000,Pole sitter,,5
+2026,8,Austrian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,7.000000,Pole sitter,,6
+2026,8,Austrian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,Pole sitter,,7
+2026,8,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,Pole sitter,,8
+2026,8,Austrian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,9.000000,0,9.000000,Pole sitter,,9
+2026,8,Austrian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,10.000000,Pole sitter,,10
+2026,8,Austrian Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,13.000000,Pole sitter,,11
+2026,8,Austrian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,Pole sitter,,12
+2026,8,Austrian Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,13.000000,0,14.000000,Pole sitter,,13
+2026,8,Austrian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,14.000000,14.000000,0,12.000000,Pole sitter,,14
+2026,8,Austrian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,Pole sitter,,15
+2026,8,Austrian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,15.000000,Pole sitter,,16
+2026,8,Austrian Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,20.000000,Pole sitter,,17
+2026,8,Austrian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,17.000000,Pole sitter,,18
+2026,8,Austrian Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,21.000000,Pole sitter,,19
+2026,8,Austrian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,22.000000,Pole sitter,,20
+2026,8,Austrian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,Pole sitter,,21
+2026,8,Austrian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,19.000000,Pole sitter,,22
+2026,8,Austrian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Form leader,,4
+2026,8,Austrian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,8.000000,Form leader,,6
+2026,8,Austrian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,5.000000,Form leader,,1
+2026,8,Austrian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,Form leader,,2
+2026,8,Austrian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,2.000000,Form leader,,5
+2026,8,Austrian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,7.000000,Form leader,,7
+2026,8,Austrian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,Form leader,,3
+2026,8,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,Form leader,,8
+2026,8,Austrian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,9.000000,0,9.000000,Form leader,,9
+2026,8,Austrian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,10.000000,Form leader,,15
+2026,8,Austrian Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,13.000000,Form leader,,10
+2026,8,Austrian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,Form leader,,13
+2026,8,Austrian Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,13.000000,0,14.000000,Form leader,,19
+2026,8,Austrian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,14.000000,14.000000,0,12.000000,Form leader,,16
+2026,8,Austrian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,Form leader,,12
+2026,8,Austrian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,15.000000,Form leader,,11
+2026,8,Austrian Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,20.000000,Form leader,,14
+2026,8,Austrian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,17.000000,Form leader,,17
+2026,8,Austrian Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,21.000000,Form leader,,18
+2026,8,Austrian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,22.000000,Form leader,,22
+2026,8,Austrian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,Form leader,,20
+2026,8,Austrian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,19.000000,Form leader,,21
+2026,8,Austrian Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.405571,1
+2026,8,Austrian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,8.000000,Grid-only logistic regression,0.233001,2
+2026,8,Austrian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,5.000000,Grid-only logistic regression,0.145407,3
+2026,8,Austrian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,Grid-only logistic regression,0.092653,4
+2026,8,Austrian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,5.000000,0,2.000000,Grid-only logistic regression,0.053782,5
+2026,8,Austrian Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,7.000000,Grid-only logistic regression,0.032038,6
+2026,8,Austrian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,4.000000,Grid-only logistic regression,0.019358,7
+2026,8,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,Grid-only logistic regression,0.010016,8
+2026,8,Austrian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,9.000000,0,9.000000,Grid-only logistic regression,0.003930,9
+2026,8,Austrian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,10.000000,Grid-only logistic regression,0.002214,10
+2026,8,Austrian Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,13.000000,Grid-only logistic regression,0.000999,11
+2026,8,Austrian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,11.000000,Grid-only logistic regression,0.000548,12
+2026,8,Austrian Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,13.000000,0,14.000000,Grid-only logistic regression,0.000243,13
+2026,8,Austrian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,14.000000,14.000000,0,12.000000,Grid-only logistic regression,0.000130,14
+2026,8,Austrian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,Grid-only logistic regression,0.000059,15
+2026,8,Austrian Grand Prix,colapinto,COL,Franco Colapinto,alpine,16.000000,16.000000,0,15.000000,Grid-only logistic regression,0.000032,16
+2026,8,Austrian Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,20.000000,Grid-only logistic regression,0.000012,17
+2026,8,Austrian Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,18.000000,0,17.000000,Grid-only logistic regression,0.000005,18
+2026,8,Austrian Grand Prix,perez,PER,Sergio Perez,cadillac,19.000000,19.000000,0,21.000000,Grid-only logistic regression,0.000002,19
+2026,8,Austrian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,20.000000,20.000000,0,22.000000,Grid-only logistic regression,0.000001,20
+2026,8,Austrian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,18.000000,Grid-only logistic regression,0.000000,21
+2026,8,Austrian Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,22.000000,0,19.000000,Grid-only logistic regression,0.000000,22
+2026,9,British Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,0,15.000000,XGBoost,0.780385,1
+2026,9,British Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,1,1.000000,XGBoost,0.062127,3
+2026,9,British Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,XGBoost,0.083219,2
+2026,9,British Grand Prix,russell,RUS,George Russell,mercedes,4.000000,4.000000,0,2.000000,XGBoost,0.022366,5
+2026,9,British Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,5.000000,XGBoost,0.003062,8
+2026,9,British Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,4.000000,XGBoost,0.003959,6
+2026,9,British Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,20.000000,XGBoost,0.003446,7
+2026,9,British Grand Prix,piastri,PIA,Oscar Piastri,mclaren,8.000000,8.000000,0,11.000000,XGBoost,0.030570,4
+2026,9,British Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,7.000000,XGBoost,0.000620,18
+2026,9,British Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,6.000000,XGBoost,0.000844,12
+2026,9,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,11.000000,11.000000,0,8.000000,XGBoost,0.001326,9
+2026,9,British Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,22.000000,XGBoost,0.000564,21
+2026,9,British Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,14.000000,0,12.000000,XGBoost,0.000754,16
+2026,9,British Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,15.000000,0,17.000000,XGBoost,0.001090,11
+2026,9,British Grand Prix,gasly,GAS,Pierre Gasly,alpine,15.000000,12.000000,0,10.000000,XGBoost,0.000796,14
+2026,9,British Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,21.000000,XGBoost,0.000565,20
+2026,9,British Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,XGBoost,0.000628,17
+2026,9,British Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,18.000000,0,16.000000,XGBoost,0.000756,15
+2026,9,British Grand Prix,colapinto,COL,Franco Colapinto,alpine,19.000000,19.000000,0,9.000000,XGBoost,0.000576,19
+2026,9,British Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,XGBoost,0.000269,22
+2026,9,British Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,22.000000,0,18.000000,XGBoost,0.000798,13
+2026,9,British Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,19.000000,XGBoost,0.001281,10
+2026,9,British Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,0,15.000000,Pole sitter,,1
+2026,9,British Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,1,1.000000,Pole sitter,,2
+2026,9,British Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,Pole sitter,,3
+2026,9,British Grand Prix,russell,RUS,George Russell,mercedes,4.000000,4.000000,0,2.000000,Pole sitter,,4
+2026,9,British Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,5.000000,Pole sitter,,5
+2026,9,British Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,4.000000,Pole sitter,,6
+2026,9,British Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,20.000000,Pole sitter,,7
+2026,9,British Grand Prix,piastri,PIA,Oscar Piastri,mclaren,8.000000,8.000000,0,11.000000,Pole sitter,,8
+2026,9,British Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,7.000000,Pole sitter,,9
+2026,9,British Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,6.000000,Pole sitter,,10
+2026,9,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,11.000000,11.000000,0,8.000000,Pole sitter,,11
+2026,9,British Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,22.000000,Pole sitter,,12
+2026,9,British Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,14.000000,0,12.000000,Pole sitter,,13
+2026,9,British Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,15.000000,0,17.000000,Pole sitter,,14
+2026,9,British Grand Prix,gasly,GAS,Pierre Gasly,alpine,15.000000,12.000000,0,10.000000,Pole sitter,,15
+2026,9,British Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,21.000000,Pole sitter,,16
+2026,9,British Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,Pole sitter,,17
+2026,9,British Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,18.000000,0,16.000000,Pole sitter,,18
+2026,9,British Grand Prix,colapinto,COL,Franco Colapinto,alpine,19.000000,19.000000,0,9.000000,Pole sitter,,19
+2026,9,British Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,Pole sitter,,20
+2026,9,British Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,22.000000,0,18.000000,Pole sitter,,21
+2026,9,British Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,19.000000,Pole sitter,,22
+2026,9,British Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,0,15.000000,Form leader,,2
+2026,9,British Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,1,1.000000,Form leader,,9
+2026,9,British Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,Form leader,,1
+2026,9,British Grand Prix,russell,RUS,George Russell,mercedes,4.000000,4.000000,0,2.000000,Form leader,,5
+2026,9,British Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,5.000000,Form leader,,6
+2026,9,British Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,4.000000,Form leader,,7
+2026,9,British Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,20.000000,Form leader,,4
+2026,9,British Grand Prix,piastri,PIA,Oscar Piastri,mclaren,8.000000,8.000000,0,11.000000,Form leader,,3
+2026,9,British Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,7.000000,Form leader,,13
+2026,9,British Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,6.000000,Form leader,,8
+2026,9,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,11.000000,11.000000,0,8.000000,Form leader,,12
+2026,9,British Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,22.000000,Form leader,,18
+2026,9,British Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,14.000000,0,12.000000,Form leader,,16
+2026,9,British Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,15.000000,0,17.000000,Form leader,,15
+2026,9,British Grand Prix,gasly,GAS,Pierre Gasly,alpine,15.000000,12.000000,0,10.000000,Form leader,,11
+2026,9,British Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,21.000000,Form leader,,17
+2026,9,British Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,Form leader,,14
+2026,9,British Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,18.000000,0,16.000000,Form leader,,22
+2026,9,British Grand Prix,colapinto,COL,Franco Colapinto,alpine,19.000000,19.000000,0,9.000000,Form leader,,10
+2026,9,British Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,Form leader,,20
+2026,9,British Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,22.000000,0,18.000000,Form leader,,19
+2026,9,British Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,19.000000,Form leader,,21
+2026,9,British Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,0,15.000000,Grid-only logistic regression,0.401476,1
+2026,9,British Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,1,1.000000,Grid-only logistic regression,0.255819,2
+2026,9,British Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,3.000000,Grid-only logistic regression,0.149046,3
+2026,9,British Grand Prix,russell,RUS,George Russell,mercedes,4.000000,4.000000,0,2.000000,Grid-only logistic regression,0.093690,4
+2026,9,British Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,5.000000,5.000000,0,5.000000,Grid-only logistic regression,0.045438,5
+2026,9,British Grand Prix,norris,NOR,Lando Norris,mclaren,6.000000,6.000000,0,4.000000,Grid-only logistic regression,0.024477,6
+2026,9,British Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,20.000000,Grid-only logistic regression,0.014648,7
+2026,9,British Grand Prix,piastri,PIA,Oscar Piastri,mclaren,8.000000,8.000000,0,11.000000,Grid-only logistic regression,0.007706,8
+2026,9,British Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,7.000000,Grid-only logistic regression,0.003524,9
+2026,9,British Grand Prix,lawson,LAW,Liam Lawson,rb,10.000000,10.000000,0,6.000000,Grid-only logistic regression,0.002135,10
+2026,9,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,11.000000,11.000000,0,8.000000,Grid-only logistic regression,0.001091,11
+2026,9,British Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,22.000000,Grid-only logistic regression,0.000607,12
+2026,9,British Grand Prix,bearman,BEA,Oliver Bearman,haas,13.000000,14.000000,0,12.000000,Grid-only logistic regression,0.000137,13
+2026,9,British Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,15.000000,0,17.000000,Grid-only logistic regression,0.000077,15
+2026,9,British Grand Prix,gasly,GAS,Pierre Gasly,alpine,15.000000,12.000000,0,10.000000,Grid-only logistic regression,0.000078,14
+2026,9,British Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,21.000000,Grid-only logistic regression,0.000026,16
+2026,9,British Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,17.000000,0,13.000000,Grid-only logistic regression,0.000015,17
+2026,9,British Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,18.000000,0,16.000000,Grid-only logistic regression,0.000005,18
+2026,9,British Grand Prix,colapinto,COL,Franco Colapinto,alpine,19.000000,19.000000,0,9.000000,Grid-only logistic regression,0.000003,19
+2026,9,British Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,Grid-only logistic regression,0.000001,20
+2026,9,British Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,22.000000,0,18.000000,Grid-only logistic regression,0.000000,21
+2026,9,British Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,19.000000,Grid-only logistic regression,0.000000,22
+2026,10,Belgian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.738425,1
+2026,10,Belgian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,3.000000,XGBoost,0.042763,3
+2026,10,Belgian Grand Prix,russell,RUS,George Russell,mercedes,3.000000,4.000000,0,22.000000,XGBoost,0.029289,5
+2026,10,Belgian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,2.000000,XGBoost,0.014886,6
+2026,10,Belgian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,6.000000,0,4.000000,XGBoost,0.113665,2
+2026,10,Belgian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,XGBoost,0.004123,8
+2026,10,Belgian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,7.000000,8.000000,0,9.000000,XGBoost,0.001895,10
+2026,10,Belgian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,8.000000,9.000000,0,8.000000,XGBoost,0.002244,9
+2026,10,Belgian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,11.000000,0,12.000000,XGBoost,0.001636,13
+2026,10,Belgian Grand Prix,gasly,GAS,Pierre Gasly,alpine,10.000000,12.000000,0,11.000000,XGBoost,0.001665,12
+2026,10,Belgian Grand Prix,colapinto,COL,Franco Colapinto,alpine,11.000000,13.000000,0,10.000000,XGBoost,0.001668,11
+2026,10,Belgian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,14.000000,0,13.000000,XGBoost,0.001269,17
+2026,10,Belgian Grand Prix,norris,NOR,Lando Norris,mclaren,13.000000,3.000000,0,7.000000,XGBoost,0.031203,4
+2026,10,Belgian Grand Prix,bearman,BEA,Oliver Bearman,haas,14.000000,16.000000,0,14.000000,XGBoost,0.000981,20
+2026,10,Belgian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,17.000000,0,15.000000,XGBoost,0.000740,22
+2026,10,Belgian Grand Prix,ocon,OCO,Esteban Ocon,haas,16.000000,18.000000,0,17.000000,XGBoost,0.000826,21
+2026,10,Belgian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,17.000000,19.000000,0,18.000000,XGBoost,0.001373,16
+2026,10,Belgian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,20.000000,0,21.000000,XGBoost,0.001184,18
+2026,10,Belgian Grand Prix,sainz,SAI,Carlos Sainz,williams,19.000000,15.000000,0,16.000000,XGBoost,0.001510,14
+2026,10,Belgian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,22.000000,0,20.000000,XGBoost,0.001119,19
+2026,10,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,21.000000,10.000000,0,6.000000,XGBoost,0.006096,7
+2026,10,Belgian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,21.000000,0,19.000000,XGBoost,0.001440,15
+2026,10,Belgian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,10,Belgian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,3.000000,Pole sitter,,2
+2026,10,Belgian Grand Prix,russell,RUS,George Russell,mercedes,3.000000,4.000000,0,22.000000,Pole sitter,,3
+2026,10,Belgian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,2.000000,Pole sitter,,4
+2026,10,Belgian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,6.000000,0,4.000000,Pole sitter,,5
+2026,10,Belgian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,Pole sitter,,6
+2026,10,Belgian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,7.000000,8.000000,0,9.000000,Pole sitter,,7
+2026,10,Belgian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,8.000000,9.000000,0,8.000000,Pole sitter,,8
+2026,10,Belgian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,11.000000,0,12.000000,Pole sitter,,9
+2026,10,Belgian Grand Prix,gasly,GAS,Pierre Gasly,alpine,10.000000,12.000000,0,11.000000,Pole sitter,,10
+2026,10,Belgian Grand Prix,colapinto,COL,Franco Colapinto,alpine,11.000000,13.000000,0,10.000000,Pole sitter,,11
+2026,10,Belgian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,14.000000,0,13.000000,Pole sitter,,12
+2026,10,Belgian Grand Prix,norris,NOR,Lando Norris,mclaren,13.000000,3.000000,0,7.000000,Pole sitter,,13
+2026,10,Belgian Grand Prix,bearman,BEA,Oliver Bearman,haas,14.000000,16.000000,0,14.000000,Pole sitter,,14
+2026,10,Belgian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,17.000000,0,15.000000,Pole sitter,,15
+2026,10,Belgian Grand Prix,ocon,OCO,Esteban Ocon,haas,16.000000,18.000000,0,17.000000,Pole sitter,,16
+2026,10,Belgian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,17.000000,19.000000,0,18.000000,Pole sitter,,17
+2026,10,Belgian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,20.000000,0,21.000000,Pole sitter,,18
+2026,10,Belgian Grand Prix,sainz,SAI,Carlos Sainz,williams,19.000000,15.000000,0,16.000000,Pole sitter,,19
+2026,10,Belgian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,22.000000,0,20.000000,Pole sitter,,20
+2026,10,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,21.000000,10.000000,0,6.000000,Pole sitter,,21
+2026,10,Belgian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,21.000000,0,19.000000,Pole sitter,,22
+2026,10,Belgian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Form leader,,5
+2026,10,Belgian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,3.000000,Form leader,,9
+2026,10,Belgian Grand Prix,russell,RUS,George Russell,mercedes,3.000000,4.000000,0,22.000000,Form leader,,6
+2026,10,Belgian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,2.000000,Form leader,,7
+2026,10,Belgian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,6.000000,0,4.000000,Form leader,,1
+2026,10,Belgian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,Form leader,,3
+2026,10,Belgian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,7.000000,8.000000,0,9.000000,Form leader,,11
+2026,10,Belgian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,8.000000,9.000000,0,8.000000,Form leader,,12
+2026,10,Belgian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,11.000000,0,12.000000,Form leader,,4
+2026,10,Belgian Grand Prix,gasly,GAS,Pierre Gasly,alpine,10.000000,12.000000,0,11.000000,Form leader,,8
+2026,10,Belgian Grand Prix,colapinto,COL,Franco Colapinto,alpine,11.000000,13.000000,0,10.000000,Form leader,,13
+2026,10,Belgian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,14.000000,0,13.000000,Form leader,,17
+2026,10,Belgian Grand Prix,norris,NOR,Lando Norris,mclaren,13.000000,3.000000,0,7.000000,Form leader,,10
+2026,10,Belgian Grand Prix,bearman,BEA,Oliver Bearman,haas,14.000000,16.000000,0,14.000000,Form leader,,15
+2026,10,Belgian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,17.000000,0,15.000000,Form leader,,19
+2026,10,Belgian Grand Prix,ocon,OCO,Esteban Ocon,haas,16.000000,18.000000,0,17.000000,Form leader,,14
+2026,10,Belgian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,17.000000,19.000000,0,18.000000,Form leader,,22
+2026,10,Belgian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,20.000000,0,21.000000,Form leader,,18
+2026,10,Belgian Grand Prix,sainz,SAI,Carlos Sainz,williams,19.000000,15.000000,0,16.000000,Form leader,,16
+2026,10,Belgian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,22.000000,0,20.000000,Form leader,,21
+2026,10,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,21.000000,10.000000,0,6.000000,Form leader,,2
+2026,10,Belgian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,21.000000,0,19.000000,Form leader,,20
+2026,10,Belgian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.409999,1
+2026,10,Belgian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,2.000000,2.000000,0,3.000000,Grid-only logistic regression,0.243504,2
+2026,10,Belgian Grand Prix,russell,RUS,George Russell,mercedes,3.000000,4.000000,0,22.000000,Grid-only logistic regression,0.141647,3
+2026,10,Belgian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,2.000000,Grid-only logistic regression,0.088766,4
+2026,10,Belgian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,6.000000,0,4.000000,Grid-only logistic regression,0.055312,5
+2026,10,Belgian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,Grid-only logistic regression,0.030772,6
+2026,10,Belgian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,7.000000,8.000000,0,9.000000,Grid-only logistic regression,0.016833,7
+2026,10,Belgian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,8.000000,9.000000,0,8.000000,Grid-only logistic regression,0.006735,8
+2026,10,Belgian Grand Prix,lawson,LAW,Liam Lawson,rb,9.000000,11.000000,0,12.000000,Grid-only logistic regression,0.002662,9
+2026,10,Belgian Grand Prix,gasly,GAS,Pierre Gasly,alpine,10.000000,12.000000,0,11.000000,Grid-only logistic regression,0.001336,10
+2026,10,Belgian Grand Prix,colapinto,COL,Franco Colapinto,alpine,11.000000,13.000000,0,10.000000,Grid-only logistic regression,0.000763,12
+2026,10,Belgian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,14.000000,0,13.000000,Grid-only logistic regression,0.000361,13
+2026,10,Belgian Grand Prix,norris,NOR,Lando Norris,mclaren,13.000000,3.000000,0,7.000000,Grid-only logistic regression,0.001086,11
+2026,10,Belgian Grand Prix,bearman,BEA,Oliver Bearman,haas,14.000000,16.000000,0,14.000000,Grid-only logistic regression,0.000119,14
+2026,10,Belgian Grand Prix,albon,ALB,Alexander Albon,williams,15.000000,17.000000,0,15.000000,Grid-only logistic regression,0.000053,15
+2026,10,Belgian Grand Prix,ocon,OCO,Esteban Ocon,haas,16.000000,18.000000,0,17.000000,Grid-only logistic regression,0.000018,16
+2026,10,Belgian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,17.000000,19.000000,0,18.000000,Grid-only logistic regression,0.000011,17
+2026,10,Belgian Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,20.000000,0,21.000000,Grid-only logistic regression,0.000006,20
+2026,10,Belgian Grand Prix,sainz,SAI,Carlos Sainz,williams,19.000000,15.000000,0,16.000000,Grid-only logistic regression,0.000009,18
+2026,10,Belgian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,22.000000,0,20.000000,Grid-only logistic regression,0.000001,21
+2026,10,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,21.000000,10.000000,0,6.000000,Grid-only logistic regression,0.000008,19
+2026,10,Belgian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,22.000000,21.000000,0,19.000000,Grid-only logistic regression,0.000000,22
+2026,11,Hungarian Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,XGBoost,0.417913,1
+2026,11,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,3.000000,0,4.000000,XGBoost,0.036972,4
+2026,11,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,5.000000,0,20.000000,XGBoost,0.009491,5
+2026,11,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,4.000000,6.000000,0,2.000000,XGBoost,0.004344,8
+2026,11,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,2.000000,0,5.000000,XGBoost,0.383680,2
+2026,11,Hungarian Grand Prix,russell,RUS,George Russell,mercedes,6.000000,7.000000,0,7.000000,XGBoost,0.008885,6
+2026,11,Hungarian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,7.000000,4.000000,0,3.000000,XGBoost,0.114570,3
+2026,11,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,XGBoost,0.007971,7
+2026,11,Hungarian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,10.000000,XGBoost,0.003298,9
+2026,11,Hungarian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,9.000000,XGBoost,0.002029,10
+2026,11,Hungarian Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,8.000000,XGBoost,0.000712,17
+2026,11,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,alpine,12.000000,12.000000,0,12.000000,XGBoost,0.001351,12
+2026,11,Hungarian Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,15.000000,XGBoost,0.000822,16
+2026,11,Hungarian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,14.000000,0,11.000000,XGBoost,0.000629,19
+2026,11,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,XGBoost,0.001565,11
+2026,11,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,16.000000,16.000000,0,14.000000,XGBoost,0.000690,18
+2026,11,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,haas,17.000000,17.000000,0,19.000000,XGBoost,0.000568,20
+2026,11,Hungarian Grand Prix,sainz,SAI,Carlos Sainz,williams,18.000000,18.000000,0,18.000000,XGBoost,0.001165,14
+2026,11,Hungarian Grand Prix,albon,ALB,Alexander Albon,williams,19.000000,19.000000,0,17.000000,XGBoost,0.000943,15
+2026,11,Hungarian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,20.000000,0,13.000000,XGBoost,0.000536,22
+2026,11,Hungarian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,22.000000,XGBoost,0.001298,13
+2026,11,Hungarian Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,21.000000,XGBoost,0.000568,21
+2026,11,Hungarian Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,11,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,3.000000,0,4.000000,Pole sitter,,2
+2026,11,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,5.000000,0,20.000000,Pole sitter,,3
+2026,11,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,4.000000,6.000000,0,2.000000,Pole sitter,,4
+2026,11,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,2.000000,0,5.000000,Pole sitter,,5
+2026,11,Hungarian Grand Prix,russell,RUS,George Russell,mercedes,6.000000,7.000000,0,7.000000,Pole sitter,,6
+2026,11,Hungarian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,7.000000,4.000000,0,3.000000,Pole sitter,,7
+2026,11,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,Pole sitter,,8
+2026,11,Hungarian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,10.000000,Pole sitter,,9
+2026,11,Hungarian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,9.000000,Pole sitter,,10
+2026,11,Hungarian Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,8.000000,Pole sitter,,11
+2026,11,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,alpine,12.000000,12.000000,0,12.000000,Pole sitter,,12
+2026,11,Hungarian Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,15.000000,Pole sitter,,13
+2026,11,Hungarian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,14.000000,0,11.000000,Pole sitter,,14
+2026,11,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,Pole sitter,,15
+2026,11,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,16.000000,16.000000,0,14.000000,Pole sitter,,16
+2026,11,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,haas,17.000000,17.000000,0,19.000000,Pole sitter,,17
+2026,11,Hungarian Grand Prix,sainz,SAI,Carlos Sainz,williams,18.000000,18.000000,0,18.000000,Pole sitter,,18
+2026,11,Hungarian Grand Prix,albon,ALB,Alexander Albon,williams,19.000000,19.000000,0,17.000000,Pole sitter,,19
+2026,11,Hungarian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,20.000000,0,13.000000,Pole sitter,,20
+2026,11,Hungarian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,22.000000,Pole sitter,,21
+2026,11,Hungarian Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,21.000000,Pole sitter,,22
+2026,11,Hungarian Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,Form leader,,6
+2026,11,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,3.000000,0,4.000000,Form leader,,9
+2026,11,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,5.000000,0,20.000000,Form leader,,3
+2026,11,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,4.000000,6.000000,0,2.000000,Form leader,,12
+2026,11,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,2.000000,0,5.000000,Form leader,,1
+2026,11,Hungarian Grand Prix,russell,RUS,George Russell,mercedes,6.000000,7.000000,0,7.000000,Form leader,,5
+2026,11,Hungarian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,7.000000,4.000000,0,3.000000,Form leader,,4
+2026,11,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,Form leader,,2
+2026,11,Hungarian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,10.000000,Form leader,,8
+2026,11,Hungarian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,9.000000,Form leader,,17
+2026,11,Hungarian Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,8.000000,Form leader,,7
+2026,11,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,alpine,12.000000,12.000000,0,12.000000,Form leader,,10
+2026,11,Hungarian Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,15.000000,Form leader,,13
+2026,11,Hungarian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,14.000000,0,11.000000,Form leader,,11
+2026,11,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,Form leader,,14
+2026,11,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,16.000000,16.000000,0,14.000000,Form leader,,19
+2026,11,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,haas,17.000000,17.000000,0,19.000000,Form leader,,15
+2026,11,Hungarian Grand Prix,sainz,SAI,Carlos Sainz,williams,18.000000,18.000000,0,18.000000,Form leader,,18
+2026,11,Hungarian Grand Prix,albon,ALB,Alexander Albon,williams,19.000000,19.000000,0,17.000000,Form leader,,16
+2026,11,Hungarian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,20.000000,0,13.000000,Form leader,,21
+2026,11,Hungarian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,22.000000,Form leader,,22
+2026,11,Hungarian Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,21.000000,Form leader,,20
+2026,11,Hungarian Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.407267,1
+2026,11,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,3.000000,0,4.000000,Grid-only logistic regression,0.240590,2
+2026,11,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,5.000000,0,20.000000,Grid-only logistic regression,0.126365,3
+2026,11,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,4.000000,6.000000,0,2.000000,Grid-only logistic regression,0.076573,5
+2026,11,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,2.000000,0,5.000000,Grid-only logistic regression,0.082644,4
+2026,11,Hungarian Grand Prix,russell,RUS,George Russell,mercedes,6.000000,7.000000,0,7.000000,Grid-only logistic regression,0.027913,6
+2026,11,Hungarian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,7.000000,4.000000,0,3.000000,Grid-only logistic regression,0.023406,7
+2026,11,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,8.000000,0,6.000000,Grid-only logistic regression,0.009158,8
+2026,11,Hungarian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,9.000000,0,10.000000,Grid-only logistic regression,0.003357,9
+2026,11,Hungarian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,10.000000,0,9.000000,Grid-only logistic regression,0.001326,10
+2026,11,Hungarian Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,8.000000,Grid-only logistic regression,0.000686,11
+2026,11,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,alpine,12.000000,12.000000,0,12.000000,Grid-only logistic regression,0.000375,12
+2026,11,Hungarian Grand Prix,colapinto,COL,Franco Colapinto,alpine,13.000000,13.000000,0,15.000000,Grid-only logistic regression,0.000182,13
+2026,11,Hungarian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,14.000000,0,11.000000,Grid-only logistic regression,0.000104,14
+2026,11,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,16.000000,Grid-only logistic regression,0.000029,15
+2026,11,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,16.000000,16.000000,0,14.000000,Grid-only logistic regression,0.000016,16
+2026,11,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,haas,17.000000,17.000000,0,19.000000,Grid-only logistic regression,0.000006,17
+2026,11,Hungarian Grand Prix,sainz,SAI,Carlos Sainz,williams,18.000000,18.000000,0,18.000000,Grid-only logistic regression,0.000002,18
+2026,11,Hungarian Grand Prix,albon,ALB,Alexander Albon,williams,19.000000,19.000000,0,17.000000,Grid-only logistic regression,0.000001,19
+2026,11,Hungarian Grand Prix,stroll,STR,Lance Stroll,aston_martin,20.000000,20.000000,0,13.000000,Grid-only logistic regression,0.000001,20
+2026,11,Hungarian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,22.000000,Grid-only logistic regression,0.000000,21
+2026,11,Hungarian Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,21.000000,Grid-only logistic regression,0.000000,22
+2026,12,Dutch Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,XGBoost,0.615158,1
+2026,12,Dutch Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,3.000000,XGBoost,0.124190,3
+2026,12,Dutch Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,2.000000,XGBoost,0.157071,2
+2026,12,Dutch Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,6.000000,XGBoost,0.011744,6
+2026,12,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,4.000000,XGBoost,0.048111,4
+2026,12,Dutch Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,6.000000,6.000000,0,5.000000,XGBoost,0.005510,7
+2026,12,Dutch Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,22.000000,XGBoost,0.018401,5
+2026,12,Dutch Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,7.000000,XGBoost,0.001530,12
+2026,12,Dutch Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,XGBoost,0.002877,9
+2026,12,Dutch Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,12.000000,XGBoost,0.001911,11
+2026,12,Dutch Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,10.000000,XGBoost,0.003641,8
+2026,12,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,12.000000,12.000000,0,11.000000,XGBoost,0.000845,17
+2026,12,Dutch Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,8.000000,XGBoost,0.002400,10
+2026,12,Dutch Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,XGBoost,0.000788,18
+2026,12,Dutch Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,19.000000,XGBoost,0.000897,16
+2026,12,Dutch Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,17.000000,XGBoost,0.001083,13
+2026,12,Dutch Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,16.000000,XGBoost,0.000453,21
+2026,12,Dutch Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,18.000000,0,9.000000,XGBoost,0.001021,15
+2026,12,Dutch Grand Prix,stroll,STR,Lance Stroll,aston_martin,19.000000,19.000000,0,20.000000,XGBoost,0.000557,19
+2026,12,Dutch Grand Prix,bearman,BEA,Oliver Bearman,haas,20.000000,20.000000,0,21.000000,XGBoost,0.000322,22
+2026,12,Dutch Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,18.000000,XGBoost,0.001021,14
+2026,12,Dutch Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,15.000000,XGBoost,0.000467,20
+2026,12,Dutch Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,12,Dutch Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,3.000000,Pole sitter,,2
+2026,12,Dutch Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,2.000000,Pole sitter,,3
+2026,12,Dutch Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,6.000000,Pole sitter,,4
+2026,12,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,4.000000,Pole sitter,,5
+2026,12,Dutch Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,6.000000,6.000000,0,5.000000,Pole sitter,,6
+2026,12,Dutch Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,22.000000,Pole sitter,,7
+2026,12,Dutch Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,7.000000,Pole sitter,,8
+2026,12,Dutch Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,Pole sitter,,9
+2026,12,Dutch Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,12.000000,Pole sitter,,10
+2026,12,Dutch Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,10.000000,Pole sitter,,11
+2026,12,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,12.000000,12.000000,0,11.000000,Pole sitter,,12
+2026,12,Dutch Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,8.000000,Pole sitter,,13
+2026,12,Dutch Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,Pole sitter,,14
+2026,12,Dutch Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,19.000000,Pole sitter,,15
+2026,12,Dutch Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,17.000000,Pole sitter,,16
+2026,12,Dutch Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,16.000000,Pole sitter,,17
+2026,12,Dutch Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,18.000000,0,9.000000,Pole sitter,,18
+2026,12,Dutch Grand Prix,stroll,STR,Lance Stroll,aston_martin,19.000000,19.000000,0,20.000000,Pole sitter,,19
+2026,12,Dutch Grand Prix,bearman,BEA,Oliver Bearman,haas,20.000000,20.000000,0,21.000000,Pole sitter,,20
+2026,12,Dutch Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,18.000000,Pole sitter,,21
+2026,12,Dutch Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,15.000000,Pole sitter,,22
+2026,12,Dutch Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,Form leader,,2
+2026,12,Dutch Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,3.000000,Form leader,,5
+2026,12,Dutch Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,2.000000,Form leader,,6
+2026,12,Dutch Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,6.000000,Form leader,,8
+2026,12,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,4.000000,Form leader,,1
+2026,12,Dutch Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,6.000000,6.000000,0,5.000000,Form leader,,3
+2026,12,Dutch Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,22.000000,Form leader,,4
+2026,12,Dutch Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,7.000000,Form leader,,7
+2026,12,Dutch Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,Form leader,,10
+2026,12,Dutch Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,12.000000,Form leader,,9
+2026,12,Dutch Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,10.000000,Form leader,,11
+2026,12,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,12.000000,12.000000,0,11.000000,Form leader,,13
+2026,12,Dutch Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,8.000000,Form leader,,15
+2026,12,Dutch Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,Form leader,,12
+2026,12,Dutch Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,19.000000,Form leader,,14
+2026,12,Dutch Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,17.000000,Form leader,,18
+2026,12,Dutch Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,16.000000,Form leader,,17
+2026,12,Dutch Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,18.000000,0,9.000000,Form leader,,19
+2026,12,Dutch Grand Prix,stroll,STR,Lance Stroll,aston_martin,19.000000,19.000000,0,20.000000,Form leader,,21
+2026,12,Dutch Grand Prix,bearman,BEA,Oliver Bearman,haas,20.000000,20.000000,0,21.000000,Form leader,,16
+2026,12,Dutch Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,18.000000,Form leader,,22
+2026,12,Dutch Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,15.000000,Form leader,,20
+2026,12,Dutch Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.375691,1
+2026,12,Dutch Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,3.000000,Grid-only logistic regression,0.247307,2
+2026,12,Dutch Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,3.000000,0,2.000000,Grid-only logistic regression,0.161450,3
+2026,12,Dutch Grand Prix,piastri,PIA,Oscar Piastri,mclaren,4.000000,4.000000,0,6.000000,Grid-only logistic regression,0.103209,4
+2026,12,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,5.000000,5.000000,0,4.000000,Grid-only logistic regression,0.051691,5
+2026,12,Dutch Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,6.000000,6.000000,0,5.000000,Grid-only logistic regression,0.029265,6
+2026,12,Dutch Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,7.000000,7.000000,0,22.000000,Grid-only logistic regression,0.016458,7
+2026,12,Dutch Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,7.000000,Grid-only logistic regression,0.008577,8
+2026,12,Dutch Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,9.000000,9.000000,0,13.000000,Grid-only logistic regression,0.003316,9
+2026,12,Dutch Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,12.000000,Grid-only logistic regression,0.001735,10
+2026,12,Dutch Grand Prix,gasly,GAS,Pierre Gasly,alpine,11.000000,11.000000,0,10.000000,Grid-only logistic regression,0.000599,11
+2026,12,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,12.000000,12.000000,0,11.000000,Grid-only logistic regression,0.000353,12
+2026,12,Dutch Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,13.000000,13.000000,0,8.000000,Grid-only logistic regression,0.000170,13
+2026,12,Dutch Grand Prix,colapinto,COL,Franco Colapinto,alpine,14.000000,14.000000,0,14.000000,Grid-only logistic regression,0.000101,14
+2026,12,Dutch Grand Prix,ocon,OCO,Esteban Ocon,haas,15.000000,15.000000,0,19.000000,Grid-only logistic regression,0.000039,15
+2026,12,Dutch Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,17.000000,Grid-only logistic regression,0.000022,16
+2026,12,Dutch Grand Prix,sainz,SAI,Carlos Sainz,williams,17.000000,17.000000,0,16.000000,Grid-only logistic regression,0.000008,17
+2026,12,Dutch Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,18.000000,18.000000,0,9.000000,Grid-only logistic regression,0.000004,18
+2026,12,Dutch Grand Prix,stroll,STR,Lance Stroll,aston_martin,19.000000,19.000000,0,20.000000,Grid-only logistic regression,0.000002,19
+2026,12,Dutch Grand Prix,bearman,BEA,Oliver Bearman,haas,20.000000,20.000000,0,21.000000,Grid-only logistic regression,0.000001,20
+2026,12,Dutch Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,21.000000,21.000000,0,18.000000,Grid-only logistic regression,0.000000,21
+2026,12,Dutch Grand Prix,perez,PER,Sergio Perez,cadillac,22.000000,22.000000,0,15.000000,Grid-only logistic regression,0.000000,22
+2026,13,Italian Grand Prix,gasly,GAS,Pierre Gasly,alpine,1.000000,1.000000,0,7.000000,XGBoost,0.222196,2
+2026,13,Italian Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,XGBoost,0.197072,3
+2026,13,Italian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,4.000000,0,22.000000,XGBoost,0.118840,5
+2026,13,Italian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,5.000000,0,6.000000,XGBoost,0.227609,1
+2026,13,Italian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,6.000000,0,3.000000,XGBoost,0.012685,8
+2026,13,Italian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,3.000000,0,5.000000,XGBoost,0.013215,7
+2026,13,Italian Grand Prix,colapinto,COL,Franco Colapinto,alpine,7.000000,8.000000,0,9.000000,XGBoost,0.001988,10
+2026,13,Italian Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,9.000000,0,4.000000,XGBoost,0.025285,6
+2026,13,Italian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,8.000000,XGBoost,0.001613,14
+2026,13,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,11.000000,0,11.000000,XGBoost,0.001694,13
+2026,13,Italian Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,15.000000,XGBoost,0.001934,11
+2026,13,Italian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,12.000000,XGBoost,0.000995,17
+2026,13,Italian Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,15.000000,0,13.000000,XGBoost,0.001338,15
+2026,13,Italian Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,16.000000,0,16.000000,XGBoost,0.000845,19
+2026,13,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,17.000000,0,10.000000,XGBoost,0.000791,20
+2026,13,Italian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,16.000000,19.000000,0,19.000000,XGBoost,0.001802,12
+2026,13,Italian Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,18.000000,XGBoost,0.000879,18
+2026,13,Italian Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,22.000000,0,20.000000,XGBoost,0.000726,21
+2026,13,Italian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,19.000000,7.000000,1,1.000000,XGBoost,0.163534,4
+2026,13,Italian Grand Prix,albon,ALB,Alexander Albon,williams,20.000000,18.000000,0,17.000000,XGBoost,0.000505,22
+2026,13,Italian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,21.000000,XGBoost,0.003442,9
+2026,13,Italian Grand Prix,lawson,LAW,Liam Lawson,red_bull,22.000000,14.000000,0,14.000000,XGBoost,0.001011,16
+2026,13,Italian Grand Prix,gasly,GAS,Pierre Gasly,alpine,1.000000,1.000000,0,7.000000,Pole sitter,,1
+2026,13,Italian Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,Pole sitter,,2
+2026,13,Italian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,4.000000,0,22.000000,Pole sitter,,3
+2026,13,Italian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,5.000000,0,6.000000,Pole sitter,,4
+2026,13,Italian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,6.000000,0,3.000000,Pole sitter,,5
+2026,13,Italian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,3.000000,0,5.000000,Pole sitter,,6
+2026,13,Italian Grand Prix,colapinto,COL,Franco Colapinto,alpine,7.000000,8.000000,0,9.000000,Pole sitter,,7
+2026,13,Italian Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,9.000000,0,4.000000,Pole sitter,,8
+2026,13,Italian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,8.000000,Pole sitter,,9
+2026,13,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,11.000000,0,11.000000,Pole sitter,,10
+2026,13,Italian Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,15.000000,Pole sitter,,11
+2026,13,Italian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,12.000000,Pole sitter,,12
+2026,13,Italian Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,15.000000,0,13.000000,Pole sitter,,13
+2026,13,Italian Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,16.000000,0,16.000000,Pole sitter,,14
+2026,13,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,17.000000,0,10.000000,Pole sitter,,15
+2026,13,Italian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,16.000000,19.000000,0,19.000000,Pole sitter,,16
+2026,13,Italian Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,18.000000,Pole sitter,,17
+2026,13,Italian Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,22.000000,0,20.000000,Pole sitter,,18
+2026,13,Italian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,19.000000,7.000000,1,1.000000,Pole sitter,,19
+2026,13,Italian Grand Prix,albon,ALB,Alexander Albon,williams,20.000000,18.000000,0,17.000000,Pole sitter,,20
+2026,13,Italian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,21.000000,Pole sitter,,21
+2026,13,Italian Grand Prix,lawson,LAW,Liam Lawson,red_bull,22.000000,14.000000,0,14.000000,Pole sitter,,22
+2026,13,Italian Grand Prix,gasly,GAS,Pierre Gasly,alpine,1.000000,1.000000,0,7.000000,Form leader,,11
+2026,13,Italian Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,Form leader,,5
+2026,13,Italian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,4.000000,0,22.000000,Form leader,,1
+2026,13,Italian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,5.000000,0,6.000000,Form leader,,3
+2026,13,Italian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,6.000000,0,3.000000,Form leader,,9
+2026,13,Italian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,3.000000,0,5.000000,Form leader,,7
+2026,13,Italian Grand Prix,colapinto,COL,Franco Colapinto,alpine,7.000000,8.000000,0,9.000000,Form leader,,12
+2026,13,Italian Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,9.000000,0,4.000000,Form leader,,2
+2026,13,Italian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,8.000000,Form leader,,8
+2026,13,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,11.000000,0,11.000000,Form leader,,10
+2026,13,Italian Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,15.000000,Form leader,,16
+2026,13,Italian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,12.000000,Form leader,,13
+2026,13,Italian Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,15.000000,0,13.000000,Form leader,,18
+2026,13,Italian Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,16.000000,0,16.000000,Form leader,,17
+2026,13,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,17.000000,0,10.000000,Form leader,,14
+2026,13,Italian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,16.000000,19.000000,0,19.000000,Form leader,,22
+2026,13,Italian Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,18.000000,Form leader,,21
+2026,13,Italian Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,22.000000,0,20.000000,Form leader,,20
+2026,13,Italian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,19.000000,7.000000,1,1.000000,Form leader,,4
+2026,13,Italian Grand Prix,albon,ALB,Alexander Albon,williams,20.000000,18.000000,0,17.000000,Form leader,,19
+2026,13,Italian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,21.000000,Form leader,,15
+2026,13,Italian Grand Prix,lawson,LAW,Liam Lawson,red_bull,22.000000,14.000000,0,14.000000,Form leader,,6
+2026,13,Italian Grand Prix,gasly,GAS,Pierre Gasly,alpine,1.000000,1.000000,0,7.000000,Grid-only logistic regression,0.369029,1
+2026,13,Italian Grand Prix,russell,RUS,George Russell,mercedes,2.000000,2.000000,0,2.000000,Grid-only logistic regression,0.253648,2
+2026,13,Italian Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,3.000000,4.000000,0,22.000000,Grid-only logistic regression,0.148679,3
+2026,13,Italian Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,5.000000,0,6.000000,Grid-only logistic regression,0.094541,4
+2026,13,Italian Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,5.000000,6.000000,0,3.000000,Grid-only logistic regression,0.055443,5
+2026,13,Italian Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,3.000000,0,5.000000,Grid-only logistic regression,0.037864,6
+2026,13,Italian Grand Prix,colapinto,COL,Franco Colapinto,alpine,7.000000,8.000000,0,9.000000,Grid-only logistic regression,0.017451,7
+2026,13,Italian Grand Prix,norris,NOR,Lando Norris,mclaren,8.000000,9.000000,0,4.000000,Grid-only logistic regression,0.012388,8
+2026,13,Italian Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,8.000000,Grid-only logistic regression,0.005837,9
+2026,13,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,11.000000,0,11.000000,Grid-only logistic regression,0.002703,10
+2026,13,Italian Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,15.000000,Grid-only logistic regression,0.001238,11
+2026,13,Italian Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,12.000000,13.000000,0,12.000000,Grid-only logistic regression,0.000719,12
+2026,13,Italian Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,15.000000,0,13.000000,Grid-only logistic regression,0.000203,13
+2026,13,Italian Grand Prix,ocon,OCO,Esteban Ocon,haas,14.000000,16.000000,0,16.000000,Grid-only logistic regression,0.000121,14
+2026,13,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,17.000000,0,10.000000,Grid-only logistic regression,0.000052,16
+2026,13,Italian Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,16.000000,19.000000,0,19.000000,Grid-only logistic regression,0.000016,17
+2026,13,Italian Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,18.000000,Grid-only logistic regression,0.000007,18
+2026,13,Italian Grand Prix,stroll,STR,Lance Stroll,aston_martin,18.000000,22.000000,0,20.000000,Grid-only logistic regression,0.000002,20
+2026,13,Italian Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,19.000000,7.000000,1,1.000000,Grid-only logistic regression,0.000052,15
+2026,13,Italian Grand Prix,albon,ALB,Alexander Albon,williams,20.000000,18.000000,0,17.000000,Grid-only logistic regression,0.000002,21
+2026,13,Italian Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,21.000000,0,21.000000,Grid-only logistic regression,0.000000,22
+2026,13,Italian Grand Prix,lawson,LAW,Liam Lawson,red_bull,22.000000,14.000000,0,14.000000,Grid-only logistic regression,0.000004,19
+2026,14,Spanish Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,0,3.000000,XGBoost,0.402702,2
+2026,14,Spanish Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,XGBoost,0.403650,1
+2026,14,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,3.000000,3.000000,0,2.000000,XGBoost,0.028855,5
+2026,14,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,4.000000,0,22.000000,XGBoost,0.098517,3
+2026,14,Spanish Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,5.000000,5.000000,0,4.000000,XGBoost,0.030453,4
+2026,14,Spanish Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,5.000000,XGBoost,0.023734,6
+2026,14,Spanish Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,8.000000,XGBoost,0.001632,8
+2026,14,Spanish Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,6.000000,XGBoost,0.000617,15
+2026,14,Spanish Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,9.000000,0,7.000000,XGBoost,0.000775,10
+2026,14,Spanish Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,9.000000,XGBoost,0.000617,16
+2026,14,Spanish Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,10.000000,XGBoost,0.000708,12
+2026,14,Spanish Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,13.000000,XGBoost,0.000633,14
+2026,14,Spanish Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,XGBoost,0.000851,9
+2026,14,Spanish Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,12.000000,XGBoost,0.000359,21
+2026,14,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,15.000000,0,14.000000,XGBoost,0.001977,7
+2026,14,Spanish Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,15.000000,XGBoost,0.000639,13
+2026,14,Spanish Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,18.000000,0,17.000000,XGBoost,0.000761,11
+2026,14,Spanish Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,19.000000,0,20.000000,XGBoost,0.000431,20
+2026,14,Spanish Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,18.000000,XGBoost,0.000345,22
+2026,14,Spanish Grand Prix,sainz,SAI,Carlos Sainz,williams,20.000000,17.000000,0,19.000000,XGBoost,0.000608,17
+2026,14,Spanish Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,,0,21.000000,XGBoost,0.000530,19
+2026,14,Spanish Grand Prix,bearman,BEA,Oliver Bearman,haas,22.000000,,0,16.000000,XGBoost,0.000605,18
+2026,14,Spanish Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,0,3.000000,Pole sitter,,1
+2026,14,Spanish Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,Pole sitter,,2
+2026,14,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,3.000000,3.000000,0,2.000000,Pole sitter,,3
+2026,14,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,4.000000,0,22.000000,Pole sitter,,4
+2026,14,Spanish Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,5.000000,5.000000,0,4.000000,Pole sitter,,5
+2026,14,Spanish Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,5.000000,Pole sitter,,6
+2026,14,Spanish Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,8.000000,Pole sitter,,7
+2026,14,Spanish Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,6.000000,Pole sitter,,8
+2026,14,Spanish Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,9.000000,0,7.000000,Pole sitter,,9
+2026,14,Spanish Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,9.000000,Pole sitter,,10
+2026,14,Spanish Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,10.000000,Pole sitter,,11
+2026,14,Spanish Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,13.000000,Pole sitter,,12
+2026,14,Spanish Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,Pole sitter,,13
+2026,14,Spanish Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,12.000000,Pole sitter,,14
+2026,14,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,15.000000,0,14.000000,Pole sitter,,15
+2026,14,Spanish Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,15.000000,Pole sitter,,16
+2026,14,Spanish Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,18.000000,0,17.000000,Pole sitter,,17
+2026,14,Spanish Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,19.000000,0,20.000000,Pole sitter,,18
+2026,14,Spanish Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,18.000000,Pole sitter,,19
+2026,14,Spanish Grand Prix,sainz,SAI,Carlos Sainz,williams,20.000000,17.000000,0,19.000000,Pole sitter,,20
+2026,14,Spanish Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,,0,21.000000,Pole sitter,,21
+2026,14,Spanish Grand Prix,bearman,BEA,Oliver Bearman,haas,22.000000,,0,16.000000,Pole sitter,,22
+2026,14,Spanish Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,0,3.000000,Form leader,,1
+2026,14,Spanish Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,Form leader,,2
+2026,14,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,3.000000,3.000000,0,2.000000,Form leader,,9
+2026,14,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,4.000000,0,22.000000,Form leader,,3
+2026,14,Spanish Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,5.000000,5.000000,0,4.000000,Form leader,,4
+2026,14,Spanish Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,5.000000,Form leader,,5
+2026,14,Spanish Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,8.000000,Form leader,,7
+2026,14,Spanish Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,6.000000,Form leader,,8
+2026,14,Spanish Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,9.000000,0,7.000000,Form leader,,12
+2026,14,Spanish Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,9.000000,Form leader,,6
+2026,14,Spanish Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,10.000000,Form leader,,14
+2026,14,Spanish Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,13.000000,Form leader,,11
+2026,14,Spanish Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,Form leader,,16
+2026,14,Spanish Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,12.000000,Form leader,,10
+2026,14,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,15.000000,0,14.000000,Form leader,,13
+2026,14,Spanish Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,15.000000,Form leader,,19
+2026,14,Spanish Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,18.000000,0,17.000000,Form leader,,17
+2026,14,Spanish Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,19.000000,0,20.000000,Form leader,,20
+2026,14,Spanish Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,18.000000,Form leader,,22
+2026,14,Spanish Grand Prix,sainz,SAI,Carlos Sainz,williams,20.000000,17.000000,0,19.000000,Form leader,,15
+2026,14,Spanish Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,,0,21.000000,Form leader,,21
+2026,14,Spanish Grand Prix,bearman,BEA,Oliver Bearman,haas,22.000000,,0,16.000000,Form leader,,18
+2026,14,Spanish Grand Prix,norris,NOR,Lando Norris,mclaren,1.000000,1.000000,0,3.000000,Grid-only logistic regression,0.338738,1
+2026,14,Spanish Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,2.000000,2.000000,1,1.000000,Grid-only logistic regression,0.250797,2
+2026,14,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,3.000000,3.000000,0,2.000000,Grid-only logistic regression,0.158708,3
+2026,14,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,4.000000,4.000000,0,22.000000,Grid-only logistic regression,0.102906,4
+2026,14,Spanish Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,5.000000,5.000000,0,4.000000,Grid-only logistic regression,0.067862,5
+2026,14,Spanish Grand Prix,russell,RUS,George Russell,mercedes,6.000000,6.000000,0,5.000000,Grid-only logistic regression,0.038326,6
+2026,14,Spanish Grand Prix,piastri,PIA,Oscar Piastri,mclaren,7.000000,7.000000,0,8.000000,Grid-only logistic regression,0.020917,7
+2026,14,Spanish Grand Prix,lawson,LAW,Liam Lawson,red_bull,8.000000,8.000000,0,6.000000,Grid-only logistic regression,0.013029,8
+2026,14,Spanish Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,9.000000,0,7.000000,Grid-only logistic regression,0.004183,9
+2026,14,Spanish Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,10.000000,10.000000,0,9.000000,Grid-only logistic regression,0.002256,10
+2026,14,Spanish Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,11.000000,11.000000,0,10.000000,Grid-only logistic regression,0.001155,11
+2026,14,Spanish Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,12.000000,12.000000,0,13.000000,Grid-only logistic regression,0.000602,12
+2026,14,Spanish Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,13.000000,0,11.000000,Grid-only logistic regression,0.000275,13
+2026,14,Spanish Grand Prix,gasly,GAS,Pierre Gasly,alpine,14.000000,14.000000,0,12.000000,Grid-only logistic regression,0.000157,14
+2026,14,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,rb,15.000000,15.000000,0,14.000000,Grid-only logistic regression,0.000067,15
+2026,14,Spanish Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,16.000000,0,15.000000,Grid-only logistic regression,0.000010,16
+2026,14,Spanish Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,17.000000,18.000000,0,17.000000,Grid-only logistic regression,0.000006,17
+2026,14,Spanish Grand Prix,perez,PER,Sergio Perez,cadillac,18.000000,19.000000,0,20.000000,Grid-only logistic regression,0.000002,18
+2026,14,Spanish Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,20.000000,0,18.000000,Grid-only logistic regression,0.000001,20
+2026,14,Spanish Grand Prix,sainz,SAI,Carlos Sainz,williams,20.000000,17.000000,0,19.000000,Grid-only logistic regression,0.000002,19
+2026,14,Spanish Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,,0,21.000000,Grid-only logistic regression,0.000000,21
+2026,14,Spanish Grand Prix,bearman,BEA,Oliver Bearman,haas,22.000000,,0,16.000000,Grid-only logistic regression,0.000000,22
+2026,15,Azerbaijan Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,XGBoost,0.587418,1
+2026,15,Azerbaijan Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,4.000000,XGBoost,0.154087,2
+2026,15,Azerbaijan Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,13.000000,XGBoost,0.049409,5
+2026,15,Azerbaijan Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,4.000000,4.000000,0,3.000000,XGBoost,0.017642,6
+2026,15,Azerbaijan Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,19.000000,XGBoost,0.016077,7
+2026,15,Azerbaijan Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,XGBoost,0.010910,8
+2026,15,Azerbaijan Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,18.000000,XGBoost,0.003743,9
+2026,15,Azerbaijan Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,2.000000,XGBoost,0.068708,4
+2026,15,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,10.000000,0,17.000000,XGBoost,0.000955,20
+2026,15,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,11.000000,0,9.000000,XGBoost,0.001376,14
+2026,15,Azerbaijan Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,12.000000,0,12.000000,XGBoost,0.003723,10
+2026,15,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,williams,12.000000,13.000000,0,20.000000,XGBoost,0.001341,15
+2026,15,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,14.000000,0,8.000000,XGBoost,0.001796,13
+2026,15,Azerbaijan Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,9.000000,0,10.000000,XGBoost,0.001134,19
+2026,15,Azerbaijan Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,7.000000,XGBoost,0.001151,17
+2026,15,Azerbaijan Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,16.000000,16.000000,0,5.000000,XGBoost,0.070666,3
+2026,15,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,17.000000,17.000000,0,15.000000,XGBoost,0.002761,12
+2026,15,Azerbaijan Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,18.000000,18.000000,0,11.000000,XGBoost,0.001144,18
+2026,15,Azerbaijan Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,22.000000,0,16.000000,XGBoost,0.000568,22
+2026,15,Azerbaijan Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,XGBoost,0.001218,16
+2026,15,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,19.000000,0,21.000000,XGBoost,0.003510,11
+2026,15,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,22.000000,XGBoost,0.000663,21
+2026,15,Azerbaijan Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,15,Azerbaijan Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,4.000000,Pole sitter,,2
+2026,15,Azerbaijan Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,13.000000,Pole sitter,,3
+2026,15,Azerbaijan Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,4.000000,4.000000,0,3.000000,Pole sitter,,4
+2026,15,Azerbaijan Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,19.000000,Pole sitter,,5
+2026,15,Azerbaijan Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Pole sitter,,6
+2026,15,Azerbaijan Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,18.000000,Pole sitter,,7
+2026,15,Azerbaijan Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,2.000000,Pole sitter,,8
+2026,15,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,10.000000,0,17.000000,Pole sitter,,9
+2026,15,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,11.000000,0,9.000000,Pole sitter,,10
+2026,15,Azerbaijan Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,12.000000,0,12.000000,Pole sitter,,11
+2026,15,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,williams,12.000000,13.000000,0,20.000000,Pole sitter,,12
+2026,15,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,14.000000,0,8.000000,Pole sitter,,13
+2026,15,Azerbaijan Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,9.000000,0,10.000000,Pole sitter,,14
+2026,15,Azerbaijan Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,7.000000,Pole sitter,,15
+2026,15,Azerbaijan Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,16.000000,16.000000,0,5.000000,Pole sitter,,16
+2026,15,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,17.000000,17.000000,0,15.000000,Pole sitter,,17
+2026,15,Azerbaijan Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,18.000000,18.000000,0,11.000000,Pole sitter,,18
+2026,15,Azerbaijan Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,22.000000,0,16.000000,Pole sitter,,19
+2026,15,Azerbaijan Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,Pole sitter,,20
+2026,15,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,19.000000,0,21.000000,Pole sitter,,21
+2026,15,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,22.000000,Pole sitter,,22
+2026,15,Azerbaijan Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Form leader,,6
+2026,15,Azerbaijan Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,4.000000,Form leader,,5
+2026,15,Azerbaijan Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,13.000000,Form leader,,8
+2026,15,Azerbaijan Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,4.000000,4.000000,0,3.000000,Form leader,,3
+2026,15,Azerbaijan Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,19.000000,Form leader,,2
+2026,15,Azerbaijan Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Form leader,,7
+2026,15,Azerbaijan Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,18.000000,Form leader,,11
+2026,15,Azerbaijan Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,2.000000,Form leader,,4
+2026,15,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,10.000000,0,17.000000,Form leader,,13
+2026,15,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,11.000000,0,9.000000,Form leader,,19
+2026,15,Azerbaijan Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,12.000000,0,12.000000,Form leader,,9
+2026,15,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,williams,12.000000,13.000000,0,20.000000,Form leader,,17
+2026,15,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,14.000000,0,8.000000,Form leader,,15
+2026,15,Azerbaijan Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,9.000000,0,10.000000,Form leader,,18
+2026,15,Azerbaijan Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,7.000000,Form leader,,10
+2026,15,Azerbaijan Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,16.000000,16.000000,0,5.000000,Form leader,,1
+2026,15,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,17.000000,17.000000,0,15.000000,Form leader,,14
+2026,15,Azerbaijan Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,18.000000,18.000000,0,11.000000,Form leader,,12
+2026,15,Azerbaijan Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,22.000000,0,16.000000,Form leader,,21
+2026,15,Azerbaijan Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,Form leader,,22
+2026,15,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,19.000000,0,21.000000,Form leader,,16
+2026,15,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,22.000000,Form leader,,20
+2026,15,Azerbaijan Grand Prix,russell,RUS,George Russell,mercedes,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.511867,1
+2026,15,Azerbaijan Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,4.000000,Grid-only logistic regression,0.194203,2
+2026,15,Azerbaijan Grand Prix,piastri,PIA,Oscar Piastri,mclaren,3.000000,3.000000,0,13.000000,Grid-only logistic regression,0.130094,3
+2026,15,Azerbaijan Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,4.000000,4.000000,0,3.000000,Grid-only logistic regression,0.074839,4
+2026,15,Azerbaijan Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,19.000000,Grid-only logistic regression,0.040647,5
+2026,15,Azerbaijan Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,6.000000,6.000000,0,6.000000,Grid-only logistic regression,0.021471,6
+2026,15,Azerbaijan Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,7.000000,0,18.000000,Grid-only logistic regression,0.011221,7
+2026,15,Azerbaijan Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,8.000000,8.000000,0,2.000000,Grid-only logistic regression,0.010133,8
+2026,15,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,alpine,9.000000,10.000000,0,17.000000,Grid-only logistic regression,0.002317,9
+2026,15,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,haas,10.000000,11.000000,0,9.000000,Grid-only logistic regression,0.001330,10
+2026,15,Azerbaijan Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,12.000000,0,12.000000,Grid-only logistic regression,0.000769,11
+2026,15,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,williams,12.000000,13.000000,0,20.000000,Grid-only logistic regression,0.000419,12
+2026,15,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,haas,13.000000,14.000000,0,8.000000,Grid-only logistic regression,0.000261,14
+2026,15,Azerbaijan Grand Prix,sainz,SAI,Carlos Sainz,williams,14.000000,9.000000,0,10.000000,Grid-only logistic regression,0.000263,13
+2026,15,Azerbaijan Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,15.000000,15.000000,0,7.000000,Grid-only logistic regression,0.000095,15
+2026,15,Azerbaijan Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,16.000000,16.000000,0,5.000000,Grid-only logistic regression,0.000039,16
+2026,15,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,17.000000,17.000000,0,15.000000,Grid-only logistic regression,0.000018,17
+2026,15,Azerbaijan Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,18.000000,18.000000,0,11.000000,Grid-only logistic regression,0.000010,18
+2026,15,Azerbaijan Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,22.000000,0,16.000000,Grid-only logistic regression,0.000001,21
+2026,15,Azerbaijan Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,20.000000,0,14.000000,Grid-only logistic regression,0.000002,19
+2026,15,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,21.000000,19.000000,0,21.000000,Grid-only logistic regression,0.000001,20
+2026,15,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,aston_martin,22.000000,21.000000,0,22.000000,Grid-only logistic regression,0.000000,22
+2026,16,Bahrain Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,XGBoost,0.477809,1
+2026,16,Bahrain Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,0,3.000000,XGBoost,0.063548,3
+2026,16,Bahrain Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,4.000000,0,2.000000,XGBoost,0.328795,2
+2026,16,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,4.000000,XGBoost,0.024401,6
+2026,16,Bahrain Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,6.000000,0,9.000000,XGBoost,0.036232,4
+2026,16,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,6.000000,XGBoost,0.003353,9
+2026,16,Bahrain Grand Prix,russell,RUS,George Russell,mercedes,7.000000,8.000000,0,20.000000,XGBoost,0.013208,7
+2026,16,Bahrain Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,3.000000,0,5.000000,XGBoost,0.035781,5
+2026,16,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,16.000000,XGBoost,0.001826,11
+2026,16,Bahrain Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,18.000000,XGBoost,0.000955,17
+2026,16,Bahrain Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,7.000000,XGBoost,0.003435,8
+2026,16,Bahrain Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,12.000000,12.000000,0,8.000000,XGBoost,0.001516,12
+2026,16,Bahrain Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,17.000000,XGBoost,0.001117,13
+2026,16,Bahrain Grand Prix,stroll,STR,Lance Stroll,aston_martin,14.000000,14.000000,0,12.000000,XGBoost,0.000648,19
+2026,16,Bahrain Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,15.000000,17.000000,0,11.000000,XGBoost,0.000795,18
+2026,16,Bahrain Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,18.000000,0,14.000000,XGBoost,0.002008,10
+2026,16,Bahrain Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,19.000000,0,15.000000,XGBoost,0.000608,20
+2026,16,Bahrain Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,20.000000,0,21.000000,XGBoost,0.000519,21
+2026,16,Bahrain Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,21.000000,0,22.000000,XGBoost,0.001072,14
+2026,16,Bahrain Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,22.000000,0,19.000000,XGBoost,0.000396,22
+2026,16,Bahrain Grand Prix,colapinto,COL,Franco Colapinto,alpine,21.000000,15.000000,0,13.000000,XGBoost,0.001002,15
+2026,16,Bahrain Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,22.000000,16.000000,0,10.000000,XGBoost,0.000975,16
+2026,16,Bahrain Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,16,Bahrain Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,0,3.000000,Pole sitter,,2
+2026,16,Bahrain Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,4.000000,0,2.000000,Pole sitter,,3
+2026,16,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,4.000000,Pole sitter,,4
+2026,16,Bahrain Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,6.000000,0,9.000000,Pole sitter,,5
+2026,16,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,6.000000,Pole sitter,,6
+2026,16,Bahrain Grand Prix,russell,RUS,George Russell,mercedes,7.000000,8.000000,0,20.000000,Pole sitter,,7
+2026,16,Bahrain Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,3.000000,0,5.000000,Pole sitter,,8
+2026,16,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,16.000000,Pole sitter,,9
+2026,16,Bahrain Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,18.000000,Pole sitter,,10
+2026,16,Bahrain Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,7.000000,Pole sitter,,11
+2026,16,Bahrain Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,12.000000,12.000000,0,8.000000,Pole sitter,,12
+2026,16,Bahrain Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,17.000000,Pole sitter,,13
+2026,16,Bahrain Grand Prix,stroll,STR,Lance Stroll,aston_martin,14.000000,14.000000,0,12.000000,Pole sitter,,14
+2026,16,Bahrain Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,15.000000,17.000000,0,11.000000,Pole sitter,,15
+2026,16,Bahrain Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,18.000000,0,14.000000,Pole sitter,,16
+2026,16,Bahrain Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,19.000000,0,15.000000,Pole sitter,,17
+2026,16,Bahrain Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,20.000000,0,21.000000,Pole sitter,,18
+2026,16,Bahrain Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,21.000000,0,22.000000,Pole sitter,,19
+2026,16,Bahrain Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,22.000000,0,19.000000,Pole sitter,,20
+2026,16,Bahrain Grand Prix,colapinto,COL,Franco Colapinto,alpine,21.000000,15.000000,0,13.000000,Pole sitter,,21
+2026,16,Bahrain Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,22.000000,16.000000,0,10.000000,Pole sitter,,22
+2026,16,Bahrain Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,Form leader,,5
+2026,16,Bahrain Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,0,3.000000,Form leader,,7
+2026,16,Bahrain Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,4.000000,0,2.000000,Form leader,,1
+2026,16,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,4.000000,Form leader,,6
+2026,16,Bahrain Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,6.000000,0,9.000000,Form leader,,4
+2026,16,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,6.000000,Form leader,,11
+2026,16,Bahrain Grand Prix,russell,RUS,George Russell,mercedes,7.000000,8.000000,0,20.000000,Form leader,,2
+2026,16,Bahrain Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,3.000000,0,5.000000,Form leader,,3
+2026,16,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,16.000000,Form leader,,12
+2026,16,Bahrain Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,18.000000,Form leader,,14
+2026,16,Bahrain Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,7.000000,Form leader,,9
+2026,16,Bahrain Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,12.000000,12.000000,0,8.000000,Form leader,,18
+2026,16,Bahrain Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,17.000000,Form leader,,16
+2026,16,Bahrain Grand Prix,stroll,STR,Lance Stroll,aston_martin,14.000000,14.000000,0,12.000000,Form leader,,22
+2026,16,Bahrain Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,15.000000,17.000000,0,11.000000,Form leader,,10
+2026,16,Bahrain Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,18.000000,0,14.000000,Form leader,,17
+2026,16,Bahrain Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,19.000000,0,15.000000,Form leader,,15
+2026,16,Bahrain Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,20.000000,0,21.000000,Form leader,,19
+2026,16,Bahrain Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,21.000000,0,22.000000,Form leader,,21
+2026,16,Bahrain Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,22.000000,0,19.000000,Form leader,,20
+2026,16,Bahrain Grand Prix,colapinto,COL,Franco Colapinto,alpine,21.000000,15.000000,0,13.000000,Form leader,,13
+2026,16,Bahrain Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,22.000000,16.000000,0,10.000000,Form leader,,8
+2026,16,Bahrain Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.410056,1
+2026,16,Bahrain Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,2.000000,2.000000,0,3.000000,Grid-only logistic regression,0.238974,2
+2026,16,Bahrain Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,3.000000,4.000000,0,2.000000,Grid-only logistic regression,0.136079,3
+2026,16,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,4.000000,5.000000,0,4.000000,Grid-only logistic regression,0.087292,4
+2026,16,Bahrain Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,6.000000,0,9.000000,Grid-only logistic regression,0.051624,5
+2026,16,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,6.000000,Grid-only logistic regression,0.033053,6
+2026,16,Bahrain Grand Prix,russell,RUS,George Russell,mercedes,7.000000,8.000000,0,20.000000,Grid-only logistic regression,0.018691,7
+2026,16,Bahrain Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,8.000000,3.000000,0,5.000000,Grid-only logistic regression,0.016934,8
+2026,16,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,alpine,9.000000,9.000000,0,16.000000,Grid-only logistic regression,0.004073,9
+2026,16,Bahrain Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,10.000000,10.000000,0,18.000000,Grid-only logistic regression,0.001621,10
+2026,16,Bahrain Grand Prix,lawson,LAW,Liam Lawson,rb,11.000000,11.000000,0,7.000000,Grid-only logistic regression,0.000806,11
+2026,16,Bahrain Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,12.000000,12.000000,0,8.000000,Grid-only logistic regression,0.000406,12
+2026,16,Bahrain Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,13.000000,0,17.000000,Grid-only logistic regression,0.000180,13
+2026,16,Bahrain Grand Prix,stroll,STR,Lance Stroll,aston_martin,14.000000,14.000000,0,12.000000,Grid-only logistic regression,0.000109,14
+2026,16,Bahrain Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,15.000000,17.000000,0,11.000000,Grid-only logistic regression,0.000043,15
+2026,16,Bahrain Grand Prix,bearman,BEA,Oliver Bearman,haas,16.000000,18.000000,0,14.000000,Grid-only logistic regression,0.000027,16
+2026,16,Bahrain Grand Prix,ocon,OCO,Esteban Ocon,haas,17.000000,19.000000,0,15.000000,Grid-only logistic regression,0.000013,17
+2026,16,Bahrain Grand Prix,albon,ALB,Alexander Albon,williams,18.000000,20.000000,0,21.000000,Grid-only logistic regression,0.000005,19
+2026,16,Bahrain Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,19.000000,21.000000,0,22.000000,Grid-only logistic regression,0.000003,20
+2026,16,Bahrain Grand Prix,perez,PER,Sergio Perez,cadillac,20.000000,22.000000,0,19.000000,Grid-only logistic regression,0.000001,22
+2026,16,Bahrain Grand Prix,colapinto,COL,Franco Colapinto,alpine,21.000000,15.000000,0,13.000000,Grid-only logistic regression,0.000007,18
+2026,16,Bahrain Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,22.000000,16.000000,0,10.000000,Grid-only logistic regression,0.000002,21
+2026,17,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,XGBoost,0.472677,1
+2026,17,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,2.000000,XGBoost,0.172007,3
+2026,17,Singapore Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,6.000000,XGBoost,0.036347,5
+2026,17,Singapore Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,XGBoost,0.243462,2
+2026,17,Singapore Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,4.000000,XGBoost,0.015480,6
+2026,17,Singapore Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,XGBoost,0.004109,8
+2026,17,Singapore Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,8.000000,0,11.000000,XGBoost,0.000965,12
+2026,17,Singapore Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,9.000000,0,7.000000,XGBoost,0.001186,10
+2026,17,Singapore Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,15.000000,XGBoost,0.000909,14
+2026,17,Singapore Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,11.000000,0,8.000000,XGBoost,0.000534,18
+2026,17,Singapore Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,12.000000,XGBoost,0.000931,13
+2026,17,Singapore Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,13.000000,0,13.000000,XGBoost,0.000627,15
+2026,17,Singapore Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,14.000000,0,14.000000,XGBoost,0.001395,9
+2026,17,Singapore Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,15.000000,0,22.000000,XGBoost,0.000545,17
+2026,17,Singapore Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,16.000000,0,21.000000,XGBoost,0.000428,20
+2026,17,Singapore Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,18.000000,0,18.000000,XGBoost,0.000617,16
+2026,17,Singapore Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,17.000000,XGBoost,0.000511,19
+2026,17,Singapore Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,21.000000,0,19.000000,XGBoost,0.000350,22
+2026,17,Singapore Grand Prix,russell,RUS,George Russell,mercedes,19.000000,6.000000,0,9.000000,XGBoost,0.040617,4
+2026,17,Singapore Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,20.000000,17.000000,0,16.000000,XGBoost,0.001100,11
+2026,17,Singapore Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,19.000000,0,20.000000,XGBoost,0.000405,21
+2026,17,Singapore Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,10.000000,XGBoost,0.004799,7
+2026,17,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,Pole sitter,,1
+2026,17,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,2.000000,Pole sitter,,2
+2026,17,Singapore Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,6.000000,Pole sitter,,3
+2026,17,Singapore Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,Pole sitter,,4
+2026,17,Singapore Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,4.000000,Pole sitter,,5
+2026,17,Singapore Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,Pole sitter,,6
+2026,17,Singapore Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,8.000000,0,11.000000,Pole sitter,,7
+2026,17,Singapore Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,9.000000,0,7.000000,Pole sitter,,8
+2026,17,Singapore Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,15.000000,Pole sitter,,9
+2026,17,Singapore Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,11.000000,0,8.000000,Pole sitter,,10
+2026,17,Singapore Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,12.000000,Pole sitter,,11
+2026,17,Singapore Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,13.000000,0,13.000000,Pole sitter,,12
+2026,17,Singapore Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,14.000000,0,14.000000,Pole sitter,,13
+2026,17,Singapore Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,15.000000,0,22.000000,Pole sitter,,14
+2026,17,Singapore Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,16.000000,0,21.000000,Pole sitter,,15
+2026,17,Singapore Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,18.000000,0,18.000000,Pole sitter,,16
+2026,17,Singapore Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,17.000000,Pole sitter,,17
+2026,17,Singapore Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,21.000000,0,19.000000,Pole sitter,,18
+2026,17,Singapore Grand Prix,russell,RUS,George Russell,mercedes,19.000000,6.000000,0,9.000000,Pole sitter,,19
+2026,17,Singapore Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,20.000000,17.000000,0,16.000000,Pole sitter,,20
+2026,17,Singapore Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,19.000000,0,20.000000,Pole sitter,,21
+2026,17,Singapore Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,10.000000,Pole sitter,,22
+2026,17,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,Form leader,,3
+2026,17,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,2.000000,Form leader,,7
+2026,17,Singapore Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,6.000000,Form leader,,8
+2026,17,Singapore Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,Form leader,,1
+2026,17,Singapore Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,4.000000,Form leader,,5
+2026,17,Singapore Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,Form leader,,6
+2026,17,Singapore Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,8.000000,0,11.000000,Form leader,,13
+2026,17,Singapore Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,9.000000,0,7.000000,Form leader,,9
+2026,17,Singapore Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,15.000000,Form leader,,10
+2026,17,Singapore Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,11.000000,0,8.000000,Form leader,,11
+2026,17,Singapore Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,12.000000,Form leader,,16
+2026,17,Singapore Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,13.000000,0,13.000000,Form leader,,14
+2026,17,Singapore Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,14.000000,0,14.000000,Form leader,,17
+2026,17,Singapore Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,15.000000,0,22.000000,Form leader,,15
+2026,17,Singapore Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,16.000000,0,21.000000,Form leader,,12
+2026,17,Singapore Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,18.000000,0,18.000000,Form leader,,20
+2026,17,Singapore Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,17.000000,Form leader,,19
+2026,17,Singapore Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,21.000000,0,19.000000,Form leader,,21
+2026,17,Singapore Grand Prix,russell,RUS,George Russell,mercedes,19.000000,6.000000,0,9.000000,Form leader,,4
+2026,17,Singapore Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,20.000000,17.000000,0,16.000000,Form leader,,18
+2026,17,Singapore Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,19.000000,0,20.000000,Form leader,,22
+2026,17,Singapore Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,10.000000,Form leader,,2
+2026,17,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,red_bull,1.000000,1.000000,1,1.000000,Grid-only logistic regression,0.353967,1
+2026,17,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,ferrari,2.000000,2.000000,0,2.000000,Grid-only logistic regression,0.252320,2
+2026,17,Singapore Grand Prix,hamilton,HAM,Lewis Hamilton,ferrari,3.000000,3.000000,0,6.000000,Grid-only logistic regression,0.167313,3
+2026,17,Singapore Grand Prix,antonelli,ANT,Kimi Antonelli,mercedes,4.000000,4.000000,0,3.000000,Grid-only logistic regression,0.106157,4
+2026,17,Singapore Grand Prix,norris,NOR,Lando Norris,mclaren,5.000000,5.000000,0,4.000000,Grid-only logistic regression,0.059370,5
+2026,17,Singapore Grand Prix,piastri,PIA,Oscar Piastri,mclaren,6.000000,7.000000,0,5.000000,Grid-only logistic regression,0.032375,6
+2026,17,Singapore Grand Prix,gasly,GAS,Pierre Gasly,alpine,7.000000,8.000000,0,11.000000,Grid-only logistic regression,0.013450,7
+2026,17,Singapore Grand Prix,lawson,LAW,Liam Lawson,rb,8.000000,9.000000,0,7.000000,Grid-only logistic regression,0.007620,8
+2026,17,Singapore Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,rb,9.000000,10.000000,0,15.000000,Grid-only logistic regression,0.003887,9
+2026,17,Singapore Grand Prix,hulkenberg,HUL,Nico Hulkenberg,audi,10.000000,11.000000,0,8.000000,Grid-only logistic regression,0.001740,10
+2026,17,Singapore Grand Prix,bearman,BEA,Oliver Bearman,haas,11.000000,12.000000,0,12.000000,Grid-only logistic regression,0.000945,11
+2026,17,Singapore Grand Prix,ocon,OCO,Esteban Ocon,haas,12.000000,13.000000,0,13.000000,Grid-only logistic regression,0.000362,12
+2026,17,Singapore Grand Prix,sainz,SAI,Carlos Sainz,williams,13.000000,14.000000,0,14.000000,Grid-only logistic regression,0.000178,13
+2026,17,Singapore Grand Prix,bortoleto,BOR,Gabriel Bortoleto,audi,14.000000,15.000000,0,22.000000,Grid-only logistic regression,0.000096,15
+2026,17,Singapore Grand Prix,colapinto,COL,Franco Colapinto,alpine,15.000000,16.000000,0,21.000000,Grid-only logistic regression,0.000097,14
+2026,17,Singapore Grand Prix,albon,ALB,Alexander Albon,williams,16.000000,18.000000,0,18.000000,Grid-only logistic regression,0.000018,17
+2026,17,Singapore Grand Prix,perez,PER,Sergio Perez,cadillac,17.000000,20.000000,0,17.000000,Grid-only logistic regression,0.000004,18
+2026,17,Singapore Grand Prix,bottas,BOT,Valtteri Bottas,cadillac,18.000000,21.000000,0,19.000000,Grid-only logistic regression,0.000001,20
+2026,17,Singapore Grand Prix,russell,RUS,George Russell,mercedes,19.000000,6.000000,0,9.000000,Grid-only logistic regression,0.000095,16
+2026,17,Singapore Grand Prix,alonso,ALO,Fernando Alonso,aston_martin,20.000000,17.000000,0,16.000000,Grid-only logistic regression,0.000003,19
+2026,17,Singapore Grand Prix,stroll,STR,Lance Stroll,aston_martin,21.000000,19.000000,0,20.000000,Grid-only logistic regression,0.000001,21
+2026,17,Singapore Grand Prix,hadjar,HAD,Isack Hadjar,red_bull,22.000000,22.000000,0,10.000000,Grid-only logistic regression,0.000000,22

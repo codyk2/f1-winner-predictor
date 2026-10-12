@@ -3,6 +3,7 @@
     python -m f1pred.predict 2026 18                 # after qualifying, before the race
     python -m f1pred.predict 2026 18 --grid grid.csv # with the official starting grid
     python -m f1pred.predict 2026 17 --no-download   # re-score from data already on disk
+    python -m f1pred.predict 2026 17 --season        # re-score every round so far, walk-forward
 
 The model is the frozen setup in ``config/model.json``, retrained on every race
 before the target (including earlier rounds of the same season, so a new set
@@ -23,9 +24,10 @@ from datetime import datetime, timezone
 import numpy as np
 import pandas as pd
 
-from f1pred.config import RACE, RAW, ROOT, TEST_SEASON, load_frozen
-from f1pred.features import build_features, load_raw
-from f1pred.ingest import RESULT_COLS, enable_cache, ingest
+from f1pred import baselines
+from f1pred.config import FIRST_SEASON, RACE, RAW, ROOT, TEST_SEASON, load_frozen
+from f1pred.features import build_features
+from f1pred.ingest import RESULT_COLS, enable_cache, ingest, load_tables
 from f1pred.train import fit, predict
 
 PREDICTIONS = ROOT / "predictions"
@@ -82,7 +84,7 @@ def prepare(raw: dict[str, pd.DataFrame], season: int, rnd: int,
 def score(season: int, rnd: int, grid: pd.DataFrame | None = None) -> pd.DataFrame:
     """Win probabilities for one race from the frozen setup, trained on the past only."""
     config = load_frozen()
-    full = load_raw()
+    full = load_tables(range(FIRST_SEASON, season + 1))
     raw, already_run = prepare(full, season, rnd, grid)
     features = build_features(raw)
     is_target = (features["season"] == season) & (features["round"] == rnd)
@@ -98,6 +100,79 @@ def score(season: int, rnd: int, grid: pd.DataFrame | None = None) -> pd.DataFra
             columns={"Position": "actual_finish"}), on="Abbreviation", how="left")
     out.attrs.update(trained_races=train.groupby(RACE).ngroups, already_run=already_run)
     return out
+
+
+def rescore_season(season: int, through: int) -> pd.DataFrame:
+    """Walk forward through a season that has been run.
+
+    Each race is scored by the frozen setup trained on every earlier race, with
+    that race's result blanked before features are built and restored only for
+    scoring. Returns prediction frames for the model and the three baselines.
+    This is an after-the-fact re-score, not a live prediction.
+    """
+    config = load_frozen()
+    full = load_tables(range(FIRST_SEASON, season + 1))
+    frames = []
+    for rnd in range(1, through + 1):
+        raw, already_run = prepare(full, season, rnd)
+        if not already_run:
+            raise SystemExit(f"{season} round {rnd} has no race result to score against.")
+        features = build_features(raw)
+        is_target = (features["season"] == season) & (features["round"] == rnd)
+        train, target = features[~is_target], features[is_target].copy()
+        assert target["won"].sum() == 0, "the target race's result must be hidden"
+        models = fit(train, config["features"], config["params"], season,
+                     config["recency_decay"], tuple(config["seeds"]), allow_current_season=True)
+        actual = full["race"][(full["race"]["season"] == season) & (full["race"]["round"] == rnd)]
+        finish = pd.to_numeric(actual.set_index("DriverId")["Position"], errors="coerce")
+        scored = target.assign(finish_pos=target["DriverId"].map(finish).to_numpy())
+        scored["won"] = (scored["finish_pos"] == 1).astype(int)
+        frames += [predict(models, scored, config["features"]),  # features came from `target`
+                   baselines.pole_sitter(scored), baselines.form_leader(scored),
+                   baselines.grid_logreg(train, scored)]
+    return pd.concat(frames, ignore_index=True)
+
+
+def season_report(season: int, through: int) -> None:
+    """Re-score a season so far, save it and fill the README's block for it."""
+    from f1pred import evaluate as ev
+
+    pred = rescore_season(season, through)
+    PREDICTIONS.mkdir(exist_ok=True)
+    pred.to_csv(PREDICTIONS / f"{season}_rescored.csv", index=False, float_format="%.6f")
+    preds = ev.split_models(pred)
+    model, pole = preds[ev.MODEL_NAME], preds[ev.POLE]
+
+    def slot(grid: float, field: int) -> str:
+        return ev.grid_slot(pd.Series([grid]), field)[0]
+
+    rows = []
+    for rnd, race in model.groupby("round"):
+        pick, winner = race[race["rank"] == 1].iloc[0], race[race["won"] == 1].iloc[0]
+        first = pole[(pole["round"] == rnd) & (pole["rank"] == 1)].iloc[0]
+        rows.append({
+            "Rd": rnd, "Race": pick["event"].replace(" Grand Prix", ""),
+            "Winner (grid)": winner["Abbreviation"] + slot(winner["grid_pos"], len(race)),
+            "Model pick (grid)": pick["Abbreviation"] + slot(pick["grid_pos"], len(race)),
+            "P(pick)": f"{pick['p']:.0%}", "Pole sitter": first["Abbreviation"],
+            "Pick right?": "yes" if pick["won"] else "**no**",
+            "Pole right?": "yes" if first["won"] else "no",
+            "P(winner)": f"{winner['p']:.0%}", "Winner's rank": int(winner["rank"]),
+        })
+    v = ev.log_loss_vs_logreg(preds)
+    stamp = datetime.now(timezone.utc).date().isoformat()
+    note = (f"Rounds 1-{through} of {season}, re-scored on {stamp} after the races were run. "
+            f"Each race was scored by the frozen v1.0 setup retrained on every earlier race, "
+            f"with that race's result hidden. Log loss against the grid-only logistic "
+            f"regression: {v['diff']:+.4f} ({v['relative']:+.1%}; 95% CI {v['lo']:+.4f} to "
+            f"{v['hi']:+.4f}).")
+    sections = {f"season_{season}": ev.md_table(ev.results_table(preds)),
+                f"season_{season}_notes": note,
+                f"season_{season}_races": ev.md_table(pd.DataFrame(rows))}
+    (PREDICTIONS / f"{season}_rescored.md").write_text(
+        "\n\n".join(sections.values()) + "\n")
+    ev.update_readme(sections)
+    print("\n\n".join(sections.values()))
 
 
 def rounds_on_disk(year: int) -> int:
@@ -132,10 +207,15 @@ def main() -> None:
     parser.add_argument("--grid", help="CSV with Abbreviation,GridPosition (0 = pit lane)")
     parser.add_argument("--no-download", action="store_true",
                         help="use the raw tables already in data/raw")
+    parser.add_argument("--season", dest="whole_season", action="store_true",
+                        help="re-score every round up to this one (races already run)")
     args = parser.parse_args()
 
     if not args.no_download:
         refresh(args.season, args.round)
+    if args.whole_season:
+        season_report(args.season, args.round)
+        return
 
     grid = pd.read_csv(args.grid) if args.grid else None
     out = score(args.season, args.round, grid)

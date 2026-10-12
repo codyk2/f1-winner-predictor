@@ -17,8 +17,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from f1pred.config import RAW
-from f1pred.features import FEATURES, build_features, load_raw
+from f1pred.config import ALL_SEASONS
+from f1pred.features import FEATURES, build_features
+from f1pred.ingest import load_tables
 from synthetic import make_raw
 
 OUTCOME_COLS = ["Position", "ClassifiedPosition", "Status", "Points", "Laps"]
@@ -28,7 +29,7 @@ SYNTHETIC_TARGETS = [(2021, 1), (2022, 2), (2022, 3), (2023, 4), (2023, 6)]
 
 def _real_raw() -> dict[str, pd.DataFrame] | None:
     try:
-        return load_raw(raw_dir=RAW)
+        return load_tables(ALL_SEASONS)
     except FileNotFoundError:
         return None
 

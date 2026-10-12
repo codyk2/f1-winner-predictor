@@ -24,6 +24,7 @@ import argparse
 import sqlite3
 import sys
 import time
+from collections.abc import Iterable
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, field
 from datetime import date
@@ -210,6 +211,24 @@ def _save(parts: list[pd.DataFrame], table: str, year: int) -> int:
     df.to_parquet(tmp, index=False)
     tmp.replace(path)
     return len(df)
+
+
+def load_tables(seasons: Iterable[int]) -> dict[str, pd.DataFrame]:
+    """Read the raw tables for the given seasons by exact file name.
+
+    Exact names matter: a synced folder (iCloud, Dropbox) can drop a conflict
+    copy such as ``events_2019 2.parquet`` next to the real file, and a
+    wildcard would read both.
+    """
+    seasons = list(seasons)
+    tables = {}
+    for table in TABLES:
+        files = [RAW / f"{table}_{year}.parquet" for year in seasons]
+        files = [f for f in files if f.exists()]  # no sprint table before 2021
+        if not files:
+            raise FileNotFoundError(f"no {table}_<season>.parquet in {RAW}; run `make data`")
+        tables[table] = pd.concat([pd.read_parquet(f) for f in files], ignore_index=True)
+    return tables
 
 
 def _weekends(year: int, through: int | None) -> list[tuple[pd.Series, list[str]]]:
