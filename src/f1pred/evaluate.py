@@ -195,7 +195,7 @@ def cv_report() -> None:
         "Winner hit rate": abl["winner_hit"].map(pct), "Top-3 hit rate": abl["top3_hit"].map(pct),
         "Log loss": abl["log_loss"].map(num), "Brier": abl["brier"].map(num),
     })
-    abl_view.loc[chosen, "Features"] = f"**{abl_view.loc[chosen, 'Features']}** (frozen)"
+    abl_view.loc[chosen, "Features"] = f"**{abl_view.loc[chosen, 'Features']}** (chosen)"
 
     rec_view = pd.DataFrame({
         "Sample weighting": recency["weighting"],

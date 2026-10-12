@@ -1,0 +1,53 @@
+## validation
+
+| Model | Winner hit rate | 95% CI | vs pole sitter (95% CI) | Top-3 hit rate | Hits in the 33 races pole lost | Log loss | Brier |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| XGBoost | 57.4% (39 of 68) | 45.6% to 69.1% | +5.9% (-4.4% to +16.2%) | 88.2% (79.4% to 95.6%) | 9 of 33 | 0.0964 | 0.0290 |
+| Pole sitter | 51.5% (35 of 68) | 39.7% to 63.2% | baseline | 83.8% (75.0% to 92.6%) | 0 of 33 | n/a | n/a |
+| Form leader | 51.5% (35 of 68) | 39.7% to 63.2% | +0.0% (-16.2% to +16.2%) | 70.6% (60.3% to 80.9%) | 16 of 33 | n/a | n/a |
+| Grid-only logistic regression | 50.0% (34 of 68) | 38.2% to 61.8% | -1.5% (-4.4% to +0.0%) | 85.3% (76.5% to 92.6%) | 0 of 33 | 0.1247 | 0.0346 |
+
+## validation_folds
+
+| Model | Fold | Races | Winner hit rate | Top-3 hit rate | Hit rate when pole lost | Log loss | Brier |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| XGBoost | 2022 | 22 | 40.9% | 90.9% | 8.3% | 0.1092 | 0.0351 |
+| XGBoost | 2023 | 22 | 81.8% | 100.0% | 62.5% | 0.0579 | 0.0153 |
+| XGBoost | 2024 | 24 | 50.0% | 75.0% | 23.1% | 0.1199 | 0.0359 |
+| XGBoost | pooled | 68 | 57.4% | 88.2% | 27.3% | 0.0964 | 0.0290 |
+| Pole sitter | 2022 | 22 | 45.5% | 81.8% | 0.0% | n/a | n/a |
+| Pole sitter | 2023 | 22 | 63.6% | 86.4% | 0.0% | n/a | n/a |
+| Pole sitter | 2024 | 24 | 45.8% | 83.3% | 0.0% | n/a | n/a |
+| Pole sitter | pooled | 68 | 51.5% | 83.8% | 0.0% | n/a | n/a |
+| Form leader | 2022 | 22 | 50.0% | 63.6% | 50.0% | n/a | n/a |
+| Form leader | 2023 | 22 | 86.4% | 95.5% | 87.5% | n/a | n/a |
+| Form leader | 2024 | 24 | 20.8% | 54.2% | 23.1% | n/a | n/a |
+| Form leader | pooled | 68 | 51.5% | 70.6% | 48.5% | n/a | n/a |
+| Grid-only logistic regression | 2022 | 22 | 40.9% | 81.8% | 0.0% | 0.1293 | 0.0371 |
+| Grid-only logistic regression | 2023 | 22 | 63.6% | 90.9% | 0.0% | 0.1063 | 0.0311 |
+| Grid-only logistic regression | 2024 | 24 | 45.8% | 83.3% | 0.0% | 0.1373 | 0.0356 |
+| Grid-only logistic regression | pooled | 68 | 50.0% | 85.3% | 0.0% | 0.1247 | 0.0346 |
+
+## ablation
+
+| Features | Count | Winner hit rate | Top-3 hit rate | Log loss | Brier |
+| --- | --- | --- | --- | --- | --- |
+| grid only | 4 | 51.5% | 85.3% | 0.1151 | 0.0349 |
+| + practice | 7 | 48.5% | 85.3% | 0.1145 | 0.0345 |
+| + sprint | 8 | 48.5% | 85.3% | 0.1148 | 0.0346 |
+| **+ form** (chosen) | 14 | 55.9% | 88.2% | 0.0975 | 0.0294 |
+| + circuit | 17 | 57.4% | 88.2% | 0.0985 | 0.0296 |
+| + weather | 19 | 57.4% | 86.8% | 0.0986 | 0.0294 |
+
+## recency
+
+| Sample weighting | Winner hit rate | Log loss | Log loss 2022 | Log loss 2023 | Log loss 2024 |
+| --- | --- | --- | --- | --- | --- |
+| equal | 57.4% | 0.0964 | 0.1092 | 0.0579 | 0.1199 |
+| 0.7 ** seasons back | 52.9% | 0.0977 | 0.1095 | 0.0545 | 0.1267 |
+
+## validation_notes
+
+Frozen setup: 14 features, {'max_depth': 2, 'learning_rate': 0.03, 'n_estimators': 400, 'min_child_weight': 5}, recency weighting off, 5 seeds averaged.
+
+Log loss against the grid-only logistic regression: -0.0283 (-22.7%; 95% CI -0.0464 to -0.0121). Expected calibration error: XGBoost 0.013, logistic regression 0.020.

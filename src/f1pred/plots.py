@@ -194,10 +194,10 @@ def ablation(table: pd.DataFrame, pole_hit: float, logreg_loss: float,
         ax.plot(x[chosen], y[chosen], marker="o", markersize=12, markerfacecolor="none",
                 markeredgecolor=INK, markeredgewidth=1.3, linestyle="none", zorder=4)
         fmt = (lambda v: f"{v:.0%}") if as_pct else (lambda v: f"{v:.4f}")
-        left_half = chosen < len(table) / 2
-        ax.annotate("frozen: " + fmt(y[chosen]), (x[chosen], y[chosen]),
-                    xytext=(11 if left_half else -11, 9), textcoords="offset points",
-                    ha="left" if left_half else "right", fontsize=8.5, color=INK)
+        # label above the point for the hit rate, below it for the loss, clear of the line
+        ax.annotate("chosen: " + fmt(y[chosen]), (x[chosen], y[chosen]),
+                    xytext=(-11, 9) if as_pct else (0, -19), textcoords="offset points",
+                    ha="right" if as_pct else "center", fontsize=8.5, color=INK)
         ax.set_xticks(x)
         ax.set_xticklabels(table["step"], rotation=30, ha="right", rotation_mode="anchor")
         ax.set_title(label, loc="left", fontsize=10, color=INK2, pad=8)
