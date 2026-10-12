@@ -257,3 +257,98 @@ def race_strip(per_race: pd.DataFrame) -> plt.Figure:
     titles(fig, "The model's pick for each 2025 race",
            "Driver code above each mark; height is the win probability the model gave them")
     return fig
+
+
+# ------------------------------------------------------- notebook-only helpers
+
+def show(fig: plt.Figure):
+    """Render a figure as an inline PNG in a notebook (the backend here is Agg)."""
+    import io
+
+    from IPython.display import Image
+
+    buf = io.BytesIO()
+    fig.savefig(buf, dpi=DPI, format="png")
+    plt.close(fig)
+    return Image(data=buf.getvalue(), width=int(fig.get_size_inches()[0] * 100))
+
+
+def share_bars(labels: list[str], shares: list[float], notes: list[str], title: str,
+               subtitle: str) -> plt.Figure:
+    """A few thin columns of shares, each with its value on the cap and a note below."""
+    fig, (ax,) = new_figure(1.2 * len(labels) + 2.2, 3.9)
+    x = np.arange(len(labels))
+    ax.set_xlim(-0.6, len(labels) - 0.4)
+    pct_axis(ax)
+    rounded_bars(ax, x, np.asarray(shares, dtype=float), BLUE, thickness_in=0.24)
+    for xi, share, note in zip(x, shares, notes, strict=True):
+        ax.text(xi, share + 0.025, f"{share:.0%}", ha="center", va="bottom", fontsize=9.5,
+                color=INK)
+        ax.text(xi, -0.105, note, ha="center", va="top", fontsize=8.5, color=MUTED)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.spines["bottom"].set_color(AXIS)
+    titles(fig, title, subtitle)
+    return fig
+
+
+def circuit_bars(table: pd.DataFrame, title: str, subtitle: str) -> plt.Figure:
+    """Horizontal bars: pole conversion per circuit, with wins of races at the bar end."""
+    table = table.sort_values(["rate", "races"]).reset_index(drop=True)
+    fig, (ax,) = new_figure(7.2, 0.27 * len(table) + 1.5, left=1.7, bottom=0.6)
+    ax.grid(True, axis="x")
+    ax.grid(False, axis="y")
+    y = np.arange(len(table))
+    ax.set_ylim(-0.7, len(table) - 0.3)
+    pct_axis(ax, axis="x", upper=1.15)
+    ax.set_xticks(np.arange(0, 1.01, 0.25))
+    ax.set_xticklabels([f"{t:.0%}" for t in np.arange(0, 1.01, 0.25)])
+    rounded_bars(ax, y, table["rate"].to_numpy(), BLUE, thickness_in=0.13, horizontal=True)
+    for yi, rate, wins, races in zip(y, table["rate"], table["pole_wins"], table["races"],
+                                     strict=True):
+        ax.text(rate + 0.02, yi, f"{int(wins)} of {int(races)}", va="center", fontsize=8.5,
+                color=INK2)
+    ax.set_yticks(y)
+    ax.set_yticklabels(table["circuit"].str.replace("_", " ").str.title())
+    titles(fig, title, subtitle, left=0.3)
+    return fig
+
+
+def coverage_map(matrix: pd.DataFrame, title: str, subtitle: str) -> plt.Figure:
+    """Season-by-round grid: share of drivers with a long run (one hue, light to dark)."""
+    from matplotlib.colors import LinearSegmentedColormap
+
+    ramp = LinearSegmentedColormap.from_list("blue", ["#cde2fb", "#3987e5", "#0d366b"])
+    fig, (ax,) = new_figure(9.6, 0.36 * len(matrix) + 2.1, left=0.8, bottom=1.0, right=0.4)
+    ax.grid(False)
+    values = matrix.to_numpy(dtype=float)
+    for i in range(values.shape[0]):
+        for j in range(values.shape[1]):
+            v = values[i, j]
+            if np.isnan(v):
+                continue
+            ax.add_patch(plt.Rectangle((j + 0.04, i + 0.06), 0.92, 0.88,
+                                       facecolor=ramp(v) if v > 0 else SURFACE,
+                                       edgecolor=AXIS if v == 0 else "none", linewidth=0.8))
+            if v == 0:
+                ax.text(j + 0.5, i + 0.5, "0", ha="center", va="center", fontsize=8,
+                        color=INK2)
+    ax.set_xlim(0, values.shape[1])
+    ax.set_ylim(values.shape[0], 0)
+    ax.set_xticks(np.arange(values.shape[1]) + 0.5)
+    ax.set_xticklabels(matrix.columns)
+    ax.set_yticks(np.arange(values.shape[0]) + 0.5)
+    ax.set_yticklabels(matrix.index)
+    ax.set_xlabel("Round")
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    w, h = fig.get_size_inches()
+    for k, (v, label) in enumerate([(0.25, "25%"), (0.5, "50%"), (0.75, "75%"), (1.0, "100%")]):
+        x0 = 0.8 / w + k * 0.085
+        fig.patches.append(plt.Rectangle((x0, 0.2 / h), 0.022, 0.16 / h, transform=fig.transFigure,
+                                         facecolor=ramp(v), edgecolor="none"))
+        fig.text(x0 + 0.027, 0.28 / h, label, fontsize=8.5, color=INK2, va="center")
+    fig.text(0.8 / w + 4 * 0.085, 0.28 / h, "of drivers with a long run; 0 = none",
+             fontsize=8.5, color=INK2, va="center")
+    titles(fig, title, subtitle, left=0.8)
+    return fig

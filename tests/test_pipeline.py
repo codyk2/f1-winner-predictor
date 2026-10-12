@@ -158,3 +158,39 @@ def test_frozen_config_uses_known_features():
     config = json.loads(FROZEN_CONFIG.read_text())
     assert set(config["features"]) <= set(FEATURES)
     assert "scale_pos_weight" not in config["params"]
+
+
+def _target(df: pd.DataFrame, season: int, rnd: int) -> pd.DataFrame:
+    rows = df[(df["season"] == season) & (df["round"] == rnd)]
+    return rows.sort_values("DriverId").reset_index(drop=True)
+
+
+def test_rescoring_a_past_race_hides_its_result(raw, features):
+    from f1pred.predict import prepare
+
+    cut, already_run = prepare(raw, 2023, 4)
+    assert already_run
+    race = cut["race"]
+    assert not ((race["season"] == 2023) & (race["round"] > 4)).any()
+    assert _target(race, 2023, 4)["Position"].isna().all()
+    rebuilt = build_features(cut)
+    pd.testing.assert_frame_equal(_target(rebuilt, 2023, 4)[FEATURES],
+                                  _target(features, 2023, 4)[FEATURES])
+    assert _target(rebuilt, 2023, 4)["won"].sum() == 0
+
+
+def test_upcoming_race_is_built_from_the_qualifying_entry_list(raw, features):
+    from f1pred.predict import prepare
+
+    race = raw["race"]
+    not_run = {**raw, "race": race[~((race["season"] == 2023) & (race["round"] >= 5))]}
+    cut, already_run = prepare(not_run, 2023, 5)
+    assert not already_run
+    rebuilt = build_features(cut)
+    # round 5 has no grid penalties in the synthetic data, so grid = qualifying order
+    pd.testing.assert_frame_equal(_target(rebuilt, 2023, 5)[FEATURES],
+                                  _target(features, 2023, 5)[FEATURES])
+
+    grid = _target(cut["race"], 2023, 5)[["Abbreviation"]].assign(GridPosition=0)
+    pit_lane, _ = prepare(not_run, 2023, 5, grid=grid)
+    assert (_target(build_features(pit_lane), 2023, 5)["grid_pos"] == 21).all()

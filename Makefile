@@ -31,7 +31,7 @@ test:
 	$(PY) -m pytest -q
 
 eda:
-	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/01_eda.ipynb
+	$(PY) -m nbconvert --to notebook --execute --inplace notebooks/01_eda.ipynb
 
 cv:
 	$(PY) -m f1pred.train cv
@@ -46,7 +46,7 @@ test-2025:
 
 report:
 	$(PY) -m f1pred.evaluate report
-	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/02_results.ipynb
+	$(PY) -m nbconvert --to notebook --execute --inplace notebooks/02_results.ipynb
 
 app:
 	$(PY) -m streamlit run app.py

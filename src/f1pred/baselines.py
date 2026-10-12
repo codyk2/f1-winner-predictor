@@ -25,7 +25,8 @@ from sklearn.preprocessing import StandardScaler
 from f1pred.config import DEV_SEASONS, RACE, TEST_SEASON, VALIDATION_FOLDS
 from f1pred.features import load_features
 
-PRED_COLS = RACE + ["event", "DriverId", "Abbreviation", "grid_pos", "quali_pos", "won"]
+PRED_COLS = RACE + ["event", "DriverId", "Abbreviation", "FullName", "TeamId", "grid_pos",
+                    "quali_pos", "won", "finish_pos"]
 LOGREG_FEATURES = ["grid_pos", "quali_gap_pct"]
 GAP_CAP = 5.0  # % behind pole; wet-dry sessions produce gaps far beyond this
 

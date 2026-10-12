@@ -71,9 +71,15 @@ def recency_weights(seasons: pd.Series, target_season: int, decay: float) -> np.
 
 
 def fit(train: pd.DataFrame, features: list[str], params: dict, target_season: int,
-        recency_decay: float | None = None, seeds: tuple[int, ...] = SEEDS) -> list[XGBClassifier]:
-    """Fit one classifier per seed on rows from seasons before ``target_season``."""
-    if train["season"].max() >= target_season:
+        recency_decay: float | None = None, seeds: tuple[int, ...] = SEEDS,
+        allow_current_season: bool = False) -> list[XGBClassifier]:
+    """Fit one classifier per seed on rows from seasons before ``target_season``.
+
+    ``allow_current_season`` is for live use only (``predict.py``), where the
+    caller passes the target season's earlier rounds as extra training rows.
+    """
+    latest_allowed = target_season if allow_current_season else target_season - 1
+    if train["season"].max() > latest_allowed:
         raise ValueError("training rows must come from seasons before the target season")
     weight = (recency_weights(train["season"], target_season, recency_decay)
               if recency_decay else None)
