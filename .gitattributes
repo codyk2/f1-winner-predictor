@@ -1,0 +1,2 @@
+# Notebooks only display saved results; keep the language bar about the code.
+*.ipynb linguist-documentation
