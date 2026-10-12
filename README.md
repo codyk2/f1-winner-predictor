@@ -377,6 +377,45 @@ parameters were tuned for the classifier, so this is a first look, not a
 verdict; a ranker is the natural thing to develop for points or midfield
 predictions.
 
+## Version 2: improving the model after the test
+
+v1.0 above is the result. This section is what came next: three passes at a
+better model, started after an independent review of the code and with 2025's
+misses already known. That changes what the numbers mean, so the rules first.
+
+- **2025 is no longer a test.** It is a fourth walk-forward fold, and v2's
+  numbers on it are development numbers. The ideas came from 2025's errors, so
+  results are also shown for 2022–2024 alone.
+- **Every candidate is logged, kept or not**, and scored six times with
+  different seeds. The spread between seed sets (0.0003 in log loss) is the
+  noise floor.
+- **A change is kept only if** pooled log loss over the four folds improves by
+  more than twice that spread **and** at least three of the four folds improve.
+- **2026 chooses nothing.** The clean test for v2 is the races not yet run.
+
+What was tried (`make history && make v2` reproduces it; code in
+[`features_v2.py`](src/f1pred/features_v2.py), [`models.py`](src/f1pred/models.py)
+and [`experiments.py`](src/f1pred/experiments.py)):
+
+<!-- v2_log:start -->
+| Pass | Candidate | What changed | Winners (of 92) | Log loss | Gain | Folds better | Kept | 2022-24 (of 68) | 2025 (of 24) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | Pole sitter | reference | 51 | n/a |  |  |  | 35 | 16 |
+|  | Grid-only logistic regression | reference | 50 | 0.1178 |  |  |  | 34 | 16 |
+| 1 | v1.0 as frozen | 14 features, trained on 2019 onwards | 54.0 (53-55) | 0.0950 |  |  | start | 39.0 | 15.0 |
+| 1 | history in windows | form and circuit windows see 2014-2018 results | 53.3 (52-55) | 0.0945 | +0.0005 | 2 of 4 | no | 38.2 | 15.2 |
+| 1 | train from 2014 | 2014-2018 races added as training rows | 54.3 (53-55) | 0.0959 | -0.0008 | 1 of 4 | no | 39.8 | 14.5 |
+| 1 | + quali | added: quali_seg_gap_pct, quali_margin_pct | 52.7 (52-53) | 0.0937 | +0.0013 | 4 of 4 | **yes** | 39.7 | 13.0 |
+| 1 | + pace_form | added: drv_quali_gap_avg_5, quali_gap_vs_form, team_quali_gap, team_quali_gap_avg_5, team_gap_vs_form | 50.7 (50-51) | 0.0964 | -0.0027 | 1 of 4 | no | 38.2 | 12.5 |
+| 1 | + practice | replaces longrun_gap_pct, has_longrun: longrun_gap_v2 | 57.0 (56-58) | 0.0915 | +0.0022 | 4 of 4 | **yes** | 43.2 | 13.8 |
+| 1 | + sticky | added: track_pole_win_eb, track_grid_corr_eb | 54.8 (54-56) | 0.0912 | +0.0003 | 3 of 4 | no | 41.8 | 13.0 |
+| 1 | + season | added: season_round, new_regs | 55.8 (55-56) | 0.0916 | -0.0001 | 2 of 4 | no | 42.8 | 13.0 |
+<!-- v2_log:end -->
+
+<!-- v2_findings:start -->
+_Findings are written up at the end of pass 3._
+<!-- v2_findings:end -->
+
 ## 2026 so far: a second look, after the fact
 
 `v1.0` was frozen with the 2026 season already under way, so 2026 gives a
@@ -490,6 +529,8 @@ src/f1pred/
   predict.py     score an upcoming race; re-score a season walk-forward
   race_facts.py  what happened in the races the model missed
   ranker.py      learning-to-rank comparison on the validation folds
+  intervals.py   exact confidence intervals
+  features_v2.py, models.py, experiments.py   version 2 (after the 2025 test)
   metrics.py, plots.py, eda.py, config.py
 notebooks/       01_eda.ipynb, 02_results.ipynb (display only; the scripts do the work)
 tests/           test_leakage.py, test_pipeline.py, synthetic.py

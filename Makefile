@@ -2,7 +2,7 @@ PY ?= .venv/bin/python
 # Absolute, so notebooks (which run from notebooks/) find the package too.
 export PYTHONPATH := $(CURDIR)/src
 
-.PHONY: help setup data features test eda cv freeze test-2025 report app lint
+.PHONY: help setup data features test eda cv freeze test-2025 report app lint history v2
 
 help:
 	@echo "make setup      create .venv and install pinned requirements"
@@ -15,6 +15,8 @@ help:
 	@echo "make test-2025  the locked 2025 run. Refuses to run before the v1.0 tag or twice"
 	@echo "make report     rebuild tables and figures from saved predictions"
 	@echo "make app        Streamlit demo of the 2025 predictions"
+	@echo "make history    download 2014-2018 results (history for version 2)"
+	@echo "make v2         version 2: features, every experiment, the log table"
 
 setup:
 	python3 -m venv .venv
@@ -51,6 +53,16 @@ report:
 
 app:
 	$(PY) -m streamlit run app.py
+
+history:
+	$(PY) -m f1pred.ingest 2014 2015 2016 2017 2018 --results-only
+
+# Version 2, developed after the 2025 test. 2025 is a development fold here.
+v2:
+	$(PY) -m f1pred.features_v2
+	$(PY) -m f1pred.experiments features
+	$(PY) -m f1pred.experiments models
+	$(PY) -m f1pred.experiments report
 
 lint:
 	$(PY) -m ruff check src tests

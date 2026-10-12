@@ -132,7 +132,7 @@ def make_raw(seed: int = 0, seasons: tuple[int, ...] = SEASONS) -> dict[str, pd.
                     base = 92 + d["skill"] + rng.normal(0, 0.15)
                     stints = [(1, "SOFT", 4, -1.5)]
                     if (j + rnd) % 4 != 0:  # a quarter of the field does no long run
-                        stints.append((2, "MEDIUM" if j % 2 else "HARD", 8, 1.0))
+                        stints.append((2, "MEDIUM" if j % 2 else "HARD", 10, 1.0))
                     lap_no = 0
                     for stint, compound, n_laps, offset in stints:
                         for k in range(n_laps):

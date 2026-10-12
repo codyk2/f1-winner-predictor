@@ -3,6 +3,7 @@
     python -m f1pred.ingest                 # all seasons 2019-2025
     python -m f1pred.ingest 2019            # a single season
     python -m f1pred.ingest 2026 --through 17 --allow-missing   # a season in progress
+    python -m f1pred.ingest 2014 2015 2016 2017 2018 --results-only   # history for v2
 
 Writes ``data/raw/{events,race,quali,sprint,laps,weather}_{season}.parquet``.
 Nothing after this stage calls the API: every later stage reads these files.
@@ -56,6 +57,7 @@ STRING_COLS = [
 
 MISSING_TEXT = ["", "nan", "NaN", "None", "NaT"]  # FastF1 stringifies some gaps
 
+API_GAP = 2.5           # seconds between results requests; the API refuses faster
 RATE_LIMIT_WAIT = 300   # seconds between attempts while FastF1's limiter is closed
 API_PAUSE = 4           # seconds to back off after the results API refuses a request
 API_MAX_WAIT = 900      # give up on one results session after this many seconds
@@ -151,6 +153,26 @@ def _results_api_state(year: int, rnd: int, name: str) -> str:
     return "ok" if len(response.content) else "empty"
 
 
+_last_request = 0.0  # when this process last fetched a results session over the network
+
+
+def _paced_load(year: int, rnd: int, name: str) -> fastf1.core.Session:
+    """Load a results session, keeping network fetches at least ``API_GAP`` apart.
+
+    Seasons before 2018 have no timing feed, so their sessions load in well
+    under a second and would otherwise hit the results API too fast.
+    """
+    global _last_request
+    wait = API_GAP - (time.time() - _last_request)
+    if wait > 0:
+        time.sleep(wait)
+    started = time.time()
+    s = load(year, rnd, name, laps=False)
+    if time.time() - started > 0.25:  # slower than a cache hit, so it used the network
+        _last_request = time.time()
+    return s
+
+
 def _fetch_results(year: int, rnd: int, name: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Results and weather for a Race, Qualifying or Sprint session.
 
@@ -160,7 +182,7 @@ def _fetch_results(year: int, rnd: int, name: str) -> tuple[pd.DataFrame, pd.Dat
     """
     waited = 0
     for _ in range(3):  # a refused request is retried inside the while loop
-        s = load(year, rnd, name, laps=False)
+        s = _paced_load(year, rnd, name)
         res = _results(s)
         if len(res) and res["DriverId"].notna().any() and res["Position"].notna().any():
             return tag(res, year, rnd, name), _weather(s, year, rnd, name)
@@ -315,11 +337,20 @@ def _in_fresh_process(fn, year: int, through: int | None) -> SeasonReport:
         return pool.submit(fn, year, through).result()
 
 
-def ingest(seasons: list[int], through: int | None = None) -> list[SeasonReport]:
-    """Download the given seasons and write their raw tables."""
+def ingest(seasons: list[int], through: int | None = None,
+           results_only: bool = False) -> list[SeasonReport]:
+    """Download the given seasons and write their raw tables.
+
+    ``results_only`` skips practice timing: used for seasons that only feed
+    history features (and required before 2018, which has no timing feed).
+    """
     enable_cache()
     # Results one season at a time: the results API refuses parallel clients.
     results = [_in_fresh_process(ingest_results, year, through) for year in seasons]
+    if results_only:
+        for year in seasons:  # qualifying weather would otherwise wait for the practice pass
+            (RAW / f"_quali_weather_{year}.parquet").unlink(missing_ok=True)
+        return results
     # Practice timing comes from F1's own servers; one worker per season.
     with ProcessPoolExecutor(max_workers=len(seasons)) as pool:
         practice = list(pool.map(ingest_practice, seasons, [through] * len(seasons)))
@@ -335,9 +366,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--through", type=int, help="only rounds up to this one")
     parser.add_argument("--allow-missing", action="store_true",
                         help="do not fail when a Race or Qualifying session is missing")
+    parser.add_argument("--results-only", action="store_true",
+                        help="race and qualifying results only, no practice timing")
     args = parser.parse_args(argv)
 
-    reports = ingest(args.seasons, args.through)
+    reports = ingest(args.seasons, args.through, args.results_only)
 
     print("\nSkipped sessions")
     for rep in reports:

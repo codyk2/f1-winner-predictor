@@ -73,25 +73,28 @@ def _shuffle_result(raw: dict[str, pd.DataFrame], season: int, rnd: int) -> dict
     return {**raw, "race": race}
 
 
-def _assert_same_features(full: pd.DataFrame, other: pd.DataFrame, season: int, rnd: int) -> None:
+def _assert_same_features(full: pd.DataFrame, other: pd.DataFrame, season: int, rnd: int,
+                          features: list[str] = FEATURES) -> None:
     a, b = _race(full, season, rnd), _race(other, season, rnd)
     assert len(a) > 0, f"no rows for {season} round {rnd}"
     assert a["DriverId"].tolist() == b["DriverId"].tolist()
-    pd.testing.assert_frame_equal(a[FEATURES], b[FEATURES], check_exact=False, rtol=1e-12)
+    pd.testing.assert_frame_equal(a[features], b[features], check_exact=False, rtol=1e-12)
 
 
-def check_no_future_data(raw: dict[str, pd.DataFrame], targets: list[tuple[int, int]]) -> None:
-    full = build_features(raw)
+def check_no_future_data(raw: dict[str, pd.DataFrame], targets: list[tuple[int, int]],
+                         build=build_features, features: list[str] = FEATURES) -> None:
+    full = build(raw)
     for season, rnd in targets:
-        truncated = build_features(_up_to(raw, season, rnd))
-        _assert_same_features(full, truncated, season, rnd)
+        truncated = build(_up_to(raw, season, rnd))
+        _assert_same_features(full, truncated, season, rnd, features)
 
 
-def check_no_same_race_data(raw: dict[str, pd.DataFrame], targets: list[tuple[int, int]]) -> None:
-    full = build_features(raw)
+def check_no_same_race_data(raw: dict[str, pd.DataFrame], targets: list[tuple[int, int]],
+                            build=build_features, features: list[str] = FEATURES) -> None:
+    full = build(raw)
     for season, rnd in targets:
-        shuffled = build_features(_shuffle_result(raw, season, rnd))
-        _assert_same_features(full, shuffled, season, rnd)
+        shuffled = build(_shuffle_result(raw, season, rnd))
+        _assert_same_features(full, shuffled, season, rnd, features)
         # The shuffle must be real: the target changes, and so do later races.
         assert not _race(full, season, rnd)["finish_pos"].equals(
             _race(shuffled, season, rnd)["finish_pos"])
@@ -99,7 +102,7 @@ def check_no_same_race_data(raw: dict[str, pd.DataFrame], targets: list[tuple[in
                           | ((full["season"] == season) & (full["round"] > rnd))]
         if len(later_full):
             later_shuffled = shuffled.loc[later_full.index]
-            assert not later_full[FEATURES].equals(later_shuffled[FEATURES]), \
+            assert not later_full[features].equals(later_shuffled[features]), \
                 "history features ignore past results, so this test proves nothing"
 
 

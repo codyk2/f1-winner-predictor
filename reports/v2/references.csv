@@ -1,0 +1,3 @@
+candidate,hits,races,top3,log_loss,race_nll,hits_2022,hits_2023,hits_2024,hits_2025
+Pole sitter,51,92,80,,,10,14,11,16
+Grid-only logistic regression,50,92,81,0.11783882393993932,1.5506738017092991,9,14,11,16
