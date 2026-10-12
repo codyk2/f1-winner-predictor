@@ -1,0 +1,72 @@
+{
+  "version": "2.0",
+  "frozen_at": "2026-10-12T17:44:31+00:00",
+  "frozen_from_commit": "3a5e397",
+  "developed_on": "walk-forward folds 2022-2025; 2025 was v1.0's test season and is a development fold here",
+  "features": [
+    "grid_pos",
+    "quali_pos",
+    "quali_gap_pct",
+    "teammate_quali_delta",
+    "shortrun_gap_pct",
+    "sprint_pos",
+    "drv_avg_finish_5",
+    "drv_wins_5",
+    "drv_podiums_5",
+    "team_points_5",
+    "champ_rank",
+    "dnf_rate_10",
+    "quali_seg_gap_pct",
+    "quali_margin_pct",
+    "longrun_gap_v2"
+  ],
+  "train_from": 2019,
+  "model": {
+    "kind": "binary",
+    "params": {
+      "n_estimators": 400,
+      "max_depth": 2,
+      "learning_rate": 0.03,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "reg_lambda": 1.0,
+      "eval_metric": "logloss"
+    },
+    "monotone": true
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "development_score": {
+    "hits": 56.0,
+    "top3": 85.0,
+    "log_loss": 0.08866097972148863,
+    "race_nll": 1.0785807371139526,
+    "brier": 0.026700536941734444,
+    "hits_22_24": 42.0,
+    "log_loss_22_24": 0.0905394195555221,
+    "hits_2022": 10.0,
+    "log_loss_2022": 0.10146987465056802,
+    "hits_2023": 19.0,
+    "log_loss_2023": 0.04010613000090499,
+    "hits_2024": 13.0,
+    "log_loss_2024": 0.12682594807788394,
+    "hits_2025": 14.0,
+    "log_loss_2025": 0.0833315439501912
+  }
+}
