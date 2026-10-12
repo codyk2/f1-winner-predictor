@@ -1,0 +1,4 @@
+Model,Picked the winner,Winner in top 3,Podium finishers in top 3,Whole podium right,Rank correlation with finish
+XGBoost classifier (frozen setup),39 of 68,88.2%,64.7%,19.1%,0.592
+XGBRanker (pairwise),37 of 68,89.7%,62.7%,19.1%,0.668
+Starting grid,35 of 68,83.8%,64.7%,16.2%,0.616

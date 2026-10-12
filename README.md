@@ -328,6 +328,27 @@ model's own, and they come in two kinds:
 In all nine misses the eventual winner was the model's second choice (seven
 times) or third (twice).
 
+### A ranking model, tried after v1.0
+
+One stretch goal from the plan: `XGBRanker` with a pairwise objective and one
+group per race, same features, tree parameters and seeds as the frozen
+classifier, on the same validation folds (`python -m f1pred.ranker`). It never
+touched 2025 and it is not what `predict.py` uses.
+
+<!-- ranker:start -->
+| Model | Picked the winner | Winner in top 3 | Podium finishers in top 3 | Whole podium right | Rank correlation with finish |
+| --- | --- | --- | --- | --- | --- |
+| XGBoost classifier (frozen setup) | 39 of 68 | 88.2% | 64.7% | 19.1% | 0.592 |
+| XGBRanker (pairwise) | 37 of 68 | 89.7% | 62.7% | 19.1% | 0.668 |
+| Starting grid | 35 of 68 | 83.8% | 64.7% | 16.2% | 0.616 |
+<!-- ranker:end -->
+
+The ranker orders the whole field better (rank correlation with the finishing
+order 0.67 against 0.59 for the classifier and 0.62 for the starting grid) but
+is no better where it counts here: two fewer winners and no gain on podiums.
+A model trained on "won or not" is the better tool for picking winners; a
+ranker would be the one to develop for points or midfield predictions.
+
 ## 2026 so far: a second look, after the fact
 
 `v1.0` was frozen with the 2026 season already under way, so 2026 gives a
@@ -420,8 +441,8 @@ Next, in order of value:
    how much grid position is worth at this track.
 3. **Weekend-specific car pace**: a team's qualifying gap this weekend against
    its own recent average, to catch a car that suits the circuit.
-4. **A ranking model** (`XGBRanker`, one group per race) to predict podiums and
-   compare with the classifier on the same folds.
+4. **Championship odds**: sample race winners from the predicted probabilities
+   many times to estimate title chances, alongside the live 2026 predictions.
 
 ## Repository layout
 
@@ -434,6 +455,7 @@ src/f1pred/
   evaluate.py    metrics tables, figures, the locked 2025 run
   predict.py     score an upcoming race; re-score a season walk-forward
   race_facts.py  what happened in the races the model missed
+  ranker.py      learning-to-rank comparison on the validation folds
   metrics.py, plots.py, eda.py, config.py
 notebooks/       01_eda.ipynb, 02_results.ipynb (display only; the scripts do the work)
 tests/           test_leakage.py, test_pipeline.py, synthetic.py
