@@ -1,16 +1,34 @@
 # F1 race winner predictor
 
-<!-- summary:start -->
-_Summary is written after the locked 2025 run._
-<!-- summary:end -->
+A pre-race win-probability model for Formula 1. Before each Grand Prix it gives
+every driver a chance of winning, using only what is known at lights out:
+practice, qualifying, the sprint, the starting grid and earlier races. It was
+trained on 2019–2024 and judged once on the 24 races of 2025 against the
+simplest rival: "the pole sitter wins."
 
-**2025 season, 24 races, model frozen before any 2025 result was read**
+**It did not beat that rule on picks.** The model picked the winner in 15 of 24
+races; the pole sitter won 16. One race is 4 percentage points and the 95%
+interval on the difference runs from −21 to +13 points, so the two cannot be
+told apart on one season, and 2025 was a pole-dominated one (67% from pole,
+against 50% over 2019–2024). What the model adds is in the probabilities and the
+depth of the ranking: the winner was in its top three in all 24 races, it called
+2 of the 8 races the pole sitter lost, and its log loss was 9% lower than a
+grid-only logistic regression (inside the noise on 24 races; 23% lower and
+clear of it on the 68 validation races).
+
+**2025 season, 24 races. The model was frozen and tagged `v1.0` before this was run, once.**
 
 <!-- results_2025:start -->
-_Filled in by `make test-2025`._
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 8 races pole lost | Log loss | Brier |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| XGBoost | 15 of 24 (62.5%) | 41.7% to 83.3% | -4.2% (-20.8% to +12.5%) | 24 of 24 (100.0%) | 2 of 8 | 0.0895 | 0.0285 |
+| Pole sitter | 16 of 24 (66.7%) | 50.0% to 83.3% | baseline | 23 of 24 (95.8%) | 0 of 8 | n/a | n/a |
+| Form leader | 7 of 24 (29.2%) | 12.5% to 45.8% | -37.5% (-62.5% to -8.3%) | 17 of 24 (70.8%) | 3 of 8 | n/a | n/a |
+| Grid-only logistic regression | 16 of 24 (66.7%) | 50.0% to 83.3% | same result in every race | 23 of 24 (95.8%) | 0 of 8 | 0.0985 | 0.0299 |
 <!-- results_2025:end -->
 
 <!-- results_2025_notes:start -->
+Log loss against the grid-only logistic regression: -0.0090 (-9.2%; 95% CI -0.0221 to +0.0053). Expected calibration error on 2025: 0.022. Intervals are 95% percentile bootstraps over the 24 races (10,000 resamples); one race is about 4%.
 <!-- results_2025_notes:end -->
 
 ![The model's pick for each 2025 race](reports/figures/race_strip_2025.png)
@@ -24,9 +42,10 @@ make features     # build data/processed/features.parquet
 make test-2025    # the locked 2025 run
 ```
 
-`make data` is the slow step the first time: about 760 sessions, and both data
-sources throttle (see [Data](#data-and-features)). After that every session is
-served from `data/cache` and a rebuild takes a few minutes with no network.
+`make data` is the slow step the first time: about 750 sessions, and both data
+sources throttle (see [Data](#data-and-features)), so expect one to two hours,
+most of it waiting. After that every session is served from `data/cache` and a
+rebuild takes about two minutes.
 `make test-2025` only runs at the `v1.0` tag and only once; in this repository
 it has already been run, so use `make report` to rebuild the tables and figures
 from the saved predictions, or check out `v1.0` in a clean clone to reproduce
@@ -62,7 +81,8 @@ parquet tables per season; nothing after that stage calls the API.
 152 races, 3,038 driver-race rows, target `won = (Position == 1)`.
 
 The feature table has one row per driver per race and 19 features. Every one
-can be computed on Saturday night.
+can be computed on Saturday night. The frozen model uses the first four groups
+(14 features); the [ablation](#ablation-what-each-feature-group-adds) shows why.
 
 | Group | Features | Source |
 | --- | --- | --- |
@@ -129,24 +149,29 @@ improve; every model is the average of five seeds. No `scale_pos_weight`.
 `make test-2025` refuses to run unless `config/` and `src/f1pred/` match the
 `v1.0` tag exactly, and refuses to run twice.
 
-<!-- lock_statement:start -->
-<!-- lock_statement:end -->
+**What was and wasn't touched after seeing 2025.** The features, parameters and
+model code were committed and tagged `v1.0` before the run, and
+`git diff v1.0 -- config src/f1pred/features.py src/f1pred/train.py src/f1pred/baselines.py src/f1pred/metrics.py`
+is empty. After the run I changed reporting only: table wording in
+`evaluate.py`, the miss-analysis helper `race_facts.py`, the results notebook
+and this README. One 2025 number was read before modelling: the pole-sitter
+count (16 of 24), a parameter-free data check.
 
 ## Results
 
 ### Validation, 68 races (2022–2024)
 
 <!-- validation:start -->
-| Model | Winner hit rate | 95% CI | vs pole sitter (95% CI) | Top-3 hit rate | Hits in the 33 races pole lost | Log loss | Brier |
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 33 races pole lost | Log loss | Brier |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 57.4% (39 of 68) | 45.6% to 69.1% | +5.9% (-4.4% to +16.2%) | 88.2% (79.4% to 95.6%) | 9 of 33 | 0.0964 | 0.0290 |
-| Pole sitter | 51.5% (35 of 68) | 39.7% to 63.2% | baseline | 83.8% (75.0% to 92.6%) | 0 of 33 | n/a | n/a |
-| Form leader | 51.5% (35 of 68) | 39.7% to 63.2% | +0.0% (-16.2% to +16.2%) | 70.6% (60.3% to 80.9%) | 16 of 33 | n/a | n/a |
-| Grid-only logistic regression | 50.0% (34 of 68) | 38.2% to 61.8% | -1.5% (-4.4% to +0.0%) | 85.3% (76.5% to 92.6%) | 0 of 33 | 0.1247 | 0.0346 |
+| XGBoost | 39 of 68 (57.4%) | 45.6% to 69.1% | +5.9% (-4.4% to +16.2%) | 60 of 68 (88.2%) | 9 of 33 | 0.0964 | 0.0290 |
+| Pole sitter | 35 of 68 (51.5%) | 39.7% to 63.2% | baseline | 57 of 68 (83.8%) | 0 of 33 | n/a | n/a |
+| Form leader | 35 of 68 (51.5%) | 39.7% to 63.2% | +0.0% (-16.2% to +16.2%) | 48 of 68 (70.6%) | 16 of 33 | n/a | n/a |
+| Grid-only logistic regression | 34 of 68 (50.0%) | 38.2% to 61.8% | -1.5% (-4.4% to +0.0%) | 58 of 68 (85.3%) | 0 of 33 | 0.1247 | 0.0346 |
 <!-- validation:end -->
 
 <!-- validation_notes:start -->
-Frozen setup: 14 features, {'max_depth': 2, 'learning_rate': 0.03, 'n_estimators': 400, 'min_child_weight': 5}, recency weighting off, 5 seeds averaged.
+Frozen setup: 14 features, `max_depth` 2, `learning_rate` 0.03, 400 trees, `min_child_weight` 5, recency weighting off, 5 seeds averaged.
 
 Log loss against the grid-only logistic regression: -0.0283 (-22.7%; 95% CI -0.0464 to -0.0121). Expected calibration error: XGBoost 0.013, logistic regression 0.020.
 <!-- validation_notes:end -->
@@ -212,18 +237,111 @@ Recency weighting (`0.7 ** seasons back`):
 ### 2025, race by race
 
 <!-- per_race_2025:start -->
+| Rd | Race | Winner (grid) | Model pick (grid) | P(pick) | Pole sitter | Pick right? | P(winner) | Winner's rank | Pick driven by | Miss cause |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Australian | NOR (P1) | NOR (P1) | 54% | NOR | yes | 54% | 1 | starting position, qualifying position |  |
+| 2 | Chinese | PIA (P1) | PIA (P1) | 36% | PIA | yes | 36% | 1 | starting position, qualifying position |  |
+| 3 | Japanese | VER (P1) | VER (P1) | 38% | VER | yes | 38% | 1 | starting position, qualifying position |  |
+| 4 | Bahrain | PIA (P1) | PIA (P1) | 42% | PIA | yes | 42% | 1 | starting position, qualifying position |  |
+| 5 | Saudi Arabian | PIA (P2) | PIA (P2) | 42% | VER | yes | 42% | 1 | starting position, qualifying gap to pole |  |
+| 6 | Miami | PIA (P4) | NOR (P2) | 34% | VER | **no** | 32% | 2 | starting position, recent finishes | Race incident |
+| 7 | Emilia Romagna | VER (P2) | PIA (P1) | 71% | PIA | **no** | 9% | 3 | recent wins, starting position | Pace misread |
+| 8 | Monaco | NOR (P1) | PIA (P3) | 39% | NOR | **no** | 39% | 2 | recent wins, recent finishes | Pace misread |
+| 9 | Spanish | PIA (P1) | PIA (P1) | 72% | PIA | yes | 72% | 1 | recent wins, starting position |  |
+| 10 | Canadian | RUS (P1) | PIA (P3) | 59% | RUS | **no** | 24% | 2 | recent wins, qualifying gap to pole | Pace misread |
+| 11 | Austrian | NOR (P1) | NOR (P1) | 47% | NOR | yes | 47% | 1 | starting position, qualifying position |  |
+| 12 | British | NOR (P3) | PIA (P2) | 39% | VER | **no** | 27% | 2 | starting position, recent finishes | Race incident |
+| 13 | Belgian | PIA (P2) | NOR (P1) | 62% | NOR | **no** | 13% | 3 | recent wins, starting position | Pace misread |
+| 14 | Hungarian | NOR (P3) | LEC (P1) | 36% | LEC | **no** | 27% | 2 | starting position, qualifying position | Safety car or strategy |
+| 15 | Dutch | PIA (P1) | PIA (P1) | 47% | PIA | yes | 47% | 1 | starting position, qualifying position |  |
+| 16 | Italian | VER (P1) | NOR (P2) | 44% | VER | **no** | 24% | 2 | recent wins, starting position | Pace misread |
+| 17 | Azerbaijan | VER (P1) | VER (P1) | 56% | VER | yes | 56% | 1 | starting position, qualifying position |  |
+| 18 | Singapore | RUS (P1) | RUS (P1) | 52% | RUS | yes | 52% | 1 | starting position, qualifying position |  |
+| 19 | United States | VER (P1) | VER (P1) | 47% | VER | yes | 47% | 1 | starting position, qualifying position |  |
+| 20 | Mexico City | NOR (P1) | NOR (P1) | 49% | NOR | yes | 49% | 1 | starting position, qualifying position |  |
+| 21 | São Paulo | NOR (P1) | NOR (P1) | 30% | NOR | yes | 30% | 1 | starting position, qualifying position |  |
+| 22 | Las Vegas | VER (P2) | NOR (P1) | 61% | NOR | **no** | 28% | 2 | qualifying position, starting position | Race incident |
+| 23 | Qatar | VER (P3) | VER (P3) | 35% | PIA | yes | 35% | 1 | recent finishes, qualifying gap to pole |  |
+| 24 | Abu Dhabi | VER (P1) | VER (P1) | 60% | VER | yes | 60% | 1 | recent wins, starting position |  |
 <!-- per_race_2025:end -->
 
 <!-- miss_causes:start -->
+| Miss cause | Races |
+| --- | --- |
+| Race incident | 3 |
+| Safety car or strategy | 1 |
+| Reliability | 0 |
+| Pace misread | 5 |
 <!-- miss_causes:end -->
 
-<!-- error_analysis:start -->
-<!-- error_analysis:end -->
+Nine misses, each given one cause from race data (`python -m f1pred.race_facts`
+pulls lap-1 positions, laps led, pit stops, neutralisations and penalties):
+
+<!-- miss_table:start -->
+| Rd | Race | Pick | Winner | Cause | What happened |
+| --- | --- | --- | --- | --- | --- |
+| 6 | Miami | NOR (P2) | PIA (P4) | Race incident | Fell from 2nd to 6th on lap 1 after running wide fighting Verstappen for the lead; recovered to 2nd behind team-mate Piastri. |
+| 7 | Emilia Romagna | PIA (P1) | VER (P2) | Pace misread | Verstappen took the lead at the first chicane and led all 63 laps. The model's 71% for Piastri leaned on his four wins in five races. |
+| 8 | Monaco | PIA (P3) | NOR (P1) | Pace misread | Picked Piastri from 3rd on form over pole sitter Norris (39% each). The top three finished in grid order. |
+| 10 | Canadian | PIA (P3) | RUS (P1) | Pace misread | Picked Piastri from 3rd on form; pole sitter Russell led 43 of 70 laps and won. Piastri finished 4th. |
+| 12 | British | PIA (P2) | NOR (P3) | Race incident | Led 36 of 52 laps, then a 10-second penalty for a safety-car infringement handed the win to Norris. |
+| 13 | Belgian | NOR (P1) | PIA (P2) | Pace misread | Wet safety-car start; Piastri passed Norris on the first green lap and led to the flag. Equal cars: 62% against 13% was too confident. |
+| 14 | Hungarian | LEC (P1) | NOR (P3) | Safety car or strategy | Leclerc led 28 laps on a two-stop and faded to 4th; Norris, 5th after lap 1, won with a single stop on lap 31. |
+| 16 | Italian | NOR (P2) | VER (P1) | Pace misread | Picked Norris from 2nd on form over pole sitter Verstappen, who led 42 of 53 laps and won. |
+| 22 | Las Vegas | NOR (P1) | VER (P2) | Race incident | Ran wide at turn 1 and fell from pole to 3rd on lap 1; Verstappen led all 50 laps. Both McLarens were later disqualified. |
+<!-- miss_table:end -->
+
+Four of the nine turned on things no pre-race model can see: a first-lap off,
+a penalty, a strategy call and a turn-1 mistake. The other five are the
+model's own, and they come in two kinds:
+
+- **Form over pole (Monaco, Canada, Italy).** Recent results are the model's
+  strongest feature, and in 2025 they pulled its pick away from the pole sitter
+  seven times: twice correctly (Saudi Arabia, Qatar), three times wrongly, and
+  twice when neither won (Miami, Britain). Net effect against pole: −1 race.
+- **Too sure of the front-row order (Imola, Spa).** It gave the pole sitter 71%
+  and 62% and the car alongside 9% and 13%; both times the second-placed starter
+  led by the end of the first racing lap.
+
+In all nine misses the eventual winner was the model's second choice (seven
+times) or third (twice).
 
 ## Limitations and next steps
 
-<!-- limitations:start -->
-<!-- limitations:end -->
+- **24 races cannot separate 15 from 16.** Validation pointed the other way
+  (39 of 68 against 35 for pole) and that gap sits inside its interval too. The
+  honest reading is "about as good as pole at picking, better at probabilities."
+- **The probability edge is solid on validation, not on 2025 alone.** Log loss
+  beat the grid-only model by 23% on 68 races (interval excludes zero) and by 9%
+  on 2025 (interval includes zero).
+- **Form cuts both ways.** `drv_avg_finish_5` is the largest contributor and
+  also the reason the model backed an in-form driver over a pole sitter who then
+  won, three times.
+- **No circuit knowledge in the frozen model.** The ablation dropped the circuit
+  and weather groups because they did not lower validation log loss, so the
+  model does not know that Monaco protects pole.
+- **Practice pace adds little as engineered.** Adding it moved log loss from
+  0.1151 to 0.1145. Fuel loads and run plans are unknown, and the long-run
+  benchmark is the single best driver on a compound.
+- **Small data.** 2,559 training rows and 128 winners; the regulation resets of
+  2022 and 2026 make older seasons less relevant, though recency weighting did
+  not help in validation.
+- **The grid for an upcoming race** defaults to qualifying order until penalties
+  are published (`predict.py --grid` takes the official one).
+- **Miss causes are one reader's labels**, backed by the race facts in
+  `reports/test_2025/miss_facts.csv`.
+
+Next, in order of value:
+
+1. **Live 2026 predictions.** Run `predict.py` after qualifying, commit the CSV
+   before lights out, score it after the race. `predict.py` retrains on every
+   race so far, so it learns the 2026 cars as the season goes.
+2. **Pole stickiness as an interaction**, not a stand-alone circuit feature:
+   how much grid position is worth at this track.
+3. **Weekend-specific car pace**: a team's qualifying gap this weekend against
+   its own recent average, to catch a car that suits the circuit.
+4. **A ranking model** (`XGBRanker`, one group per race) to predict podiums and
+   compare with the classifier on the same folds.
 
 ## Repository layout
 
@@ -235,6 +353,7 @@ src/f1pred/
   train.py       walk-forward validation, tuning, freeze
   evaluate.py    metrics tables, figures, the locked 2025 run
   predict.py     score an upcoming race
+  race_facts.py  what happened in the races the model missed
   metrics.py, plots.py, eda.py, config.py
 notebooks/       01_eda.ipynb, 02_results.ipynb (display only; the scripts do the work)
 tests/           test_leakage.py, test_pipeline.py, synthetic.py

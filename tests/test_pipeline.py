@@ -194,3 +194,22 @@ def test_upcoming_race_is_built_from_the_qualifying_entry_list(raw, features):
     grid = _target(cut["race"], 2023, 5)[["Abbreviation"]].assign(GridPosition=0)
     pit_lane, _ = prepare(not_run, 2023, 5, grid=grid)
     assert (_target(build_features(pit_lane), 2023, 5)["grid_pos"] == 21).all()
+
+
+def test_model_code_unchanged_since_the_freeze():
+    """After the 2025 run, the files that define the model must still match v1.0."""
+    import subprocess
+
+    from f1pred.config import REPORTS, ROOT
+
+    def git(*args: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+
+    if not (REPORTS / "test_2025" / "metrics.json").exists():
+        pytest.skip("2025 test not run yet")
+    if git("rev-parse", "-q", "--verify", "refs/tags/v1.0").returncode != 0:
+        pytest.skip("v1.0 tag not available in this checkout")
+    locked = ["config", "src/f1pred/features.py", "src/f1pred/train.py",
+              "src/f1pred/baselines.py", "src/f1pred/metrics.py"]
+    diff = git("diff", "--stat", "v1.0", "--", *locked)
+    assert diff.stdout.strip() == "", f"model files changed after the freeze:\n{diff.stdout}"

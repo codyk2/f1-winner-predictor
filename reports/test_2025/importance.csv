@@ -1,0 +1,15 @@
+feature,mean_abs_shap
+grid_pos,0.56850165
+quali_pos,0.46745077
+quali_gap_pct,0.4072197
+teammate_quali_delta,0.3257109
+longrun_gap_pct,0.19982393
+shortrun_gap_pct,0.1587548
+has_longrun,0.0014786932
+sprint_pos,0.011295638
+drv_avg_finish_5,0.76030767
+drv_wins_5,0.18166073
+drv_podiums_5,0.16184473
+team_points_5,0.21849819
+champ_rank,0.3318307
+dnf_rate_10,0.040641066

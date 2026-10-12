@@ -1,0 +1,10 @@
+round,event,pick,pick_grid,pick_lap1,pick_finish,pick_status,pick_laps_led,pick_pit_laps,pick_penalties,winner,winner_grid,winner_lap1,winner_laps_led,winner_pit_laps,race_laps,neutralisations,rain
+6,Miami Grand Prix,NOR,2.0,6.0,2.0,Finished,0,29,none,PIA,4.0,3.0,44,29,57,"virtual safety car laps 2-3, 28-34",True
+7,Emilia Romagna Grand Prix,PIA,1.0,2.0,3.0,Finished,0,"13, 30",none,VER,2.0,1.0,63,"29, 46",63,safety car laps 45-53; virtual safety car laps 28-31,False
+8,Monaco Grand Prix,PIA,3.0,3.0,3.0,Finished,0,"20, 48",none,NOR,1.0,1.0,42,"19, 50",78,virtual safety car laps 1-4,False
+10,Canadian Grand Prix,PIA,3.0,4.0,4.0,Finished,5,"16, 45, 67, 68, 69",none,RUS,1.0,1.0,43,"13, 42, 67, 68, 69",70,safety car laps 66-70,True
+12,British Grand Prix,PIA,2.0,2.0,2.0,Finished,36,"11, 43",FIA STEWARDS: 10 SECOND TIME PENALTY FOR CAR 81 (PIA) - SAFETY CAR INFRINGEMENT | FIA STEWARDS: PENALTY SERVED - 10 SECOND TIME PENALTY FOR CAR 81 (PIA) - SAFETY CAR INFRINGEMENT,NOR,3.0,3.0,9,"11, 44",52,safety car laps 13-21; virtual safety car laps 1-7,True
+13,Belgian Grand Prix,NOR,1.0,1.0,2.0,Finished,6,13,none,PIA,2.0,2.0,38,12,44,safety car laps 1-4,True
+14,Hungarian Grand Prix,LEC,1.0,1.0,4.0,Finished,28,"19, 40",FIA STEWARDS: 5 SECOND TIME PENALTY FOR CAR 16 (LEC) - DRIVING ERRATICALLY,NOR,3.0,5.0,36,31,70,none,False
+16,Italian Grand Prix,NOR,2.0,2.0,2.0,Finished,11,46,none,VER,1.0,1.0,42,37,53,none,False
+22,Las Vegas Grand Prix,NOR,1.0,3.0,19.0,Disqualified,0,22,none,VER,2.0,1.0,50,25,50,"virtual safety car laps 2-4, 15-16",False

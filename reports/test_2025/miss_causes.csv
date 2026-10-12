@@ -1,0 +1,10 @@
+round,cause,note
+6,Race incident,Fell from 2nd to 6th on lap 1 after running wide fighting Verstappen for the lead; recovered to 2nd behind team-mate Piastri.
+7,Pace misread,Verstappen took the lead at the first chicane and led all 63 laps. The model's 71% for Piastri leaned on his four wins in five races.
+8,Pace misread,Picked Piastri from 3rd on form over pole sitter Norris (39% each). The top three finished in grid order.
+10,Pace misread,Picked Piastri from 3rd on form; pole sitter Russell led 43 of 70 laps and won. Piastri finished 4th.
+12,Race incident,"Led 36 of 52 laps, then a 10-second penalty for a safety-car infringement handed the win to Norris."
+13,Pace misread,Wet safety-car start; Piastri passed Norris on the first green lap and led to the flag. Equal cars: 62% against 13% was too confident.
+14,Safety car or strategy,"Leclerc led 28 laps on a two-stop and faded to 4th; Norris, 5th after lap 1, won with a single stop on lap 31."
+16,Pace misread,"Picked Norris from 2nd on form over pole sitter Verstappen, who led 42 of 53 laps and won."
+22,Race incident,Ran wide at turn 1 and fell from pole to 3rd on lap 1; Verstappen led all 50 laps. Both McLarens were later disqualified.

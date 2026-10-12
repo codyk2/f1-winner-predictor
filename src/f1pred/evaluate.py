@@ -139,15 +139,21 @@ def results_table(preds: dict[str, pd.DataFrame]) -> pd.DataFrame:
         race = per_race(pred)
         _, lo, hi = bootstrap_rate(race["hit"])
         diff, dlo, dhi = paired_bootstrap(race["hit"], pole)
-        _, tlo, thi = bootstrap_rate(race["top3"])
         lost = int(s["pole_lost_races"])
+        if name == POLE:
+            versus = "baseline"
+        elif (race["hit"] == pole.reindex(race.index)).all():
+            versus = "same result in every race"
+        else:
+            versus = f"{diff:+.1%} ({interval(dlo, dhi, signed=True)})"
         rows.append({
             "Model": name,
-            "Winner hit rate": f"{pct(s['winner_hit'])} ({int(race['hit'].sum())} of {s['races']})",
+            "Picked the winner":
+                f"{int(race['hit'].sum())} of {s['races']} ({pct(s['winner_hit'])})",
             "95% CI": interval(lo, hi),
-            "vs pole sitter (95% CI)": "baseline" if name == POLE
-            else f"{diff:+.1%} ({interval(dlo, dhi, signed=True)})",
-            "Top-3 hit rate": f"{pct(s['top3_hit'])} ({interval(tlo, thi)})",
+            "vs pole sitter (95% CI)": versus,
+            "Winner in top 3":
+                f"{int(race['top3'].sum())} of {s['races']} ({pct(s['top3_hit'])})",
             f"Hits in the {lost} races pole lost":
                 f"{int(round(s['hit_when_pole_lost'] * lost))} of {lost}",
             "Log loss": num(s["log_loss"]),
@@ -206,10 +212,11 @@ def cv_report() -> None:
 
     vs_logreg = log_loss_vs_logreg(preds)
     ece = {m: expected_calibration_error(preds[m]) for m in (MODEL_NAME, LOGREG)}
-    params = {k: choice["params"][k] for k in
-              ("max_depth", "learning_rate", "n_estimators", "min_child_weight")}
+    p = choice["params"]
     notes = (
-        f"Frozen setup: {len(choice['features'])} features, {params}, "
+        f"Frozen setup: {len(choice['features'])} features, `max_depth` {p['max_depth']}, "
+        f"`learning_rate` {p['learning_rate']}, {p['n_estimators']} trees, "
+        f"`min_child_weight` {p['min_child_weight']}, "
         f"recency weighting {'on' if choice['recency_decay'] else 'off'}, "
         f"{len(choice['seeds'])} seeds averaged.\n\n"
         f"Log loss against the grid-only logistic regression: {vs_logreg['diff']:+.4f} "
@@ -399,11 +406,18 @@ def report() -> None:
     misses = races[races["hit"] == 0]
     cause_view = (misses["cause"].value_counts().reindex(MISS_CAUSES, fill_value=0)
                   .rename_axis("Miss cause").rename("Races").reset_index())
+    miss_view = pd.DataFrame({
+        "Rd": misses["round"], "Race": misses["label"],
+        "Pick": misses["pick"] + grid_slot(misses["pick_grid"]),
+        "Winner": misses["winner"] + grid_slot(misses["winner_grid"]),
+        "Cause": misses["cause"].fillna(""), "What happened": misses["note"].fillna(""),
+    })
     sections = {
         "results_2025": md_table(results),
         "results_2025_notes": notes,
         "per_race_2025": md_table(view),
         "miss_causes": md_table(cause_view),
+        "miss_table": md_table(miss_view),
     }
     bullets = resume_bullets(metrics)
     (TEST_DIR / "results.md").write_text(

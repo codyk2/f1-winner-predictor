@@ -1,11 +1,11 @@
 ## validation
 
-| Model | Winner hit rate | 95% CI | vs pole sitter (95% CI) | Top-3 hit rate | Hits in the 33 races pole lost | Log loss | Brier |
+| Model | Picked the winner | 95% CI | vs pole sitter (95% CI) | Winner in top 3 | Hits in the 33 races pole lost | Log loss | Brier |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| XGBoost | 57.4% (39 of 68) | 45.6% to 69.1% | +5.9% (-4.4% to +16.2%) | 88.2% (79.4% to 95.6%) | 9 of 33 | 0.0964 | 0.0290 |
-| Pole sitter | 51.5% (35 of 68) | 39.7% to 63.2% | baseline | 83.8% (75.0% to 92.6%) | 0 of 33 | n/a | n/a |
-| Form leader | 51.5% (35 of 68) | 39.7% to 63.2% | +0.0% (-16.2% to +16.2%) | 70.6% (60.3% to 80.9%) | 16 of 33 | n/a | n/a |
-| Grid-only logistic regression | 50.0% (34 of 68) | 38.2% to 61.8% | -1.5% (-4.4% to +0.0%) | 85.3% (76.5% to 92.6%) | 0 of 33 | 0.1247 | 0.0346 |
+| XGBoost | 39 of 68 (57.4%) | 45.6% to 69.1% | +5.9% (-4.4% to +16.2%) | 60 of 68 (88.2%) | 9 of 33 | 0.0964 | 0.0290 |
+| Pole sitter | 35 of 68 (51.5%) | 39.7% to 63.2% | baseline | 57 of 68 (83.8%) | 0 of 33 | n/a | n/a |
+| Form leader | 35 of 68 (51.5%) | 39.7% to 63.2% | +0.0% (-16.2% to +16.2%) | 48 of 68 (70.6%) | 16 of 33 | n/a | n/a |
+| Grid-only logistic regression | 34 of 68 (50.0%) | 38.2% to 61.8% | -1.5% (-4.4% to +0.0%) | 58 of 68 (85.3%) | 0 of 33 | 0.1247 | 0.0346 |
 
 ## validation_folds
 
@@ -48,6 +48,6 @@
 
 ## validation_notes
 
-Frozen setup: 14 features, {'max_depth': 2, 'learning_rate': 0.03, 'n_estimators': 400, 'min_child_weight': 5}, recency weighting off, 5 seeds averaged.
+Frozen setup: 14 features, `max_depth` 2, `learning_rate` 0.03, 400 trees, `min_child_weight` 5, recency weighting off, 5 seeds averaged.
 
 Log loss against the grid-only logistic regression: -0.0283 (-22.7%; 95% CI -0.0464 to -0.0121). Expected calibration error: XGBoost 0.013, logistic regression 0.020.

@@ -1,0 +1,25 @@
+round,event,label,winner,winner_grid,pick,pick_grid,pick_p,pole,hit,pole_hit,winner_p,winner_rank,reasons,cause,note
+1,Australian Grand Prix,Australian,NOR,1.0,NOR,1.0,0.5397603511810303,NOR,1,1,0.5397603511810303,1,"starting position, qualifying position",,
+2,Chinese Grand Prix,Chinese,PIA,1.0,PIA,1.0,0.3578555285930633,PIA,1,1,0.3578555285930633,1,"starting position, qualifying position",,
+3,Japanese Grand Prix,Japanese,VER,1.0,VER,1.0,0.3758756518363952,VER,1,1,0.3758756518363952,1,"starting position, qualifying position",,
+4,Bahrain Grand Prix,Bahrain,PIA,1.0,PIA,1.0,0.4180172085762024,PIA,1,1,0.4180172085762024,1,"starting position, qualifying position",,
+5,Saudi Arabian Grand Prix,Saudi Arabian,PIA,2.0,PIA,2.0,0.4211044311523437,VER,1,0,0.4211044311523437,1,"starting position, qualifying gap to pole",,
+6,Miami Grand Prix,Miami,PIA,4.0,NOR,2.0,0.3379273116588592,VER,0,0,0.3167267143726349,2,"starting position, recent finishes",Race incident,Fell from 2nd to 6th on lap 1 after running wide fighting Verstappen for the lead; recovered to 2nd behind team-mate Piastri.
+7,Emilia Romagna Grand Prix,Emilia Romagna,VER,2.0,PIA,1.0,0.7117972373962402,PIA,0,0,0.0875350683927536,3,"recent wins, starting position",Pace misread,Verstappen took the lead at the first chicane and led all 63 laps. The model's 71% for Piastri leaned on his four wins in five races.
+8,Monaco Grand Prix,Monaco,NOR,1.0,PIA,3.0,0.3885804712772369,NOR,0,1,0.3858115375041961,2,"recent wins, recent finishes",Pace misread,Picked Piastri from 3rd on form over pole sitter Norris (39% each). The top three finished in grid order.
+9,Spanish Grand Prix,Spanish,PIA,1.0,PIA,1.0,0.7231855392456055,PIA,1,1,0.7231855392456055,1,"recent wins, starting position",,
+10,Canadian Grand Prix,Canadian,RUS,1.0,PIA,3.0,0.5940408706665039,RUS,0,1,0.2394334524869918,2,"recent wins, qualifying gap to pole",Pace misread,Picked Piastri from 3rd on form; pole sitter Russell led 43 of 70 laps and won. Piastri finished 4th.
+11,Austrian Grand Prix,Austrian,NOR,1.0,NOR,1.0,0.4706481695175171,NOR,1,1,0.4706481695175171,1,"starting position, qualifying position",,
+12,British Grand Prix,British,NOR,3.0,PIA,2.0,0.3871227502822876,VER,0,0,0.2665131092071533,2,"starting position, recent finishes",Race incident,"Led 36 of 52 laps, then a 10-second penalty for a safety-car infringement handed the win to Norris."
+13,Belgian Grand Prix,Belgian,PIA,2.0,NOR,1.0,0.6213335990905762,NOR,0,0,0.1265560537576675,3,"recent wins, starting position",Pace misread,Wet safety-car start; Piastri passed Norris on the first green lap and led to the flag. Equal cars: 62% against 13% was too confident.
+14,Hungarian Grand Prix,Hungarian,NOR,3.0,LEC,1.0,0.3646394610404968,LEC,0,0,0.2738875150680542,2,"starting position, qualifying position",Safety car or strategy,"Leclerc led 28 laps on a two-stop and faded to 4th; Norris, 5th after lap 1, won with a single stop on lap 31."
+15,Dutch Grand Prix,Dutch,PIA,1.0,PIA,1.0,0.4695741534233093,PIA,1,1,0.4695741534233093,1,"starting position, qualifying position",,
+16,Italian Grand Prix,Italian,VER,1.0,NOR,2.0,0.4428641200065613,VER,0,1,0.235742375254631,2,"recent wins, starting position",Pace misread,"Picked Norris from 2nd on form over pole sitter Verstappen, who led 42 of 53 laps and won."
+17,Azerbaijan Grand Prix,Azerbaijan,VER,1.0,VER,1.0,0.5582754611968994,VER,1,1,0.5582754611968994,1,"starting position, qualifying position",,
+18,Singapore Grand Prix,Singapore,RUS,1.0,RUS,1.0,0.519188642501831,RUS,1,1,0.519188642501831,1,"starting position, qualifying position",,
+19,United States Grand Prix,United States,VER,1.0,VER,1.0,0.4697946310043335,VER,1,1,0.4697946310043335,1,"starting position, qualifying position",,
+20,Mexico City Grand Prix,Mexico City,NOR,1.0,NOR,1.0,0.4851938188076019,NOR,1,1,0.4851938188076019,1,"starting position, qualifying position",,
+21,São Paulo Grand Prix,São Paulo,NOR,1.0,NOR,1.0,0.3002243936061859,NOR,1,1,0.3002243936061859,1,"starting position, qualifying position",,
+22,Las Vegas Grand Prix,Las Vegas,VER,2.0,NOR,1.0,0.6136646866798401,NOR,0,0,0.2823083400726318,2,"qualifying position, starting position",Race incident,Ran wide at turn 1 and fell from pole to 3rd on lap 1; Verstappen led all 50 laps. Both McLarens were later disqualified.
+23,Qatar Grand Prix,Qatar,VER,3.0,VER,3.0,0.3474588692188263,PIA,1,0,0.3474588692188263,1,"recent finishes, qualifying gap to pole",,
+24,Abu Dhabi Grand Prix,Abu Dhabi,VER,1.0,VER,1.0,0.5958285927772522,VER,1,1,0.5958285927772522,1,"recent wins, starting position",,
