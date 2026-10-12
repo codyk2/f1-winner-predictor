@@ -1,5 +1,7 @@
 # F1 race winner predictor
 
+[![tests](https://github.com/codyk2/f1-winner-predictor/actions/workflows/tests.yml/badge.svg)](https://github.com/codyk2/f1-winner-predictor/actions/workflows/tests.yml)
+
 A pre-race win-probability model for Formula 1. Before each Grand Prix it gives
 every driver a chance of winning, using only what is known at lights out:
 practice, qualifying, the sprint, the starting grid and earlier races. It was
