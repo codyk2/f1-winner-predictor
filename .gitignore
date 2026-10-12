@@ -1,0 +1,11 @@
+# data is rebuilt by `make data` / `make features`
+data/
+
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
