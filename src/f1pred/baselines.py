@@ -113,15 +113,16 @@ def main() -> None:
             print(f"2025 pole sitter by {by}: {int(wins.sum())} of {len(wins)} races")
         return
 
+    # Hit rate by season, 2019-2024. The ranking frames are used rather than
+    # pick_hit_rate so a race with no form history (2019 round 1) falls back
+    # to the grid instead of failing.
     df = load_features()
-    rows = []
-    for season in DEV_SEASONS:
-        s = df[df["season"] == season]
-        rows.append({"season": season, "races": s.groupby(RACE).ngroups,
-                     "pole (grid)": pick_hit_rate(s, "grid_pos"),
-                     "pole (quali)": pick_hit_rate(s, "quali_pos"),
-                     "form leader": pick_hit_rate(s, "drv_avg_finish_5")})
-    table = pd.DataFrame(rows).set_index("season")
+    assert set(df["season"]) == set(DEV_SEASONS)
+    picks = {"pole (grid)": pole_sitter(df), "pole (quali)": pole_sitter(df, by="quali_pos"),
+             "form leader": form_leader(df)}
+    table = pd.DataFrame({name: p[p["rank"] == 1].groupby("season")["won"].mean()
+                          for name, p in picks.items()})
+    table.insert(0, "races", df.groupby("season")["round"].nunique())
     print(table.round(3).to_string())
 
 

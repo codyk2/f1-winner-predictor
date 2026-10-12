@@ -1,5 +1,6 @@
 PY ?= .venv/bin/python
-export PYTHONPATH := src
+# Absolute, so notebooks (which run from notebooks/) find the package too.
+export PYTHONPATH := $(CURDIR)/src
 
 .PHONY: help setup data features test eda cv freeze test-2025 report app lint
 

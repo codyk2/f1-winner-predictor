@@ -209,7 +209,15 @@ def test_model_code_unchanged_since_the_freeze():
         pytest.skip("2025 test not run yet")
     if git("rev-parse", "-q", "--verify", "refs/tags/v1.0").returncode != 0:
         pytest.skip("v1.0 tag not available in this checkout")
-    locked = ["config", "src/f1pred/features.py", "src/f1pred/train.py",
-              "src/f1pred/baselines.py", "src/f1pred/metrics.py"]
+    locked = ["config", "src/f1pred/features.py", "src/f1pred/train.py", "src/f1pred/metrics.py"]
     diff = git("diff", "--stat", "v1.0", "--", *locked)
     assert diff.stdout.strip() == "", f"model files changed after the freeze:\n{diff.stdout}"
+
+    # baselines.py: only the command-line printout (main) may differ from the tag.
+    def before_main(text: str) -> str:
+        return text.split("\ndef main()")[0]
+
+    tagged = git("show", "v1.0:src/f1pred/baselines.py").stdout
+    current = (ROOT / "src" / "f1pred" / "baselines.py").read_text()
+    assert before_main(tagged) == before_main(current), \
+        "baseline functions changed after the freeze"

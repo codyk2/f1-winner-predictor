@@ -78,7 +78,16 @@ parquet tables per season; nothing after that stage calls the API.
 | 2024 | 24 | 6 | train, validation fold 3 |
 | 2025 | 24 | 6 | locked test |
 
-152 races, 3,038 driver-race rows, target `won = (Position == 1)`.
+152 races, 3,038 driver-race rows, target `won = (Position == 1)`. Every race
+has exactly one winner and 20 entries, except two with 19. Five practice
+sessions were cancelled for weather and are simply absent.
+
+![Pole conversion by season](reports/figures/pole_conversion_by_season.png)
+
+The pole sitter won 64 of the 128 races in 2019–2024, anywhere from 38% to 64%
+of a season, which is why every result here sits next to the pole-sitter
+baseline on the same races. The six EDA questions and their answers are in
+[`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb).
 
 The feature table has one row per driver per race and 19 features. Every one
 can be computed on Saturday night. The frozen model uses the first four groups
@@ -151,13 +160,20 @@ improve; every model is the average of five seeds. No `scale_pos_weight`.
 
 **What was and wasn't touched after seeing 2025.** The features, parameters and
 model code were committed and tagged `v1.0` before the run, and
-`git diff v1.0 -- config src/f1pred/features.py src/f1pred/train.py src/f1pred/baselines.py src/f1pred/metrics.py`
+`git diff v1.0 -- config src/f1pred/features.py src/f1pred/train.py src/f1pred/metrics.py`
 is empty. After the run I changed reporting only: table wording in
-`evaluate.py`, the miss-analysis helper `race_facts.py`, the results notebook
-and this README. One 2025 number was read before modelling: the pole-sitter
-count (16 of 24), a parameter-free data check.
+`evaluate.py`, the miss-analysis helper `race_facts.py`, the results notebook,
+this README, and the season-by-season printout of `python -m f1pred.baselines`
+(it crashed on a race with no form history; the three baseline functions are
+untouched). A test in `tests/test_pipeline.py` fails if any of that stops being
+true. One 2025 number was read before modelling: the pole-sitter count (16 of
+24), a parameter-free data check.
 
 ## Results
+
+"Pole sitter" means first on the starting grid (`grid_pos`). The fastest
+qualifier, who differs when a grid penalty is applied, wins the same 16 of 24
+in 2025 and 37 of 68 on validation instead of 35.
 
 ### Validation, 68 races (2022–2024)
 

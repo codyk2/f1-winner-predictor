@@ -9,11 +9,16 @@ locked 2025 run. Nothing is refitted here.
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import altair as alt
 import pandas as pd
 import streamlit as st
 
-from f1pred.config import REPORTS
+sys.path.insert(0, str(Path(__file__).parent / "src"))  # works without `pip install -e .`
+
+from f1pred.config import REPORTS  # noqa: E402
 
 BLUE, GREY = "#2a78d6", "#b9b8ae"
 PREDICTIONS = REPORTS / "test_2025" / "predictions.csv"
